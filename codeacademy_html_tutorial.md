@@ -116,8 +116,6 @@ Advantages of coherent structure:
 
 Divitis -- the overuse of the semantically meaningless `<div>` instead of semantically meaninful tags like `<section>` or `<p>`.
 
-
-
 **Document Type Declaration**
 
 When we write an html file, `<!DOCTYPE html.>` must be the first line. It is a declaration to the browser of what type of document to expect, along with what version of HTML is being used in the document. For now, the browser will correctly assume that the `html` in `<!DOCTYPE html>` refers to HTML5, since that is the current standard.
@@ -126,8 +124,6 @@ This is actually the simplified `!doctype` declaration introduced in HTML5. It e
 
 The document type declaration is not a tag or element. It adds no content or structure to the page, it is simply a browser directive.
 
-
-
 **File extension**
 
 HTML code is always saved with an `.html` extension.
@@ -135,8 +131,6 @@ HTML code is always saved with an `.html` extension.
 **The `<html>` tag**
 
 To create HTML structure and content, we must add opening and closing `<html>` tags after declaring the `doctype`. Anything within the `<html> ... </html>` tags will be interpreted as HTML code. Without these tags, it is theoretically possible that the browser will not interpret our HTML code correctly. The `<html>` element is the root element of an HTML document.
-
-
 
 **The Head**
 
@@ -149,8 +143,6 @@ The `<head>` is usually the first element under the `<html>` element.
 **Page Titles**
 
 A tab in a web browser displays the web page's title, given in the `<title>` element, always within the `<head>` element of the page.
-
-
 
 **Linking to other web pages**
 
@@ -180,21 +172,15 @@ In order to link to a target on the same page, we must give the target element a
 
 An `id` is especially helpful for organizing content belonging to a `div`.
 
-
-
 **Whitespace and indentation**
 
 Programmers use two tools visualize the relationship between elements: whitespace and indentation. The browser ignores the whitespace and indentation in a page when rendering it.
 
 The W3C is responsible for maintaining the style standards of HTML. Currently, W3C recommends two spaces of indentation when writing HTML. This standard is followed by the majority of professional web developers.
 
-
-
 **Comments**
 
 Comments begin with `<!--` and end with `-->`.
-
-
 
 ## Tables
 
@@ -212,13 +198,13 @@ The body of the table can be sectioned off with the `<tbody>` element.
 
 The footer of the table, where we might put data such as totals and other cells involving calculations, can be sectioned off using `<tfoot>`.
 
-
-
 ## Forms
 
 The `<form>` element is the foundation of a web form. The `action` attribute determines where the information gathered by the form is sent. The `method` attribute has a value corresponding to the HTTP request method we want to use (e.g. `POST`).
 
 We can nest text elements within the `<form>` element like headings and paragraphs.
+
+**Inputs**
 
 If we want to create an input field in our form, we can use the `<input>` element. `<input>` has a `type` attribute, which determines how it renders on the web page and what kind of data it can accept.
 
@@ -228,6 +214,192 @@ It is important that we include a `name` attribute for the `<input>`; without th
 
 After users type into the `<input>` field, the value of the `value` attribute becomes what is typed into the field. The value of `value` is paired as the value of a parameter with the value of `name` as the key of the parameter and sent as text when the form is submitted. If we set the `value` attribute explicitly, the effect is to have this initial text value of `value` as the text in the input box before the user edits and types their own.
 
+**Labels**
+
 We can provide instruction to the user on what the input element is for using the `<label>` element.
 
 The `<label>` element has opening and closing tags and displays the content between them. To associate a `<label>` and an `<input>`, the `<input>` needs an `id` attribute. We then assign the `for` attribute of the `<label>` to the value of the `<input>`'s `id`. If we click on the `<label>` element in the rendered page, the browser highlights the associated `<input>` element.
+
+**Passwords**
+
+The `type` attribute of the `<input>` element can be set to `password` to replace visible input text with another character like `*`. When the form is sent, however, the user input as it was actually typed will be sent.
+
+**Numbers**
+
+We can set the `<input>` field's `type` element to `number` in order to restrict the input to numbers. The `step` attribute can be used to specify how much the arrows next to the input box increase or decrease the current number by. The default behaviour is still to let users type whatever number they like, even with the arrows next to the box useable as an alternative.
+
+**Ranges**
+
+We can also limit the numbers that can be entered in a numerical input. If we set `type` to `range`, we can create a slider. To set the minimum and maximum values, we use the `min` and `max` attributes of the `<input>`. We can also use the `step` attribute to determine how the slider adjusts the number.
+
+**Checkboxes**
+
+We can use the `"checkbox"` value for the input `type` to create a checkbox. We must set a value for the `value` attribute, since users are not entering text themselves. If we use the same `name` for multiple checkboxes, their data will be submitted grouped together under a single parameter name. The default behavior is that checkboxes are for multiple options where users can select more than one option if they wish.
+
+**Radio Buttons**
+
+Radio buttons are generally for when we want users to select only one option out of a group of options. We create a radio button by setting the `<input>` `type` attribute to `radio`.
+
+**Dropdown list**
+
+We can create a dropdown list or menu of choices using the `<select>` and `<option>` elements. `<select>` is to `<option>` similarly as `<ul>` is to `<li>`. The `<select>` element should have an `id` to match a `<label>`, and a `name` attribute, while the `<option>` elements should have a `value` attribute, which, if that option is selected, will be submitted as the value to the `name` name of the `<select>` element. The default is that only one option can be selected.
+
+**Datalist**
+
+We can use a `<datalist>` in conjunction with a `text` `<input>` to create a user interface to be able to search a large dropdown list of options using the text input as filter. We add a `list` attribute to our `<input>` whose value is the `id` of the `<datalist>` element containing our choices in order to associate the text input to the datalist. The choices are `<option>` children of the `<datalist>`, and are the same as the options in a regular dropdown list, with `value` attributes and descriptive text content.
+
+The default filter query behavior is that user input is treated case-insensitively.
+
+The default behavior is that users can type text into the input and this will narrow the options in the drop down list, but if the user wishes they can type some text that is not contained in the options and submit this custom user text.
+
+Important to note that `<datalist>` is an HTML5 addition that is still only partially supported by the various browsers and might not be recommended by professionals.
+
+**Textarea element**
+
+An `<input>` element with `type="text"` creates a single row input field for users to enter text. If we use the`<textarea>` element instead, users will be given an input box with the number of `rows` and `cols` (columns) given by these attributes. This is useful when users need to submit larger quantities of text.
+
+The default behavior is that the user can change the size of the resulting text box by clicking on the the bottom-right corner and dragging to resize, changing the way the page renders as they do so.
+
+We can add pre-filled text by placing the default text between the opening and closing tags.
+
+**Submit Form**
+
+To create a submit buttion in a `<form>`, we can use an `<input>` element with the `type` set to `submit`. The button will bear text on it, and the browser will provide a default such as "Submit" or "Submit Query". If we wish to provide a different legend, we can set the `value` attribute of the `<input>`.
+
+## Form Validation
+
+Validation is the concept of checking user provided data against the required data.
+
+Server-side validation is when data is sent to the server for validation, as when we enter our details in a login page. The form on the login pagge accepts username and password input, then sends the data to a server that checks the pair matches the data in the data store.
+
+Client-side validation is when we want to check the data stored by the browser. This validation occurs before data is sent to the server. Different browsers implement client-side validation differently, but this is the general idea.
+
+All modern browsers share HTML5's built-in client-side validation. It saves us time from having to send information to the server and wait for the server to send back a response. This can also help protect the server from malicious code from a malicious user. It also allows us to quickly give feedback to users for specific fields rather than having them fill in a form again if the data they input into the form was rejected.
+
+**Requiring an Input**
+
+Sometimes we have fields in our `<form>` that must be filled in before the `<form>` can be submitted. To enforce this, we can add the `required` attribute to an `<input>` element. The `required` attribute does not need a value because it is a Boolean attribute. If you want, you can set a Boolean attribute to its own name, e.g. `required="required"`, but this is unnecessary.
+
+For number `<input>`s (e.g `type="number"`, `type="range"`), we have the `min` and `max` attributes which can be set to minimum and maximum values. If we try to input a number outside these parameters, a warning will appear. These can be used in conjunction with `required`.
+
+**Checking Text Length**
+
+We can also set minimum and maximum lengths for text input elements. For an `<input type="text">` element, we can use the `minlength` and/or `maxlength` attributes to which we assign numbers representing numbers of characters.
+
+If the user enters too few characters and attempts to submit, a warning appears. If they type the maximum number of characters they will simply be prevented from typing any more.
+
+**Matching a Pattern**
+
+For cases where we want user provided text to follow specific guidelines, we use the `pattern` attribute and assign it a regular expression. The regex must be a valid JavaScript regex of the `RegExp` type.
+
+If the user attempts to submit text that doesn't match the regex, they will be given a warning asking them to match the requested format.
+
+## Semantic HTML
+
+In HTML, we use a combination of non-semantic elements and semantic elements. In the context of HTML, 'semantic' elements provide information about the content between the opening and closing tags.
+
+By using Semantic HTML, we select HTML elements based on their meaning, not on how they are presented by the browser. Elements such as `<div>` and `<span>` are not semantic elements since they provide no context as to what is inside of their tags.
+
+For example, instead of using a `<div>` element to contain our page header, we could use a `<header>` element, which is always used to contain and denote a heading section of a web page. By using a `<header>` instead of a `<div>`, we provide context as to what information is inside of the opening and closing tag.
+
+Reasons to use Semantic HTML:
+
+* Accessibility: Semantic HTML makes webpages accessible for mobile devices and for people with disabilities as well. This is because screen readers and browsers are able to interpret the code better.
+
+* SEO: it improves the website SEO, or Search Engine Optimization. Search engines are better able to identify the content of your website and weight the most important content appropriately
+
+* Easy to Understand: Semantic HTML also makes the websit's source code easier to read for developers
+
+**Header and Nav**
+
+A `<header>` is a container usually for either navigational links or introductory content containing `<h1>` to `<h6>` headings.
+
+A `<nav>` is used to define a block of navigation links such as menus and tables of contents. Note that `<nav>` can be used inside of the `<header>` element but can also be used on its own.
+
+**Main and Footer**
+
+Two more structural elements are `<main>` and `<footer>`.
+
+Structural elements like `<header>`, `<nav>`, `<main>` and `<footer>` help describe where an element is located based on conventional web development standards.
+
+The element `<main>` is used to encapsulate the dominant dontent within a webpage. By using `<main>` instead of  `<div>`, screen readers and web browsers are better able to identify that whatever is inside of the tag is the bulk of the content.
+
+The `<footer>` element contains information such as:
+
+* Contact information
+
+* Copyright information
+
+* Terms of use
+
+* Site Map
+
+* Reference to top of page links
+
+The `<footer>` tag is separate from the `<main>` element and typically resides at the bottom of the content.
+
+**Article and Section**
+
+`<section>` defines elements in a document, such as chapters, headings, or any other area of the document with the same theme.
+
+The `<article>` element holds content that makes sense on its own. `<article>` can hold content such as articles, blogs, comments, magazines, etc.
+
+**The Aside Element**
+
+The `<aside>` element is used to mark additional information that can enhance another element but isn't required in order to understand the main content. This element can be used alongside other elements such as `<article>` or `<section>`.
+
+Some common uses of the `<aside>` element are:
+
+* Bibliographies
+
+* Endnotes
+
+* Comments
+
+* Pull quotes
+
+* Editorial sidebars
+
+* Additional information
+
+**Figure and Figcaption**
+
+Similarly to `<aside>`, which is used for additional textual information, we can add a related image or illustration using the `<figure>` and `<figcaption>` elements.
+
+`<figure>` is an element used to encapsulate media such as an image, illustration, diagram, code snippet, etc, which is referenced in the main flow of the document.
+
+We can add a caption to the image by using a `<figcaption>` element. `<figcaption>` is an element used to describe the media in the `<figure>` element. Ususally, `<figcaption>` is nested inside `<figure>`.
+
+**Audio**
+
+We add audio to our page using a the `<audio>` element. We can either use a `src` attribute within the `<audio>` tag, or use one or more `<source>` elements nested inside. `<source>` has a `src` attribute, which references the location of the audio source. Another useful attribute is the `type`, which can be set to values like `audio/mp3`; this acts as a hint to the browser. The `<audio>` tag itself has attributes such as `controls`, a Boolean whose presence adds standard audio controls, and another Boolean `autoplay`, whose presence starts the audio playing as soon as possible.
+
+The reason that `<source>` is often used is that multiple sources of different filetypes can be given within a single `<audio>` element using a series of `<source>` tags. This will support more clients by offering a variety of formats; if a particular browser lacks the ability to decode one, it can pick another. The `type` attribute gives the MIME type explicitly, so the browser need only actually download its prefered option.
+
+Using `<source>` with `<audio>` is considered best practice.
+
+**Video and Embed**
+
+We can use a `<video>` element to add videos to a website in a similar fashion to `<audio>`. Again, we can use the `src` attribute or a `<source>` element to specify the location of the video. `controls` and `autoplay` are supported attributes, along with `loop`. Text given between `<video>` tags will only be displayed if the video fails to load.
+
+Another tag that can be used to incorporate multimedia content into a page is the `<embed>` tag, which can embed any media content including videos, audio, files, and gifs from a local or external source. This means that websites that have an embed button have some form of media content that can be added to other websites. The `<embed>` tag is a self-closing tag, unlike the `<video>` element.
+
+Note that `<embed>` is a deprecated tag and other alternatives should be used in its place.
+
+
+
+# Learn CSS tutorial
+
+Inline style, internal stylesheet, external/linked stylesheet
+
+Ruleset or rule, selector, declaration block, declaration, `property: value;`
+
+Type selector `h1`
+
+Class selector `.class_name`
+
+Universal selector `*`
+
+Attribute selector `[]`
+
+ID selector `#id_name`

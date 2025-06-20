@@ -386,8 +386,6 @@ Another tag that can be used to incorporate multimedia content into a page is th
 
 Note that `<embed>` is a deprecated tag and other alternatives should be used in its place.
 
-
-
 # Learn CSS tutorial
 
 Inline style, internal stylesheet, external/linked stylesheet
@@ -403,3 +401,179 @@ Universal selector `*`
 Attribute selector `[]`
 
 ID selector `#id_name`
+
+Selectors can be chained
+
+Pseudo-class
+
+e.g. `:focus`, `:visited`, `:disabled`, `:active`, `:hover`
+
+Can be attached to any selector
+
+Specificity is the order by which the browser decides which CSS styles will be displayed. A best practice in CSS is to style elements while using the lowest degree of specificity so that if an element needs a new style, it is easy to override.
+
+Specificity from highest to lowest:
+
+* ID
+
+* class
+
+* type
+
+**Descendant Combinator**
+
+CSS supports selecting elements that are nested within other elements, or descendant elements.
+
+e.g.
+
+```html
+<ul class="main-list">
+    <li> ... </li>
+    <li> ... </li>
+</ul
+```
+
+```css
+.main-list li {
+    ...
+}
+```
+
+When writing our CSS, we use the class selector but then put a space followed by the descendent elements we wish to include in the rule
+
+**Multiple Selectors**
+
+Comma-separate a list of selectors to apply a rule to all of them
+
+
+
+## The Box Model
+
+Every element in a web page is interpreted by the browser as 'living' inside a box. For example, when we change the background color of an element, we change the background color of its entire box.
+
+Properties of an element's box, from inside out:
+
+* `width` and `height` of the *content area*
+
+* `padding` -- the amount of space between the content area and the border
+
+* `border` -- the thickness and style of the border surrounding the content area and padding
+
+* `margin` -- the amount of space between the border and the outside edge of the element
+
+
+
+**Height and Width**
+
+You can use pixels `px` to set the `height` and `weight` properties in a ruleset. When the width and height are set in pixels, it will be the same number of pixels on all evices, so an element that fills a laptop screen will overflow a mobile screen.
+
+
+
+**Borders**
+
+A border is a line that surrounds an element's content area and padding, like a frame around a painting.
+
+Borders can be set with a specific width, style, and color. E.g. `border: 3px solid coral;`
+
+The *width* can be set using pixels (`px`) or the following keywords: `thin`, `medium`, `thick`.
+
+The *style* is the design of the border. Web browsers support 10 different styles natively, including `none`, `dotted`, and `solid`.
+
+The *color* can be specified in several formats, including 140 built-in color words.
+
+The default border is `medium none color`, where color is the current color of the element. Any unset property will revert to the default.
+
+**Border Radius**
+
+By default, the border is rectangular like the box itself. We can modify the corners of an element's border with the `border-radius` property. If we set `border-radius: 5px;`, all four corners of the border will be set to a curvature the same as that of a circle with a 5-pixel radius.
+
+We can also set the `border-radius` as a percentage of the width of the box; if we set `border-radius: 50%;`, and the `width` and `height` of the element are equal to each other, the resulting border will be a perfect circle.
+
+
+
+**Padding**
+
+The space between the content of a box and the border is known as *padding*. Padding is like the space between a painting and the frame surrounding it.
+
+You can set the overall `padding` at once with a single value, or set each side individually with `padding-top`, `padding-right`, `padding-bottom`, and `padding-left`
+
+You can also set these specific sides using `padding` with multiple values. When there are four values, each value sets a side in clockwise rotation from the top.
+
+When there are three values for `padding`, the first sets the top, the second sets the left and the right to the same value, and the third sets the bottom.
+
+With two values, the first sets top and bottom to the same value, the second sets left and right to the same value.
+
+
+
+**Margin**
+
+The margin is the space around the outside of the border of the box. It can be set similarly to the padding, with `margin` set to one, 2, 3, or 4 values, as well as `margin-top`, `margin-right`, `margin-bottom`, `margin-left`.
+
+**Auto**
+
+The `margin` property also lets you center content, albeit with a few syntax requirements. We must first set a width, since otherwise the box of an element takes up the entire horizontal of the page and thus cannot be centered. We then set the `margin` property to `0 auto`.
+
+**Margin Collapse**
+
+Padding is space inside an element's border and margin is space outside it. One additional difference is that top and bottom (vertical) margins *collapse*, while veritcal padding does not.
+
+Horizontal margins of two adjacent elements are added together so that the distance between their borders will always be the sum of their neighbouring horizontal margins. 
+
+However, vertical margins do not sum. Instead, the larger of the two neighbouring margins is used for the total vertical distance between their borders. We call this *margin collapse*.
+
+
+
+**Minimum and Maximum Height and Width**
+
+CSS offers two properties that can limit how narrow or how wide an element's box can be size to:
+
+* `min-width` &mdash; this property ensures a minimum width of an element's box
+
+* `max-width` &mdash; this property ensures a maximum width of an element's box
+
+Similarly, there are equivalent properties for the height, `min-height` and `max-height`.
+
+**Overflow**
+
+Sometimes the various dimensions that compose the size of the element's box result in a box that is bigger than the parent's containing area.
+
+To deal with this, we have the `overflow` property. The `overflow` property determines what happens to content that spills, or overflows, outside. The most commonly used values for `overflow` are:
+
+* `hidden` &mdash; when set to this value, any content that overflows will be hidden from view
+
+* `scroll` &mdash; a scrollbar will be added to the element's box so that the rest of the content can be viewed by scrolling
+
+* `visible` &mdash; when set to this value, the overflow content will be displayed outside of the containing element
+
+The overflow property is set on a parent element to instruct the browser on how to render child elements. For example, if a `<div>`'s overflow property is set to `scroll`, all children of this `<div>`  will display overflowing content with a scroll bar. You can set this more granularly with `overflow-x` and `overflow-y`.
+
+
+
+**Resetting Defaults**
+
+All major web browsers have a default stylesheet they use in absence of an external stylesheet. These default stylesheets are called *user agent stylesheets*. In this context, user agent is a technical term for the browser.
+
+User agent stylesheets will often have defaults CSS rules for padding and margin. This can make it difficult to have control over the design of a webpage. Many devs choose to reset these default values so that they can truly work with a clean slate
+
+```css
+* {
+    margin: 0;
+    padding: 0;
+}
+```
+
+This is often the first rule in an external stylesheet. Note that both properties are set to `0`. When these properties are set to `0`, we do not need a unit of measurement.
+
+
+
+**Visibility**
+
+Elements can be hidden from view with the `visibility` property, which can be set to:
+
+* `hidden` &mdash; hides an element
+
+* `visible` &mdash; displays an element
+
+* `collapse` &mdash; collapses an element
+
+When `visibility` is set to `hidden`, the browser will display an empty space where it would have been. If you set the `display` property to `none`, the element is removed entirely, with no space to denote an element.

@@ -1,30 +1,19 @@
-h1 {
+* {
+    box-sizing: border-box;
+    background-color: darkgray;
+}
+
+.outer {
+    border: thick solid blue;
+    height:190px;
     width: 300px;
-    height: 300px;
-    border: none;
-    border-radius: 50%;
+    position: static;
+}
+
+.inner {
+    border: thick solid red;
+    padding: 10px;
+    width: 90%;
+    margin: 10px auto;
     text-align: center;
-    align-content: center;
-    background: linear-gradient(-90deg, aqua, teal);
-    margin: 0 auto;
-}
-
-.capital {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 34pt;
-    border: thin solid;
-}
-
-p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14pt;
-    text-align: left;
-    align-content: center;
-    padding: 10%;
-    min-width:300px;
-    max-width: 350px;
-}
-
-.fold {
-    display: none;
 }

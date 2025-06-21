@@ -445,8 +445,6 @@ When writing our CSS, we use the class selector but then put a space followed by
 
 Comma-separate a list of selectors to apply a rule to all of them
 
-
-
 ## The Box Model
 
 Every element in a web page is interpreted by the browser as 'living' inside a box. For example, when we change the background color of an element, we change the background color of its entire box.
@@ -461,13 +459,9 @@ Properties of an element's box, from inside out:
 
 * `margin` -- the amount of space between the border and the outside edge of the element
 
-
-
 **Height and Width**
 
 You can use pixels `px` to set the `height` and `weight` properties in a ruleset. When the width and height are set in pixels, it will be the same number of pixels on all evices, so an element that fills a laptop screen will overflow a mobile screen.
-
-
 
 **Borders**
 
@@ -489,8 +483,6 @@ By default, the border is rectangular like the box itself. We can modify the cor
 
 We can also set the `border-radius` as a percentage of the width of the box; if we set `border-radius: 50%;`, and the `width` and `height` of the element are equal to each other, the resulting border will be a perfect circle.
 
-
-
 **Padding**
 
 The space between the content of a box and the border is known as *padding*. Padding is like the space between a painting and the frame surrounding it.
@@ -502,8 +494,6 @@ You can also set these specific sides using `padding` with multiple values. When
 When there are three values for `padding`, the first sets the top, the second sets the left and the right to the same value, and the third sets the bottom.
 
 With two values, the first sets top and bottom to the same value, the second sets left and right to the same value.
-
-
 
 **Margin**
 
@@ -520,8 +510,6 @@ Padding is space inside an element's border and margin is space outside it. One 
 Horizontal margins of two adjacent elements are added together so that the distance between their borders will always be the sum of their neighbouring horizontal margins. 
 
 However, vertical margins do not sum. Instead, the larger of the two neighbouring margins is used for the total vertical distance between their borders. We call this *margin collapse*.
-
-
 
 **Minimum and Maximum Height and Width**
 
@@ -547,8 +535,6 @@ To deal with this, we have the `overflow` property. The `overflow` property dete
 
 The overflow property is set on a parent element to instruct the browser on how to render child elements. For example, if a `<div>`'s overflow property is set to `scroll`, all children of this `<div>`  will display overflowing content with a scroll bar. You can set this more granularly with `overflow-x` and `overflow-y`.
 
-
-
 **Resetting Defaults**
 
 All major web browsers have a default stylesheet they use in absence of an external stylesheet. These default stylesheets are called *user agent stylesheets*. In this context, user agent is a technical term for the browser.
@@ -564,8 +550,6 @@ User agent stylesheets will often have defaults CSS rules for padding and margin
 
 This is often the first rule in an external stylesheet. Note that both properties are set to `0`. When these properties are set to `0`, we do not need a unit of measurement.
 
-
-
 **Visibility**
 
 Elements can be hidden from view with the `visibility` property, which can be set to:
@@ -577,3 +561,93 @@ Elements can be hidden from view with the `visibility` property, which can be se
 * `collapse` &mdash; collapses an element
 
 When `visibility` is set to `hidden`, the browser will display an empty space where it would have been. If you set the `display` property to `none`, the element is removed entirely, with no space to denote an element.
+
+
+
+# Changing the Box Model
+
+**Content-Box**
+
+The default `box-sizing` property applied to a web page by browsers is `content-box`. In this model, the `width` and `height` determine the width and height of the element's content box. This means that the thickness of the paddings and borders are added to the size of the content box to give the actual rendered size of the box.
+
+This can make it difficult to layout pages, since we are having to mentally adjust the `width` and `height` to compensate for the thickness of the padding and borders.
+
+**Border-Box**
+
+It is common to change the `box-sizing` for every element:
+
+```css
+* {
+    box-sizing: border-box;
+}
+```
+
+In the `border-box` model, `width` and `height` specify the dimensions of the box at the outside of the border. This means that the actual rendered size of the box is fixed, and the size of the content box is adjusted to compensate for the thickness of the border and padding.
+
+The Box Model properties can be found in DevTools under `Elements`. You can select an element and then select the `Computed` tab and it will show you a picture of the box model being used, below which the properties including `box-sizing` will be listed. In Firefox tools, we choose `Inspector`, select the element, and then `Layout` to see the `Box Model Properties` and a picture of the box model.
+
+
+
+## Display and Positioning
+
+**Flow of HTML**
+
+A browser renders the elements of an HTML document that has no CSS from left to right, top to bottom, in the same order that the elements exist in the document. This is called the **flow** of elements in HTML.
+
+In addition to properties that style HTML elements, CSS provides properties to change how a browser positions elements. These properties specify where an element is located on a page, if the element can share lines with other elements, and other related attributes.
+
+The properties for adjusting the positiion of elements in the browser include:
+
+* `position`
+
+* `display`
+
+* `z-index`
+
+* `float`
+
+* `clear`
+
+**Position**
+
+Block-level elements (e.g. `<div>`, `<h1>`, `<p>`) create a block the full width of their parent elements, and they prevent other elements from appearing in the same horizontal space.
+
+Block level elements take up their own 'line' of space and don't overlap. The default position is the left hand side of the view.
+
+This position can be changed, however, by setting its `position` property, which can take on one of five values:
+
+* `static` &mdash; the default value
+
+* `relative`
+
+* `fixed`
+
+* `sticky`
+
+**Position: Relative**
+
+The `relative` value for `position` allows us to position an element relative to its default `static` position on the page. We then use properties `top`, `bottom`, `right`, and `left`, along with values expressing the distance, to displace the element relative to the default. So `top: 10px` moves the element downward 10 pixels from the top. Values can be expressed in pixels, ems, and percentages, among other units.
+
+Offsetting the `relative` element will not affect the positions of other elements.
+
+**Position: Absolute**
+
+When an element's `position` is set to `absolute`, all other elements on the page will ignore the element and act like it is not present on the page.  The element will be positioned relative to its closest ancestor element that has *its* position property set to anything other than `static`, or failing that to the initial containing block (either `<body>` or the viewport). We use the same `top`, `bottom`, `left`, `right` properties to offset its absolute position. The element is essentially taken out of the regular HTML flow entirely.
+
+**Position: Fixed**
+
+We can fix an element to a specific postion on the page even when the user scrolls by setting its `postion` to `fixed`. We can position the element using the familiar offset properties. The element is removed from normal document flow, and its position is offset relative to the initial containing block, the viewport in the case of visual media.
+
+This technique is often used for navigation bars on web pages.
+
+**Position: Sticky**
+
+The `sticky` value is a `position` value that keeps an element in the document flow as the user scrolls, but sticks it to a specified position as the page scrolls past a certain point. This is done by using `position: sticky` in conjunction with the familiar offset properties plus a new one.
+
+**Z-Index**
+
+When boxes on a web page have a combination of different postions, the boxes and their content can overlap, making the content difficult to read or consume.
+
+The `z-index` property controls how far back or how far forward an element should appear on the web page when elements overlap. This can be thought of as the depth of elements, with deeper elements appearing behind shallower elements.
+
+The `z-index` property accepts integer values. The default value is `0`. The value has meaning relative to the values of overlapping elements; an element with a higher value will be placed further forward than an overlapping element with a lower value.

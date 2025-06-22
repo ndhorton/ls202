@@ -562,8 +562,6 @@ Elements can be hidden from view with the `visibility` property, which can be se
 
 When `visibility` is set to `hidden`, the browser will display an empty space where it would have been. If you set the `display` property to `none`, the element is removed entirely, with no space to denote an element.
 
-
-
 # Changing the Box Model
 
 **Content-Box**
@@ -585,8 +583,6 @@ It is common to change the `box-sizing` for every element:
 In the `border-box` model, `width` and `height` specify the dimensions of the box at the outside of the border. This means that the actual rendered size of the box is fixed, and the size of the content box is adjusted to compensate for the thickness of the border and padding.
 
 The Box Model properties can be found in DevTools under `Elements`. You can select an element and then select the `Computed` tab and it will show you a picture of the box model being used, below which the properties including `box-sizing` will be listed. In Firefox tools, we choose `Inspector`, select the element, and then `Layout` to see the `Box Model Properties` and a picture of the box model.
-
-
 
 ## Display and Positioning
 
@@ -644,6 +640,8 @@ This technique is often used for navigation bars on web pages.
 
 The `sticky` value is a `position` value that keeps an element in the document flow as the user scrolls, but sticks it to a specified position as the page scrolls past a certain point. This is done by using `position: sticky` in conjunction with the familiar offset properties plus a new one.
 
+
+
 **Z-Index**
 
 When boxes on a web page have a combination of different postions, the boxes and their content can overlap, making the content difficult to read or consume.
@@ -651,3 +649,233 @@ When boxes on a web page have a combination of different postions, the boxes and
 The `z-index` property controls how far back or how far forward an element should appear on the web page when elements overlap. This can be thought of as the depth of elements, with deeper elements appearing behind shallower elements.
 
 The `z-index` property accepts integer values. The default value is `0`. The value has meaning relative to the values of overlapping elements; an element with a higher value will be placed further forward than an overlapping element with a lower value.
+
+
+
+**Inline Display**
+
+Every HTML element has a default `display` value that determines if it can share horizontal space with other elements. Some elements fill the entire browser from left to right regardless of the size of their content.
+
+Some elements fill the entire browser from left to right regardless of the size of their content. Other elements only take up as much horizontal space as their content requires and can be directly next to other elements.
+
+Three of the possible values for `display` are
+
+* `inline`
+
+* `block`
+
+* `inline-block`
+
+The default display for some elements, such as `<em>`, `<strong>`, and `<a>`, is called **inline**. Inline elements have a box that wraps tightly around their content, inly taking up the amount of space necessary to display their content and not requiring a new line after each element. `inline` elements cannot be altered in size with the `height` or `width` CSS properties.
+
+The CSS `display` property provides the ability to make any element an inline element. This includes elements that are not inline by default such as paragraphs, divs, and headings.
+
+
+
+**Block Display**
+
+Some elements are not displayed in the same line as the content around them. These are called **block-level** elements. These elements fill the entire width of the page by default, but their `width` property can also be set. Unless otherwise specified, they are the height necessary to accomodate their content.
+
+Elements that are block-level by default include all levels of heading elements (`<h1>` through `<h6>`), `<p>`, `<div>` and `<footer>`.
+
+
+
+**Inline-Block Display**
+
+Another value for the `display` property is `inline-block`. Inline-block display combines features of both inline and block elements. Inline-block elements can appear next to each other and we can specify their dimensions using the `width` and `height` properties. Images are an example of default inline-block elements.
+
+
+
+**Float**
+
+If you simply want to move an element as far left or as far right as possible in its container, you can use the `float` property.
+
+The `float` property is comonly used for wrapping text around an image. Note, however, that moving elements left or right for layout purposes is better achieved through tools like CSS grid and flexbox.
+
+The `float` property is often set using the values `left` or `right`, which move the element as far in the named direction as possible.
+
+This works for `static` and `relative` positioned elements. Floated elements must have a `width` specified; otherwise, the element will assume the full width of its containing elmenet, and changing the float value will not yield any visible results.
+
+
+
+**Clear**
+
+The `float` property can be used to float multiple elements at once, and when these elements have different heights it can affect their layout on the page. Elements can 'bump into' each other and not allow other elements to properly move to the left or right.
+
+The `clear` property specifies how elements should behave when they bump into each other on the page. It can take on one of the following values:
+
+* `left` &mdash; the left side of the element will not touch any other element within the same containing element
+
+* `right` &mdash; the right side of the element will not touch any other element within the same containing element
+
+* `both` &mdash; nether side of the element will touch any other element within the same containing element
+
+* `none` &mdash; the element can touch either side
+
+
+
+Note that even if an element has not itself been `float`ed, you may still need the `clear` property if it gets positioned next to a floated element (an `inline-block` element, say).
+
+
+
+## Colors
+
+Colors in CSS can be described in three different ways:
+
+* Named colors (or keyword colors)
+
+* RGB &mdash; numeric values describing a mix of red, green, and blue
+
+* HSL &mdash; numeric values that describe a mix of hue, saturation, and lightness
+
+
+
+* `color` &mdash; foreground color
+
+* `background-color`
+
+
+
+**Hexadecimal**
+
+A hex color begins with a `#` character followed by three or six characters. The characters represent values for red, blue, and green.
+
+Six character hex colors are three pairs of characters with each pair representing red, green, or blue concentration.
+
+Certain colors can be represented by three characters when every pair consists of two of the same hex digit. E.g. the aqua color `#00FFFF` can become `#0FF`.
+
+
+
+**Decimal RGB colors**
+
+There is another syntax for representing RGB values, commonly referred to as "RGB value" or just "RGB", that uses decimal numbers rather than hexadecimal, and it looks like this: `color: rgb( 23, 45, 23);`
+
+Each of the three values is a decimal integer from 0 to 255.
+
+You should pick either decimal or hexadecimal and stick to it consistantly throughout a stylesheet.
+
+
+
+**Hue, Saturation, and Lightness**
+
+The RGB color scheme is close to how computers represent colors internally.
+
+The HSL system is equally powerful.
+
+The syntax for HSL is similar to the RGB value scheme: `color: hsl(120, 60%, 70%)`. The first value represents the degree of the hue, and can be between 0 and 360. The second and third numbers are percentages representing saturation and lightness.
+
+Hue refers to an angle on a color wheel. Red is 0 degrees, green is 120 degrees, blue is 240 degrees, and then back to red at 360.
+
+Saturation refgers to the intensity or purity of the color. The color becomes richer toward 100% and grayer toward 0%.
+
+Lightness refers to how light or dark the color is. 50% is normal lightness. 100% is closer to white, and 0% is closer to black.
+
+HSL is convenient for adjusting the lightness or saturation all at once, rather than across three values.
+
+HSL is also convenient for generating a palette of colors by keeping lightness and saturation at the same levels and simply varying hue from color to color.
+
+
+
+**Opacity**
+
+To use opacity in the HSL color scheme, use `hsla()` instead of `hsl()`, and four values instead of three. The `a` stands for Alpha, sometimes called the opacity.
+
+Alpha is a decimal number from 0 to 1. If alpha is 0, the color will be completely transparent. If alpha is 1, the color will be completely opaque.
+
+The RGB color scheme has a similar syntax for opacity, `rgba()`. Again, the last value is the alpha.
+
+Hex colors can also have an alpha, by adding two more digits to a six-digit value or one more digit to a three-digit value. The hex alpha ranges from `00` (transparent) to `FF` (opaque).
+
+The only keyword value for `color` opacity is `transparent`, which is equivalent to `rgb(0, 0, 0, 0)`.
+
+
+
+### Typography
+
+When a `font-family` typeface has multiple words, it is good practice to surround the name with quotes to group the words.
+
+You can have a comma-separated list of values for `font-family`. The first value on the left will be the preferred font and if that is not available, the next font in the list will be tried, and so on. This allows us to have fallback fonts, including the Web Safe Fonts which all browsers should have. When you specify a list of fonts, you have what is known as a *font stack*. `serif` and `sans-serif` are keyword values that can be added as a final fallback font if nothing else in the font stack is available.
+
+**Font-Weight**
+
+The `font-weight` property can take on keyword values: `bold`, `normal` (default), `lighter` (one weight lighter than the element's parent value), `bolder` (one weight bolder than the element's parent value).
+
+Numerical values for `font-weight` rangge from 1 (lightest) to 1000 (boldest), but it is common practice to use increments of 100. A value of 400 is equal to the keyword `normal` and a value of 700 is equal to `bold`.
+
+Not all fonts can take a numeric `font-weight` value. It is important to look up what values can be used with a given font.
+
+**Font Style**
+
+The `font-style` property can italicize text with the value `italic`. The default value is `normal`.
+
+**Text Transformation**
+
+Text can be styled to appear in all `uppercase` or `lowercase` with the `text-transform` property.
+
+
+
+**Text Layout**
+
+The `letter-spacing` property sets the horizontal spacing between the characters in an element's text. This is not commonly used, but can help make certain fonts more legible. The value can be in units such as `px` or `em`.
+
+You can set the space between words using the `word-spacing` property, which takes `px` and `em` values. `em` values are recommended because the spacing can be set based on the size of the font.
+
+The `line-height` property controls how tall the lines of the text are. Line height values can be a unitless number or a length value in `px`, `em`, or `%`. Generally, the unitless value is preferred since it is responsive based on the current font size. If the font size changes, the height will change by the proportion given by the unitless number.
+
+The `text-align` property aligns text to its parent element.
+
+
+
+**Web Fonts**
+
+Free font services such as Google Fonts and Adobe Fonts host fonts that you can link to from your HTML document with a provided `<link>` element.
+
+You can also use fonts from paid font distributors like `fonts.com` by downloading and hosting them with the rest of your site's files. You can create a `@font-face` at-rule in your CSS stylesheet to link to the relative path of the font file.
+
+
+
+**Web Fonts Using `<link>`**
+
+Generate a `<link>` embedding from Google fonts and paste into your HTML file. Then you can use the font in your CSS like any other.
+
+
+
+**Web Fonts Using `@font-face`**
+
+We can download fonts and load them into our CSS file using a `@font-face` ruleset.
+
+Fonts can be downloaded in a format such as:
+
+* OTF (OpenType Font)
+
+* TTF (TrueType Font)
+
+* WOFF (Web Open Font Format)
+
+* WOFF2 (Web Open Font Format 2)
+
+The different formats are a progression of standards for how fonts will work with different browsers, with WOFF2 being the most progressive. It's a good idea to include TTF, WOFF, and WOFF2 formats with your `@font-face` rule to ensure compatibility on all browsers.
+
+Google Fonts may only provide a TTF font, in which case you can use other tools to convert TTF to the other formats.
+
+Then you can load the downloaded font with the `@font-face` at-rule like:
+
+```css
+@font-face {
+  font-family: 'MyParagraphFont';
+  src: url('fonts/Roboto.woff2') format('woff2'),
+       url('fonts/Roboto.woff') format('woff'),
+       url('fonts/Roboto.ttf') format('truetype');
+}
+
+```
+
+The `@font-face` at-rule is used as the selector. It's recommended to define this ruleset at the top of your CSS stylesheet.
+
+Inside the declaration block, the `font-family` property is used to set a custom name for the downloaded font. The name can be anything you choose, but it must be surrounded by quotation marks. In the example, the font is named `'MyParagraphFont'`.
+
+The `src` property contains three values, each specifying the relative path to the font file and its format. In this example, the font files are stored in a folder named `fonts` within the working directory.
+
+Note that the ordering for the different formats is important because our browser will start from the top of the list and search until it finds a font format that it supports. So they should be listed in order of most preferred to least preferred.
+
+We can then set the `font-family` on any element using the `font-family` property with the value of the name you gave the font using `font-family` in the `@font-face` ruleset.

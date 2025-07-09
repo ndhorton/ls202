@@ -1,0 +1,32 @@
+/* a guess before following 1:9 walkthrough*/
+
+body {
+    background-color: #ffffe0;
+}
+
+h1 {
+    color: orange;
+    text-align: center;
+}
+
+p {
+    font-size: 24px;
+}
+
+strong {
+    text-decoration: underline;
+    font-weight: bold;
+    color: blue;
+}
+
+em {
+    color: red;
+}
+
+.main-text {
+    color: gray;
+}
+
+#final-paragraph {
+    text-decoration: underline;
+}

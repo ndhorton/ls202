@@ -82,8 +82,6 @@ Important properties that you will certainly memorize include:
 
 * `font-size`
 
-
-
 # 1:6
 
 HTML provides three ways to identify certain elements: `class`, `id`, and `name`. Any element can use a `class` or `id` attribute, and a variety of elements can use the `name` attribute. Some elements can use all three at once:
@@ -142,8 +140,66 @@ For now, all you must know about the `name` attribute is that it ties form eleme
 
 * Avoid trying to select elements in CSS by using the `name` attribute.
 
+## The Visual Formatting Model
 
+The `display` property has *more than two dozen* possilble values, but most CSS uses just `block`, `inline`, and `inline-block`. We call this property the *visual formatting model*.
 
+**Block Elements**
 
+ Block elements appear on almost all webg pages: headings, paragraphs, sections, tables forms lists, and more are `block` elements.
 
+Most `block` elements group one or more elements &mdash; some of which may themseleves be `block`s &mdash; into areas of the page. For instance, `header` elements group together elements into a page header. We often call such `block` elements **containers**. The master container (the outermost) is the `body`; every other element belongs to a container.
 
+By default, a `block` element occupies all horizontal space avilable within its container, with nothing to the left or righ of the `block`.
+
+Most elements are `block` elements by default. Here are some of the most common:
+
+* `section`, `article`, `aside`, `header`, `footer`
+
+* `p`
+
+* `h1` through `h6`
+
+* `blockquote`
+
+* `ul`, `ol`, `dl`
+
+* `figure` and `figcaption`
+
+* `form` and `fieldset`
+
+You can convert any element to a `block` element with the `display: block` CSS property. It's common to render links (`<a>`) and images as block elements.
+
+**Inline Elements**
+
+Inline elements provide a small bit of semantic meaning to content; browsers use this to alter the way they display small sections of text, which, in turn, helps the reader spot specific items with ease.
+
+The following elements are `inline` by default:
+
+* `span`
+
+* `b`, `i`, `u`, `strong`, `em`
+
+* `a`
+
+* `sub` and `sup`
+
+* `img`
+
+`inline` elements handle the dimension properties (`width`, `height`, `padding`, `border`, and `margin`) differently from the way `block` elements treat them. Browsers handle *left* and *right* margins and padding for `inline` elements in the same way as for block elements, but they process other box model properties differently.
+
+For `inline` elements, browsers:
+
+* *ignore* the `width` and `height` properties (except with the `img` and `input` elements), but instead use values computed from the element content.
+
+* *ignore* top and bottom margins
+
+* *don't ignore* borders, but the results may look odd
+
+* *don't ignore* top and bottom padding, but you won't notice this unless you have a border or background
+
+You can convert any element to an `inline` element with the `display: inline` CSS property. The most common reason to do so is to override a previous declaration.
+
+The left and right margins, borders and padding of inline elements affect the flow, but top and bottom do not.
+
+## Inline-Block Elements

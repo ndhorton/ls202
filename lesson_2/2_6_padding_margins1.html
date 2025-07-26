@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Padding and Margins</title>
+    <link rel="stylesheet" href="2_6_padding_margins1.css">
+  </head>
+  <body>
+    <script>
+      var article = {
+        toggleColor: function() {
+          document.querySelector('article').classList.toggle('toggled');
+        }
+      };
+    </script>
+    <section>
+      <article onclick="article.toggleColor();">
+        Click here
+      </article>
+    </section>
+  </body>
+</html>

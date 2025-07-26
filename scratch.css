@@ -1,15 +1,13 @@
-p {
-  background-color: #d4f0f8;
-  border: 1px solid #2db7e1;
-  box-sizing: border-box;
-  font-size: 1.5rem;
-  padding: 0.5em;
-  width: 780px;
+.container {
+    background-color: pink;
+    height: 384px;
 }
 
-em {
-  background-color: rgba(255, 255, 0, .5);
-  border: 30px solid rgba(255, 0, 64, .5);
-  margin: 40px;
-  padding: 30px;
+.square-box {
+    display: block;
+    box-sizing: border-box;
+    background-color: blue;
+    width: 96px;
+    height: 96px;
+    margin: auto;
 }

@@ -1,0 +1,23 @@
+div {
+    background-color: #c0ffc0;
+    border: 1px solid green;
+    padding: 10px;
+}
+
+p {
+    background-color: white;
+    border: 1px solid blue;
+    display: inline-block;
+    margin: 0 2%;
+    padding: 10px;
+    /* vertical-align: bottom; */
+    width: 40%;
+}
+
+/* p {
+    vertical-align: middle;
+} */
+
+p {
+    vertical-align: top;
+}

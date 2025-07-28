@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- in addition to removing the spaces ourselves, we can
+ also use an html minimizer to strip problematic whitespace 
+ across the whole file -->
+<html lang="en">
+  <head>
+    <title>Remove the spaces</title>
+    <meta charset="utf-8">
+    <style>
+      li {
+        display: inline-block;
+        background-color: cyan;
+        border: 1px solid blue;
+        padding: 5px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Remove the spaces</h1>
+    <section>
+      <h2>Try this</h2>
+      <ul>
+        <li>
+        one</li><li>
+        two</li><li>
+        three</li>
+      </ul>
+    </section>
+    
+    <section>
+      <h2>or this</h2>
+      <ul>
+        <li>one</li
+        ><li>two</li
+        ><li>three</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>or yet again</h2>
+      <ul>
+        <li>one</li><!--
+     --><li>two</li><!--
+     --><li>three</li>
+      </ul>
+    </section>
+  </body>
+</html>

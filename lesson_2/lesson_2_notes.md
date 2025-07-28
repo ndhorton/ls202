@@ -243,9 +243,11 @@ CSS provides a handful of relative units of interest: the **em**, the **rem**, a
 
 ### Ems and Rems ##
 
-Ems and rems are proportional to the **calculated** and **root** font sizes, respectively. 
+Ems and rems are proportional to the **calculated** and **root** font sizes, respectively.
 
 The calculated font size is the height of the current font in pixels. If we are using `em` to set the `font-size` property, the `em` is relative to the font-size of the parent container; if we are using `em` to set any other property, the calculated size is the actual element's `font-size`.
+
+N.B. Remember that a font size given in pixels gives the *height* of the font in pixels.
 
 The root font size is the height of the base font for the document: the font size designated for the `html` element.
 
@@ -317,3 +319,13 @@ Trying to decide which dimensional units you should use is sometimes difficult. 
 	* Use `auto` with left and right margins to left-, center-, or right-justify a block elementg within its container.
 	
 You can ignore or break any of these rules when appropriate. We violate them often in this course.
+
+# 2:9 Summary #
+
+This lesson discussed the fundamental concepts of CSS: the box model, spacing (padding and margins), and dimensional measurements. All these are crucial to a proper understanding of front-end development.
+
+We learned how browsers treat everything on a page as a box. These boxes have properties including `width`, `height`, `padding`, `border`, and `margin` that control the size and spacing of each box. Our discussion explored how the browser flows elements onto the page. We also covered the top three `display` properties that influence this behavior: `block`, `inline`, and `inline-block`. Lastly, we talked about the `box-sizing` property, specifically the `content-box` and `border-box` sizing models. Together, these topics comprise the concept of the HTML box model.
+
+From there we examined the sometimes confusing concepts of padding and margins in more detail and talked about when you should use margins and when you should use padding.
+
+We ended our lesson with a look at the essential dimensional units used in CSS, including both absolute and relative units, and talked briefly about when to use them. 

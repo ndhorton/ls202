@@ -1,13 +1,16 @@
 .container {
-    background-color: pink;
-    height: 384px;
+    display: flex;
 }
 
-.square-box {
-    display: block;
-    box-sizing: border-box;
+div {
+    width: 300px;
+    height: 300px;
+}
+
+.a {
     background-color: blue;
-    width: 96px;
-    height: 96px;
-    margin: auto;
+}
+
+.b {
+    background-color: orange;
 }

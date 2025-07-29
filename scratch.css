@@ -1,16 +1,19 @@
-.container {
-    display: flex;
+html {
+    font-size: 32px;
 }
 
-div {
-    width: 300px;
-    height: 300px;
+body {
+    background-image: url("http://d3jtzah944tvom.cloudfront.net/202/images/lesson_3/gradient-background.png");
 }
 
-.a {
-    background-color: blue;
+section {
+    display: inline-block;
+    width: 500px;
 }
 
-.b {
-    background-color: orange;
+nav {
+    background-image: url("http://d3jtzah944tvom.cloudfront.net/202/images/lesson_3/blurry.png");
+    display: inline-block;
+    height: 200px;
+    width: 250px;
 }

@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Mind the Gap</title>
     <meta charset="utf-8">
-    <title>Hello World</title>
-    <link rel="stylesheet" href="scratch.css">
+    <style>
+      
+      /* n.b. font-size affects the margin
+        slightly, line-height doesn't.
+        It may be line-height is harder
+        to reset in the child elements, idk */
+
+      figure {
+        background-color: yellow;
+        /* line-height: 0; */
+        /* font-size: 0; */
+      }
+
+      body, figure {
+        background-color: blue;
+      }
+
+      img {
+        /* vertical-align: bottom; */
+        /* vertical-align: top; */
+        /* vertical-align: middle; */
+        
+        /* display: block; */
+        /* display: flex; */
+        /* display: grid; */
+
+      }
+
+    </style>
   </head>
   <body>
-    <section>
-      Sint duis dolor consectetur ad nostrud sint. Occaecat reprehenderit officia ex
-      duis velit veniam magna labore.
-    </section>
-
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Work</a></li>
-        <li><a href="#">Play</a></li>
-      </ul>
-    </nav>
+    <figure>
+      <img src="cats.jpg" alt="two fluffy cats">
+    </figure>
   </body>
 </html>

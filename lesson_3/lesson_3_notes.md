@@ -87,3 +87,258 @@ You can also add background images to a page or element by applying the CSS `bac
 Most background images apply to an entire page, so in this situation we can use the `body` selector specify them. However, you can apply backgrounds to any selector, such as a tag, class, or id selector.
 
 There are several other background properties you can provide with a background image, including the size of the image, the positioning, and repeat counts.
+
+# 3:6 Summary #
+
+We discussed the three main types of images found on the Web (jpg, png, and gif).
+
+We learned how to use images as foreground images and background images, and we saw how CSS interacts with them. We also learned a crucial lesson; nearly anything can be a link on a Web page.
+
+Topics for further research:
+* The technical aspects of images: color depth, images size, compression, etc.
+* Background images: positioning and sizing, gradients
+
+Start with MDN. There are also links in the second pinned conversation in the Lesson 2 Forum section.
+
+# Mind The Gap forum post #
+
+The following HTML displays a picture against a yellow background. The background annoyingly extends just below the image. To get rid, uncomment any single line in the CSS code for `figure` or `image`. N.B. adjusting the `font-size` property seems to affect the margin slightly, while adjusting `line-height` doesn't.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mind the Gap</title>
+    <meta charset="utf-8">
+    <style>
+      
+      /* n.b. font-size affects the margin
+        slightly, line-height doesn't.
+        It may be line-height is harder
+        to reset in the child elements, idk */
+
+      figure {
+        background-color: yellow;
+        /* line-height: 0; */
+        /* font-size: 0; */
+      }
+
+      img {
+        /* vertical-align: bottom; */
+        /* vertical-align: top; */
+        /* vertical-align: middle; */
+        
+        /* display: block; */
+        /* display: flex; */
+        /* display: grid; */
+
+      }
+
+    </style>
+  </head>
+  <body>
+    <figure>
+      <img src="cats.jpg" alt="two fluffy cats">
+    </figure>
+  </body>
+</html>
+```
+
+
+
+
+When we have a background color in a container that contains an image, the default behavior causes a sliver of the background color to appear below the picture. This happens because `img` is an `inline` element and inline elements are generally expected to contain text. Fonts are displayed along a **baseline**, somewhat like the lines on lined writing paper. The baseline is not at the lowest point at which text appears. Rather, it allows for a descender space beneath which is contained the descent of a letter like 'p' or 'q'. This is why a gap appears beneath an image --- the bottom of the image lines up with the baseline and the baseline is not quite the bottom of the space allotted for inline elements. In the case of an image, of course, the space is quite useless.
+
+This explains why the solutions involving reducing the `font-size` or `line-height` to `0` work: the descender space is also reduced to zero.
+
+Of course, you have to be careful about text size in the child and descendent elements of the container if you use this solution, since they will inherit the zero value. Children in particular cannot use `em` for `font-size` in this situation since regardless of the value given, the value will be multiplying zero.
+
+The reason the `vertical-align` solutions work is that the `inline` element is designed for text, and, when we have some text after the image within the same container, we can see that the image is equivalent to a single line of text with the following text being aligned along the baseline with the descending characters descending below it. If we vertically align the inline `img` element, the following text is shifted. When the value is `bottom`, the text is realigned upward slightly so that the descending characters descend only as far as the baseline, so there is no need to have the background descend below it. And the other values for `vertical-align` move the text even higher.
+
+The `display` solutions work because, of course, the `img` element ceases to be `inline`.
+
+The exact proportion of the line space given over to the descending space is dependent on the specific font in use for the inline element.
+
+
+# Articles linked in second forum post #
+
+
+## Understanding the Most Popular Image File Types and Formats ##
+
+The five most popular web and computer graphics image formats:
+
+* JPEG
+* GIF
+* BMP
+* TIFF
+* PNG
+
+### JPEG ###
+
+JPEG stands for Joint Photographic Experts Group and is the most popular image format used for the web. It is a lossy compression format. Since 1994, JPEG has taken over from GIF as the most popular format, since it is better for providing decent-looking photographs in a small file size.
+
+Pros:
+* 24-bit color, with up to 16 million colors
+* Rich colors, great for photographs that need fine attention to color detail
+* Most used and most widely accepted image format
+* Compatible in most OS (Mac, Windows, Linux)
+Cons:
+* Tends to discard a lot of data
+* After compression, JPEG tends to leave artifacts
+* Cannot be animated
+* Does not support transparency
+
+### GIF ###
+
+GIF, short for Graphics Interchange Format, is limited to the 8 bit palette with only 256 colors. GIF is still a popular image format on the internet because image size is relatively small compared to other image compression types.
+
+GIF compresses images in two ways: first, by reducing the number of colors in rich color images, thus reducing the number of bits per pixel. Second, GIF replaces multiple occurring patterns (large patterns) into one. So instead of storing five kinds of blue, it stores only one blue.
+
+GIF is most suitable for graphics, diagrams, cartoos and logos with relatively few colors. GIF is still the chosen format for animation effects.
+
+Compared to JPEG, it is lossless for images with 256 colors and below, but may leave color-dithering artifacts in rich color images and is poor when representing detailed pictures. For a full-color image it may lose up to 99.998% of its colors.
+
+One edge of the GIF image format is the interlacing feature, giving the illusion of fast loading graphics. When it loads in a browser, the GIF first appears to be blurry and fuzzy, but as soon as more data is downloaded, the image becomes more defined until all the data has been downloaded.
+
+Pros:
+* Can support transparency
+* Can do small animation effects
+* 'Lossless' quality for images of 256 colors or fewer
+* Great for images with limited colors, or with flat regions of color
+
+Cons:
+* Only supports 256 colors
+* Oldest format in the web and has never been updated
+* Sometimes, the file size is larger than PNG
+
+### BMP ###
+
+The Windows Bitmap or BMP files are image files within the Microsoft Windows operating system. In fact, it was at one point one of the few image formats.
+
+These files are large and uncompressed, but the images are rich in color, high in quality, simple and compatible in all Windows OS and programs. BMP files are also called raster or paint images.
+
+BMP files are made of millions and millions of dots called 'pixels', with different colors and arrangements to come up with an image or pattern.
+
+A BMP may be 8-bit, 16-bit, or 24-bit. Thus when you make a BMP image larger, you are making the individual pixels larger, and thus making the shapes look fuzzy and jagged.
+
+BMP files are not great for the web and not very popular. Being very large, bitmap files are not web friendly, and they are not compatible with all platforms. They do not scale well.
+
+Pros of BMP:  
+* Works well with most Windows programs and OS, you can use it as a Windows wallpaper
+
+Cons:
+* Does not scale or compress well
+* Again, very huge image files making it not web friendly
+* No real advantage over other image formats
+
+### TIFF ###
+
+TIFF was created by Aldus for 'desktop publishing', and by 2009 it was transferred to the control of Adobe Systems. TIFF is popular among common users, but has gained recognition in the graphic design, publishing and photography industry. It is also popular among Apple users.
+
+TIFF images are not compatible for all systems. However, TIFF offers crisp quality and rich colors for photographs.
+
+The TIFF (Tage Image File Format) image format is easy to use with software that deals with page layout, publishing and photo manipulation via fax, scanning, word processing, etc. TIFF is very flexible, it can be lossy or lossless. TIFF is a rich format and supported by many imaging programs.
+
+It is capable of recording halftone image data with different pixel intensities, thus is the perfect format for graphic storage, processing and printing. This makes TIFF the superior raster image format.
+
+Pros of TIFF:
+* Very flexible format, it supports several types of compression like JPEG, LZW, ZIP, or no compression at all.
+* High quality image format, all color and data information are stored
+* TIFF format can now be saved with layers
+
+Cons:
+* Very large file size, long transfer time, huge disk space consumption, and slow loading time.
+
+### PNG ###
+
+PNG (or Portable Network Graphics) is a recently introduced format, so not everyone is familiar with it. But PNG has been approved as a standard since 1996. It is an image format specifically designed for the web. PNG is, in all aspects, the superior version of the GIF.
+
+Like the GIF format, the PNG *can* be saved with 256 colors maximum (PNG-8 mode), but it saves the color information more efficiently. It also supports an 8-bit transparency.
+
+PNG was actually created with the intent to replace the GIF as an image format that doesn't require a patent license. PNG can support 24 bit RGB color images, grayscale images, both with and without alpha channels.
+
+Pros:
+* Lossless, so it does not lose quality and detail after image compression
+* In a lot of ways better than GIF --- often has smaller files sizes
+* Supports transparency better than GIF
+
+Cons:  
+* Not good for large images because they tend to generate a very large file, sometimes creating larger files than JPEG
+* Unlike GIF, cannot be animated
+* Not all web browsers can support PNG
+
+### Which is best for what? ###
+
+* Print Graphics: TIFF is the best and only choice for professionals when images are intended for print. Its ability to read CMYK and YcbCr color, and its high pixel intensity means it is the only serious choice for designers, photographers and publishers
+* Web Graphics: PNG, JPEG and GIF are the most web friendly image formats: JPEG for files where data loss is unimportant; PNG for files where detail matters; GIF has animation.
+* Logos & Line Art: JPEG is the worst choice, adding artifacts and blurring text, lines, and edges. JPEG cannot support transparency, which is often needed for logos and icons. GIF is a good choice, but PNG is better. TIFF is an option for small images like these.
+* Clip Art: GIF is the best for clipart and drawn graphics that only use a few colors with precise lines and shapes.
+
+JPEG is the most compatible between PC and Mac.
+
+# Web.Dev Image Performance article #
+
+## `srcset` and `sizes` attributes for `<img>` ##
+
+The `img` element supports the `srcset` attribute, which lets you specify a list of possible image sources the browser may use. Each image source specified must include the image URL, and a width *or* pixel density descriptor.
+
+E.g.
+```html
+<img
+  alt="An image"
+  width="500"
+  height="500"
+  src="/image-500.jpg"
+  srcset="/image-500.jpg 1x, /image-1000.jpg 2x, /image-1500.jpg 3x"
+>
+```
+
+This HTML snippet uses the pixel density descriptor to hint the browser to use `image-500.png` on devices with a Device Pixel Ratio (DPR) of 1, `image-1000.jpg` for a DPR of 2, etc.
+
+In combination with `srcset`, we can use the `sizes` attribute to further adjust the size depending on media conditions.
+
+E.g.
+```html
+
+<img
+  alt="An image"
+  with="500"
+  height="500"
+  src="/image-500.jpg"
+  srcset="/image-500.jpg 500w, /image-1000.jpg 1000w, /image-1500.jpg 1500w"
+  sizes="(min-width: 768px) 500px, 100vw"
+>
+```
+
+In this snippet, the `srcset` attribute specifies a list of image candidates the browser can choose from, separated by commas. Each candidate in the list consists of the image's URL, followed by a syntax that denotes the intrinsic width of the image. An image's *intrinsic size* is its dimensions. For example, a descriptor of `1000w` denotes that the image's intrinsic width is 1000 pixels wide.
+
+Using this information, the browser evaluates the media condition in the `sizes` attribute, and --- in this case --- is instructed that if the device's viewport width exceeds 768 pixels, the image is displayed at a width of 500 pixels. On smaller devices, the image is displayed at `100vw` -- or, the full viewport width.
+
+The browser can then combine this information with the list of `srcset` image sources to find the optimal image. For example, if the user is on a mobile device with a screen width of 320 pixels with a DPR of 3, the closest sized image would be `image-1000.jpg` which has an intrinsic width of 1000 pixels (`1000w`).
+
+`srcset` width descriptors (`w`) don't work without the `sizes` attribute. Similarly, if you omit the `srcset` width descriptors, the `sizes` attribute doesn't do anything.
+
+## File Formats ##
+
+Modern image formats like WebP and AVIF may provide better compression than PNG or JPEG, making your image file size smaller therefore taking less time to download. By serving images in modern formats, you can reduce a resource's load time, which may result in a lower Largest Contentful Paint (LCP).
+
+WebP is a widely supported format that works on all modern browsers. WebP often has better compression than JPEG, PNG, or GIF, offering both lossy and lossless compression. WebP also supports alpha channel transparency even when using lossy compression --- a feature the JPEG codec doesn't offer.
+
+The 'P' in WebP simply signifies its origins as a picture format. WebP was developed at Google and released in 2010.
+
+AVIF is a newer image format, and while it isn't as widely supported as WebP, it does enjoy a reasonably decent support across browsers. AVIF supports both lossy and lossless compression, and tests have shown greater than 50% savings when compared to JPEG in some cases. AVIF also offers Wide Color Gamut (WCG) and High Dynamic Range (HDR) features.
+
+AVIF stands for AV1 Image File Format. AVIF is open and royalty-free and can store images or image sequences compressed with AV1 in the HEIF container format. It competes with HEIC, which uses the same container format built upon ISOBMFF, but uses HEVC for compression. Version 1.0 of the AVIF spec was finalized in 2019.
+
+Both WebP and AVIF support animation.
+
+## The `<picture>` element ##
+
+The `<picture>` element gives you greater flexibility in specifying multiple image candidates.
+
+When you use `<source>` element(s) within the `<picture>` element, you can add support for, say, AVIF or WebP images, but fall back to more widely supported image formats if the browser cannot support more modern ones. With this approach, the browser picks the first `<source>` element that matches its supported image file formats. If it can render the image given in a source, it uses that image; otherwise, the browser moves on to the next specified `<source>`. So the preferred `<source>` is placed first, and the rest are given in order of preference, with reliable but aging formats placed toward the bottom.
+
+A `<picture>` element requires an `<img>` element nested inside of it. The `alt`, `width`, and `height` attributes are defined on the `<img>` and used regardless of which `<source>` is selected.
+
+The `<source>` element also supports the `media`, `srcset`, and `sizes` attributes. Similarly to the `<img>` example earlier, these indicate to the browser which image to select on different viewports.
+

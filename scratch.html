@@ -1,41 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Mind the Gap</title>
+    <title>Lists</title>
     <meta charset="utf-8">
     <style>
-      
-      /* n.b. font-size affects the margin
-        slightly, line-height doesn't.
-        It may be line-height is harder
-        to reset in the child elements, idk */
-
-      figure {
-        background-color: yellow;
-        /* line-height: 0; */
-        /* font-size: 0; */
-      }
-
-      body, figure {
-        background-color: blue;
-      }
-
-      img {
-        /* vertical-align: bottom; */
-        /* vertical-align: top; */
-        /* vertical-align: middle; */
-        
-        /* display: block; */
-        /* display: flex; */
-        /* display: grid; */
-
-      }
-
     </style>
   </head>
   <body>
-    <figure>
-      <img src="cats.jpg" alt="two fluffy cats">
-    </figure>
+    <dl>
+      <dt>Unordered</dt>
+      <dd>A simple list with bullets.</dd>
+      <dd>A plain list with no bullets or sequence numbers.</dd>
+
+      <dt>Ordered</dt>
+      <dd>A simple list with sequence numbers or letters.</dd>
+
+      <dt>Description</dt>
+      <dt>Definition</dt>
+      <dd>A list with terms and definitions.</dd>
+    </dl>
   </body>
 </html>

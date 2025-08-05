@@ -3,14 +3,122 @@
   <head>
     <title>Nutrition Label</title>
     <meta charset="utf-8">
-    <!-- <link rel="font-family"  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <style>
+      html,
+      body {
+        font-size: 29px;
+      }
+
+      body {
+        max-width: fit-content;
+        padding: 0 0 0 8px;
+        margin: 0;
+      }
+
+      h1 {
+        font-family: 'Franklin Gothic Heavy', 'Libre Franklin', Arial, sans-serif;
+        font-weight: 1000;
+        font-size: 2.61rem;
+        padding: 0;
+        margin: 0 0 4px 0;
+        height: 1em;
+        text-align: justify;
+      }
+
       p {
-        font-family: 'Franklin Gothic Heavy', Arial, sans-serif;
+        font-family: Helvetica, Inter, Arial, sans-serif;
+        line-height: 1.1rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      span {
+        font-family: 'Helvetica Black', Inter, Arial, sans-serif;
+        font-weight: 900;
+      }
+
+      .thickest-rule {
+        margin-top: 3px;
+        margin-bottom: 2px;
+        padding: 0;
+        color: black;
+        border: 0.451rem solid black;
+      }
+
+      table {
+        width: 100%;
+        margin-left: 0;
+        border-collapse: collapse;
+
+      }
+
+      th {
+        font-family: 'Helvetica Black', Inter, Arial, sans-serif;
+        line-height: 1.3rem;
+        font-weight: normal;
+        text-align: left;
+      }
+
+      td {
+        font-family: 'Helvetica Black', Inter, Arial, sans-serif;
+        line-height: 1.3rem;
+        text-align: right;
+      }
+
+      strong {
+        font-weight: 900;
+      }
+
+      [scope="col"] {
+        font-family: 'Helvetica Black', Inter, Arial, sans-serif;
+        font-weight: 900;
+        font-size: 0.7rem;
+        font-weight: 900;
+        text-align: left;
+      }
+
+      tbody th[scope="col"] {
+        text-align: right;
+      }
+
+      tr {
+        border-bottom: 1pt solid black;
+      }
+
+      thead tr:last-of-type:last-child {
+        border-bottom: 0.4rem solid black;
+
       }
     </style>
   </head>
   <body>
-    <p>The quick brown fox jumps over the lazy dog.</p>
+    <header>
+      <h1>Nutrition Facts</h1>
+      <p>Serving Size 2/3 cup (55g)</p>
+      <p>Servings Per Container About 8</p>
+    </header>
+    <hr class="thickest-rule">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Amount Per Serving</th>
+        </tr>
+        <tr>
+          <th scope="row"><strong>Calories</strong> 230</th>
+          <td>Calories from Fat 40</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="col" colspan="2">% Daily Value*</th>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

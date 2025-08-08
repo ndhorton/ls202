@@ -1,0 +1,156 @@
+/* reset spacing */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* set root font size */
+html, body {
+    font-size: 28px;
+}
+
+/* set overall width of label and indentation*/
+
+body {
+    width: 595px;
+    padding: 0 4px 0 8px;
+}
+
+/* set font families, weights, and sizings */
+
+h1 {
+    font-family: 'Franklin Gothic Heavy', 'Libre Franklin', Arial, sans-serif;
+    font-weight: 1000;
+    font-size: 2.77rem;
+    line-height: 2.5rem;
+}
+
+header p {
+    font-family: Helvetica, Arial, Inter, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main [scope="col"] {
+    font-family:  Inter, Helvetica, Arial, sans-serif;
+    font-weight: 1000;
+    font-size: 0.825rem;
+}
+
+main thead [scope="col"] {
+    text-align: left;
+}
+
+main tbody [scope="col"] {
+    text-align: right;
+}
+
+strong {
+    font-family: Inter, Helvetica, Arial, sans-serif;
+    font-weight: 1000;
+    font-size: 1rem;
+}
+
+em {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+}
+
+main dt {
+    font-family: Inter, Helvetica, Arial, sans-serif;
+    font-weight: 1000;
+    font-size: 1rem;
+}
+
+main th,
+main td,
+main dd {
+    font-family: Helvetica, Arial, Inter, sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+main p {
+
+}
+
+/* table layout -- first table */
+
+main table {
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+main table th,
+main table td {
+    border-top: 1px solid black;
+    line-height: 1.46rem;
+}
+
+main table th {
+    text-align: left;
+}
+
+main table td {
+    text-align: right;
+}
+
+main dt {
+    display: inline-block;
+    text-align: left;
+}
+
+main dd {
+    display: inline-block;
+    text-align: left;
+}
+
+.spacing-cell + td {
+    text-align: left;
+}
+
+/* indented, medium and thick bars - first table */
+
+main thead tr:first-of-type th {
+    border-top: 26px solid black;
+}
+
+main tbody tr:first-of-type th {
+    border-top: 13px solid black;
+}
+
+main tbody tr:nth-of-type(4) td {
+    border-bottom: 1px solid black;
+}
+
+main tbody tr:nth-of-type(9) td {
+    border-bottom: 1px solid black;
+}
+
+main tbody tr:nth-of-type(4) .spacing-cell,
+main tbody tr:nth-of-type(9) .spacing-cell {
+    border: none;
+    width: 1rem;
+}
+
+main tbody tr:nth-of-type(5) th,
+main tbody tr:nth-of-type(5) td,
+main tbody tr:nth-of-type(10) th,
+main tbody tr:nth-of-type(10) td {
+    border: none;
+}
+
+main tfoot tr:first-of-type th,
+main tfoot tr:first-of-type td {
+    border-top: 13px solid black;
+}
+
+main tfoot tr:last-of-type th,
+main tfoot tr:last-of-type td {
+    border-bottom: 1px solid black;
+}
+
+/* TODO: * style main paragraphs for size and
+            line breaks
+         * style second table

@@ -99,7 +99,7 @@ td:first-child + td {
     text-align: left;
 }
 
-/* indented, thin, medium and thick bars - `main` table */
+/* seperator bars - `main` table */
 
 /* draw thin bars below each row in `main` table */
 main th,
@@ -108,8 +108,8 @@ main td {
     line-height: 1.475rem;
 }
 
-/* use first data cell of indented rows
-    as indentation spacer, and remove borders to indent bars.
+/* use first data cell of indented rows as indentation spacer,
+    and remove borders to indent bars.
     Since we are removing existing borders, this must come
     after the `main th, main td` border ruleset */
 main tbody tr:nth-of-type(3) td:first-child,
@@ -132,12 +132,6 @@ main tbody tr:first-of-type th {
 main tfoot tr:first-of-type th,
 main tfoot tr:first-of-type td {
     border-top: 26px solid black;
-}
-
-/* draw thin bars under second of pairs of indented rows */
-main tbody tr:nth-of-type(4) td ~ td,
-main tbody tr:nth-of-type(9) td ~ td {
-    border-bottom: 1px solid black;
 }
 
 /* main paragraphs font and width */

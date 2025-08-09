@@ -2,6 +2,7 @@
 * {
     padding: 0;
     margin: 0;
+
 }
 
 /* set root font size */
@@ -95,23 +96,8 @@ main dd {
     text-align: left;
 }
 
-td:first-child + td {
-    text-align: left;
-}
-
-/* indented, thin, medium and thick bars - `main` table */
-
-/* draw thin bars below each row in `main` table */
-main th,
-main td {
-    border-bottom: 1px solid black;
-    line-height: 1.475rem;
-}
-
 /* use first data cell of indented rows
-    as indentation spacer, and remove borders to indent bars.
-    Since we are removing existing borders, this must come
-    after the `main th, main td` border ruleset */
+    as indentation spacer */
 main tbody tr:nth-of-type(3) td:first-child,
 main tbody tr:nth-of-type(4) td:first-child,
 main tbody tr:nth-of-type(8) td:first-child,
@@ -120,22 +106,54 @@ main tbody tr:nth-of-type(9) td:first-child {
     width: 1rem;
 }
 
+/* align text in cells following spacer cells */
+td:first-child + td {
+    text-align: left;
+}
+
+/* thin, medium and thick bars - `main` table */
+
 /* draw medium and thick bars in `main` table */
 main thead tr:first-of-type th {
     border-top: 26px solid black;
 }
 
 main tbody tr:first-of-type th {
-    border-top: 10px solid black;
+    border-top: 13px solid black;
 }
 
-main tfoot tr:first-of-type th,
-main tfoot tr:first-of-type td {
+main tfoot tr:first-of-type > * {
     border-top: 26px solid black;
 }
 
-/* draw thin bars under second of pairs of indented rows */
+/* draw thin bars below '% Daily Value*' row 1,
+    'Cholesterol' row 5, and 'Sodium' row 6 in
+    `main tbody` rows */
+main tbody tr:first-of-type > *,
+main tbody tr:nth-of-type(5) > *,
+main tbody tr:nth-of-type(6) > * {
+    border-bottom: 1px solid black;
+}
+
+/* draw thin bars below each row in `main tfoot` */
+main tfoot tr > * {
+    border-bottom: 1px solid black;
+    line-height: 1.475rem;
+}
+
+/* draw in thin indented bar above `Saturated Fat` row 3
+   and `Dietary Fiber` row 8 in `main tbody` rows */
+main tbody tr:nth-of-type(3) td ~ td,
+main tbody tr:nth-of-type(8) td ~ td {
+    border-top: 1px solid black;
+}
+
+/* draw in thin indented bar below 'Saturated Fat' row 3,
+    'Trans Fat' row 4, 'Dietary Fiber' row 8, and 'Sugars' row 9
+    in `main tbody` rows */
+main tbody tr:nth-of-type(3) td ~ td,
 main tbody tr:nth-of-type(4) td ~ td,
+main tbody tr:nth-of-type(8) td ~ td,
 main tbody tr:nth-of-type(9) td ~ td {
     border-bottom: 1px solid black;
 }

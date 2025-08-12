@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Forms</title>
+    <meta charset="utf-8">
+    <style>
+      fieldset {
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/login" method="post">
+      <h1>Log In</h1>
+      <fieldset>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
+      </fieldset>
+
+      <fieldset>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+      </fieldset>
+
+      <fieldset>
+        <input type="submit" value="Log In">
+        <input type="submit" value="Delete account"
+               formaction="/account/delete">
+        <input type="submit" value="Forgot password"
+               formaction="/account/password">
+        <input type="reset" value="Reset">
+      </fieldset>
+    </form>
+  </body>
+</html>

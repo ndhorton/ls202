@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Form Layouts</title>
+    <meta charset="utf-8">
+    <style>
+      /* Eliminate margins and padding on everything */
+      .styled-form * {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Grey box and default font for fieldsets */
+      .styled-form fieldset {
+        background-color: #ececec;
+        border: 2px solid #999;
+        box-sizing: border-box;
+        color: #4d4d4d;
+        font-family:
+          myriad-pro, "Helvetica Neue", Helvetica, Roboto,
+          Arial, sans-serif;
+        padding: 1rem;
+      }
+
+      /* Custom appearance for labels */
+      .styled-form label {
+        font-weight: bold;
+        line-height: 1.5rem;
+      }
+
+      /* Custom appearance for input fields */
+      .style-form input[type="text"] {
+        border: 1px sold #06c;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font: normal 1rem Helvetica, Arial, sans-serif;
+        height: 40px;
+        padding: 5px 8px;
+      }
+
+      .top-to-bottom label,
+      .top-to-bottom input[type="text"] {
+        display: block;
+        width: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post" class="styled-form top-to-bottom">
+      <fieldset>
+        <label for="text_field">Input Field</label>
+        <input type="text" name="text_field" id="text_field"
+               placeholder="this is the input area">
+      </fieldset>
+    </form>
+  </body>
+</html>

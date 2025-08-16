@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Problem 1</title>
+    <meta charset="utf-8">
+    <style>
+      form {
+        margin: 0;
+        padding: 0;
+      }
+
+      fieldset {
+        max-width: 30rem;
+      }
+
+      div {
+        margin-bottom: 10px;
+        max-width: 20rem;
+      }
+
+      div:last-child {
+        margin-bottom: none;
+      }
+
+      label
+      input {
+        display: block;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Your Contact Details</legend>
+
+        <div>
+          <label>
+            First Name
+            <input type="text" name="first-name" required>
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Last Name
+            <input type="text" name="last-name" required>
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Email
+            <input type="email" name="email" required autocapitalize="none"
+                  autocomplete="off" autocorrect="off">
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Phone Number
+            <input type="tel" name="phone" required>
+          </label>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>

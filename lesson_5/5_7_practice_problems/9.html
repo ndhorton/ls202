@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Problem 9</title>
+    <meta charset="utf-8">
+    <style>
+      input[type="number"] {
+        width: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset>
+        <dl>
+          <dt><label for="title">Movie</label></dt>
+          <dd>
+            <select id="title" name="title">
+              <option value="Looper">Looper</option>
+              <option value="Frozen">Frozen</option>
+              <option value="Tommy Boy">Tommy Boy</option>
+              <option value="Alien" selected>Alien</option>
+            </select>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt><label for="rating">Rating</label></dt>
+          <dd>
+            <input type="number" name="rating" id="rating" max="5" min="1"
+                   step="1" value="5" required>
+          </dd>
+        </dl>
+
+        <div class="add-to-favorites">
+          <label>
+            <input type="checkbox" name="add_to_favorites" checked>
+            Add to my favorites
+          </label>
+        </div>
+        <button>Rate movie</button>
+      </fieldset>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Problem 5</title>
+    <meta charset="utf-8">
+    <style>
+      fieldset {
+        max-width: fit-content;
+      }
+
+      dl {
+        margin: 0;
+        padding: 0 0 10px 0;
+        width: 100%;
+      }
+
+      dt,
+      dd {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      input[type="text"] {
+        width: 60%;
+      }
+
+      input[type="email"] {
+        width: 60%;
+      }
+
+      input[type="tel"] {
+        width: 60%;
+      }
+
+      input[type="submit"] {
+        display: block;
+        margin: 1rem auto 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Your Contact Details</legend>
+
+        <dl>
+          <dt>
+            <label for="first-name">
+              First Name
+            </label>
+          </dt>
+          <dd>  
+            <input id="first-name" type="text" name="first-name" required>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            <label for="last-name">
+              Last Name
+            </label>
+          </dt>
+          <dd>  
+            <input id="last-name" type="text" name="last-name" required>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            <label for="email">
+              Email
+            </label>
+          </dt>
+          <dd>
+            <input id="email" type="email" name="email" required autocapitalize="none"
+                  autocomplete="off"> <!-- `autocomplete` no longer applies to `type="email" -->
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            <label for="phone">
+              Phone Number
+            </label>
+          </dt>
+          <dd>
+            <input id="phone" type="tel" name="phone" required
+                   placeholder="###-###-####">
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            <label for="phone-type">
+              Type of Phone
+            </label>
+          </dt>
+          <dd>
+            <select id="phone-type" name="phone-type">
+              <option value="home" selected>Home</option>
+              <option value="business">Business</option>
+              <option value="mobile">Mobile</option>
+            </select>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            <label for="message">Message (optional)</label>
+          </dt>
+          <dd>
+            <textarea id="message" name="message" rows="6" cols="80"></textarea>
+          </dd>
+        </dl>
+
+        <input type="submit" value="Send">
+      </fieldset>
+    </form>
+  </body>
+</html>

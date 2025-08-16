@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!-- notes
+
+-->
+<html lang="en">
+  <head>
+    <title>Contact Form</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        background-color: white;
+      }
+
+      dd {
+        margin-left: 0;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 1rem;
+      }
+
+      input[type="radio"] {
+        box-sizing: border-box;
+        width: 1rem;
+        height: 1rem;
+        appearance: none;
+        /* background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+");
+        background-position: 100% center;
+        background-repeat: no-repeat; */
+        width: 1rem;
+        height: 1rem;
+        border-radius: 1rem;
+        vertical-align: text-bottom;
+      }
+
+      input[type="radio"]:checked {
+        border: 3px solid gray;
+      }
+
+      .red {
+        background-color: red;
+        border: 3px solid white;
+      }
+
+      .green {
+        background-color: green;
+        border: 3px solid white;
+      }
+
+      .blue {
+        background-color: blue;
+        border: 3px solid white;
+      }
+
+      #zipcode {
+        width: 2.5rem;
+      }
+
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset>
+        <dl>
+          <dt>
+            <label for="first-name" autocapitalize="on">First Name</label>
+          </dt>
+          <dd>
+            <input type="text" name="first-name" id="first-name" required> 
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            <label for="last-name" autocapitalize="on">Last Name</label>
+          </dt>
+          <dd>
+            <input type="text" name="last-name" id="last-name" required>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            <label for="email">Email Address</label>
+          </dt>
+          <dd>
+            <input type="email" name="email" id="email"
+                   placeholder="username@domain" required>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            <label for="city">City</label>
+          </dt>
+          <dd>
+            <input type="text" name="city" id="city" required>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            <label for="state">State</label>
+          </dt>
+          <dd>
+            <select name="state" id="state">
+              <option>AK</option>
+              <option>AL</option>
+              <option>AR</option>
+              <option>AZ</option>
+              <option>CA</option>
+              <option>CO</option>
+              <option>CT</option>
+              <option>DC</option>
+              <option>DE</option>
+              <option>FL</option>
+              <option>GA</option>
+              <option>HI</option>
+              <option>IA</option>
+              <option>ID</option>
+              <option>IL</option>
+              <option>IN</option>
+              <option>KS</option>
+              <option>KY</option>
+              <option>LA</option>
+              <option>MA</option>
+              <option>MD</option>
+              <option>ME</option>
+              <option>MI</option>
+              <option>MN</option>
+              <option>MO</option>
+              <option>MS</option>
+              <option>MT</option>
+              <option>NC</option>
+              <option>ND</option>
+              <option>NE</option>
+              <option>NH</option>
+              <option>NJ</option>
+              <option>NM</option>
+              <option>NV</option>
+              <option>NY</option>
+              <option>OH</option>
+              <option>OK</option>
+              <option>OR</option>
+              <option>PA</option>
+              <option>RI</option>
+              <option>SC</option>
+              <option>SD</option>
+              <option>TN</option>
+              <option>TX</option>
+              <option>UT</option>
+              <option>VA</option>
+              <option>VT</option>
+              <option>WA</option>
+              <option>WI</option>
+              <option>WV</option>
+              <option>WY</option>
+            </select>
+          </dd>
+        </dl>
+        
+        <dl>
+          <dt>
+            <label for="zipcode">Zip Code</label>
+          </dt>
+          <dd>
+            <input type="text" name="zipcode" id="zipcode"
+                   pattern="[0-9]{5}" minlength="5" maxlength="5" placeholder="12345">
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            Which of these colors do you like best?
+          </dt>
+          <dd>
+            <ul id="preferred-color">
+              <li>
+                <label>
+                  <input type="radio" name="color" value="red" class="red"
+                         required checked>
+                  Red
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="color" value="green" class="green"
+                         required>
+                  Green
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="color" value="green" class="blue"
+                         required>
+                  Blue
+                </label>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            What web technologies do you want to learn?
+          </dt>
+          <dd>
+            <ul>
+              <li>
+                <label>
+                  <input type="checkbox" name="web-technologies" value="html">
+                  HTML
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" name="web-technologies" value="css">
+                  CSS
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" name="web-technologies" value="javascript">
+                  JavaScript
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" name="web-technologies" value="ruby">
+                  Ruby
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" name="web-technologies" value="rails">
+                  Rails
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" name="web-technologies" value="python">
+                  Python
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" name="web-technologies" value="django">
+                  Django
+                </label>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+
+        <label>
+          Comment
+          <textarea name="comment" rows="6" cols="80" placeholder="Enter your comment here."></textarea>
+        </label>
+
+        <input type="datetime-local" name="timestamp" value="2025-08-16T13:36" hidden>
+        <button>Send</button>
+        <button type="reset">Reset</button>
+      </fieldset>
+    </form>
+  </body>
+</html>

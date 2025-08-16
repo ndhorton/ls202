@@ -315,6 +315,38 @@ The side-by-side orientation is slightly harder, but not too hard. The default `
 We generally want a wrapper for our `label` and `input` pairs. Semantically it is better to place pairs (whether top-and-bottom or side-by-side) in a description list, as opposed to a `div` with a class. Placing one pair per list give the greatest flexibility.
 
 
+Aside: The `action="#"` attribute setting on a `form` permits your code to pass W3C validation whereas using an empty string does not.
+
+## Types of widgets ##
+
+*From MDN's 'Styling web forms'*
+
+Easy to style:  
+* `<form>`
+* `<fieldset>` and `<legend>`
+* Single-line text `<input>` elements (e.g. where type is `text`, `url`, `email`) except for `type="search"`
+* Multi=line `<textarea>`
+* Buttons (both `<input type="button">` and `<button>`)
+* `<label>`
+* `<output>`
+
+Harder to style
+* Checkboxes and radio buttons
+* `<input type="search">`
+
+With internals that can't be styled in CSS alone:
+* `<input type="color">`
+* Date-related controls such as `<input type="datetime-local">`
+* `<input type="range">`
+* `<input type="file">`
+* Elements involved in creatig dropdown widgets, inluding `<select>`, `<option>`, `<optgroup>` and `<datalist>` (`<select>` is now fully customizable via HTML and CSS)
+* `<progress>` and `<meter>`
+
+Most of these have workarounds (or in the case of `<select>` a solution) for most aspects of styling. `<progress>` and `<meter>` bars are the least tractable, and many developers use custom solutions involving styling `<div>`s and using JavaScript, or use a library.
+
+
+
+
 
 
 

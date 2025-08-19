@@ -339,15 +339,16 @@ With internals that can't be styled in CSS alone:
 * Date-related controls such as `<input type="datetime-local">`
 * `<input type="range">`
 * `<input type="file">`
-* Elements involved in creatig dropdown widgets, inluding `<select>`, `<option>`, `<optgroup>` and `<datalist>` (`<select>` is now fully customizable via HTML and CSS)
+* Elements involved in creating dropdown widgets, inluding `<select>`, `<option>`, `<optgroup>` and `<datalist>` (`<select>` is now fully customizable via HTML and CSS)
 * `<progress>` and `<meter>`
 
 Most of these have workarounds (or in the case of `<select>` a solution) for most aspects of styling. `<progress>` and `<meter>` bars are the least tractable, and many developers use custom solutions involving styling `<div>`s and using JavaScript, or use a library.
 
 
+# 5:8 Walkthrough Project: Contact Form #
 
+We can use the `pattern` attribute on a `type="text"` `input` element in order to get the browser to perform a RegEx check as a preliminary input validation when the user submits the form. Support for `pattern` is widespread, but may be spotty in older browsers.
 
+When we look at the CSS ('Styles') tab in the DevTools inspector, we can see what styles the user-agent stylesheet is applying (and which have been overridden by our CSS, since those rules will be struck out).
 
-
-
-
+User-agent stylesheets tend to use logical margin and padding. The terms `before` and `after`, in a left-to-right written language like English, translate to `top` and `bottom`, while `start` and `end` translate to `left` and `right`.

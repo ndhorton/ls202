@@ -3,34 +3,21 @@
   <head>
     <title>Forms Styling</title>
     <meta charset="utf-8">
-    <style>
-      select {
-        appearance: none;
-      }
-
-      .select-wrapper {
-        position: relative;
-      }
-
-      .select-wrapper::after {
-        content: "▼";
-        font-size: 1rem;
-        top: 6px;
-        right: 10px;
-        position: absolute;
-      }
-    </style>
   </head>
+
   <body>
-    <form>
-      <label for="select">Select a fruit</label>
-      <div class="select-wrapper">
-        <select id="select" name="select">
-          <option>Banana</option>
-          <option>Cherry</option>
-          <option>Lemon</option>
-        </select>
-      </div>
+    <form action="#" method="post">
+      <label>
+        <input type="radio" name="color" checked>Red
+      </label>
+      <label>
+        <input type="radio" name="color">Green
+      </label>
+      <label>
+        <input type="radio" name="color">Blue
+      </label>
+
+      <input type="submit" value="Submit">
     </form>
   </body>
 </html>

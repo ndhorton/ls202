@@ -66,3 +66,13 @@ Use double colons with pseduo-elements. The standard lets you get away with a si
 
 CSS presently supports around a dozen pseudo-elements, and nearly half of those are experimental. `::after` and `::before` are the most useful.
 
+# 6:4 Practice Problems Floats (1) #
+
+Adding `overflow: hidden` to the last floated element in a row and removing the `float` and `width` properties cause it to take up the remaining space within the row.
+
+This technique is useful when your last element should take up the leftover space in a variable-width layout.
+
+If we have a left hand column element floated left with a variable width of 70%, and a non-floated element with `overflow: hidden` set following it, the non-floated element will effectively take up 30% (as long as `box-sizing: border-box` is set) regardless of how the window is resized.
+
+# 6:5 Practice Problems Floats (2) #
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Positioning
+    </title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      section {
+        border: 8px solid #cecece;
+      }
+
+      #positioned {
+        position: fixed;
+        box-sizing: border-box;
+        width: 400px;
+        top: 10px;
+        left: 50%;
+        margin-left: -200px;
+        padding: 30px 15px;
+        background-color: #ffc;
+        z-index: 2;
+      }
+
+      #overlay {
+        background-color: rgba(0, 0, 0, .6);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      #inner {
+        background-color: pink;
+        width: 20px;
+        height: 20px;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        margin-left: -210px;
+      }
+    </style>
+  </head>
+  <body>
+  <section>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper diam nec leo congue, a vehicula felis ornare. Maecenas et venenatis nisl. Maecenas rutrum tempor elit, dictum maximus nisl varius tempor. Cras vitae pellentesque felis, nec pretium ipsum. Nulla in purus a lectus tempus elementum vel sed nibh. Aliquam auctor, velit bibendum egestas lobortis, justo nunc ornare nulla, ac porttitor tellus sem eget dolor. Donec molestie turpis et scelerisque mattis. Donec consequat eros eu nulla condimentum, eu elementum turpis lacinia. Nulla facilisi. Curabitur elementum dapibus varius.
+    </p>
+    <p>
+      Morbi venenatis diam neque, eu faucibus eros tincidunt sit amet. Sed eros ligula, congue quis iaculis in, finibus sit amet justo. Ut nec fringilla magna. Integer fringilla felis quis dolor eleifend, a elementum tortor finibus. Sed auctor pharetra placerat. Fusce eu tellus at urna efficitur interdum vitae at orci. Nulla a venenatis magna, at efficitur neque. Aliquam eu arcu quis tellus euismod dictum. Donec a est in tortor volutpat laoreet ac quis felis. In velit quam, tempor eu dapibus vitae, efficitur sed enim. Vivamus nisl nibh, congue rutrum nulla a, tempus vestibulum est.
+    </p>
+    <p>
+      Pellentesque augue risus, feugiat in nisi vel, pellentesque bibendum ipsum. Maecenas pretium pellentesque orci nec malesuada. Pellentesque in tellus dolor. Sed dictum sapien nec blandit dignissim. Sed ac gravida metus. Duis hendrerit ornare odio, a feugiat ligula hendrerit id. Pellentesque ullamcorper auctor velit eu cursus. Suspendisse potenti. Aliquam eu porttitor dui, et condimentum ante. Fusce eu tristique elit. Vestibulum in elit quis diam dignissim congue. Nullam augue elit, mollis non faucibus eget, rutrum nec quam. Donec tincidunt, velit et faucibus cursus, nibh justo laoreet sem, a lobortis felis ipsum eu sem. Nunc tempor elit ac velit ultricies, non varius lacus fermentum. Vestibulum nec vehicula elit.
+    </p>
+    <p>
+      Donec lobortis sapien urna, id blandit purus gravida a. Proin eu quam nec purus aliquam facilisis vel eget lectus. Maecenas a tortor sed est elementum pharetra cursus non mauris. Curabitur varius sapien non commodo consequat. Nulla eu felis lectus. Maecenas mi eros, ornare consequat mauris in, cursus placerat quam. Praesent pretium libero ac scelerisque placerat. Nunc eget tempor lectus.
+    </p>
+    <p>
+      Duis sit amet sapien tempus, volutpat ex vitae, posuere lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc eros diam, semper vitae nisl sed, facilisis iaculis nulla. Suspendisse ut sagittis augue, vel sodales risus. Duis consequat neque quis orci elementum, ac maximus ante blandit. Sed dapibus nisl ut tristique auctor. Nam quis iaculis mi, sit amet auctor eros. Etiam consequat quam ligula, et congue felis congue in. Suspendisse a scelerisque diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Morbi convallis, augue et fermentum scelerisque, libero lacus hendrerit turpis, a mollis risus velit eget libero. Quisque et hendrerit tortor. Praesent mattis nulla orci, eu fringilla leo consectetur vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam suscipit volutpat velit nec dapibus. Proin id viverra ligula. In posuere sodales pellentesque. Maecenas tempor dignissim vehicula. Donec dapibus purus aliquet tellus mollis, vel ornare nulla sodales.
+    </p>
+    <p>
+      Ut mattis sem sit amet efficitur finibus. Morbi posuere condimentum est et posuere. Sed quis auctor turpis. Vivamus nisi elit, tempor a tempus in, tempor eget augue. Sed efficitur orci mi, sit amet vehicula orci aliquam nec. Aenean tortor ex, mollis ultricies dui vel, molestie suscipit lacus. Ut eget arcu sit amet ante finibus auctor. Mauris rhoncus ipsum lacus, quis elementum massa faucibus vulputate. Fusce dui arcu, feugiat id placerat a, fermentum a est. Curabitur lacinia est enim, eget pulvinar lorem vehicula eget. Duis mollis vulputate turpis, eget condimentum sem feugiat gravida. Fusce efficitur mauris sed diam ultrices porttitor.
+    </p>
+    <p>
+      Nullam condimentum fermentum ultrices. Quisque non viverra orci. Nulla diam ante, eleifend vel condimentum a, maximus venenatis libero. Morbi vel nibh eros. Cras ac diam purus. Cras at purus porttitor, feugiat felis vel, elementum ex. Morbi sodales est a volutpat pellentesque.
+    </p>
+    <p>
+      Proin elementum, justo vel porta mollis, sem magna pellentesque urna, in dapibus est est a lectus. Nulla posuere dolor at lacus fermentum elementum. Vestibulum id elit vitae metus tincidunt euismod in ut dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce scelerisque lorem a eros aliquam pharetra. Curabitur lobortis congue tempor. Mauris nec dui a turpis facilisis egestas ac in mauris. Donec molestie mattis nisl at tincidunt. Aenean condimentum ornare lacus a consequat. In ut orci nec diam hendrerit finibus. Phasellus condimentum lorem et magna ornare, vel maximus velit blandit.
+    </p>
+    <p>
+      Vivamus aliquam pharetra tellus non gravida. Suspendisse sit amet nisl laoreet, lacinia nunc et, efficitur lorem. Vivamus imperdiet magna nec lectus gravida, quis porta massa elementum. Sed luctus in felis vel elementum. Pellentesque ultrices neque luctus ultrices fermentum. Suspendisse ullamcorper lacus sem, sed luctus est rutrum ut. Maecenas eros dolor, convallis ac felis sit amet, hendrerit laoreet magna. Donec egestas dignissim consequat. Nulla eu viverra diam. Pellentesque egestas purus a neque vulputate congue. 
+    </p>
+  </section>
+  <div id="positioned">
+    I'm positioned!
+    <div id="inner"></div>
+   </div>
+   <div id="overlay"></div>
+  </body>
+</html>

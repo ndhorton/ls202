@@ -74,5 +74,62 @@ This technique is useful when your last element should take up the leftover spac
 
 If we have a left hand column element floated left with a variable width of 70%, and a non-floated element with `overflow: hidden` set following it, the non-floated element will effectively take up 30% (as long as `box-sizing: border-box` is set) regardless of how the window is resized.
 
-# 6:5 Practice Problems Floats (2) #
 
+
+# 6:6 Positioning #
+
+When you need to fine-tune the placement of elements within their containers or need to overlay them atop others, CSS positioning comes into play.
+
+## Offset Properties ##
+
+Before we talk about the `position` property, we need to be aware of the **offset properties**: `top`, `right`, `bottom`, and `left`. They work in conjunction with `position` to determine what direction you want to move an element and how far.
+
+Each offset measures the *inward* distance from the side of the container named by the offset property. For instance, `bottom: 50px` indicates a position 50px inward from (above) the bottom edge of the container. If you memorize one fact from this page, remember that *the offset is always inward* when workng with positive offset values.
+
+Negative offsets shift elements in the opposite direction. That is, they cause the browser to push the edges outward from the container.
+
+## The `position` Property ##
+
+The `position` property tells the browser how to position the selected elements.
+
+### `postion: static` ###
+
+Static positioning is the default. While floated, grid, flex, as well as elements with absolute and fixed positioning get removed from the page flow, statically positioned items are part of the page flow. They appear in the same order that they appear in the markup. The offset properties do not affect static elements.
+
+### `position: relative` ###
+
+Relative positioning moves an element to a new position relative to where the browser would otherwise put it.
+
+For instance, if you include `left: 50px` and `bottom: 100px` with `position relative`, the browser will shift the element 50px inward from the left edge and 100px upward from the bottom edge from where the browser would place it otherwise.
+
+When using relative positioning, you should typically provide at most one vertical offset (`top` xor `bottom`) and at most one horizontal offset (`left` xor `right`).
+
+The CSS standard does permit using both vertical or both horizontal properties at the same time:
+
+* `left` overrides `right` for left-to-right languages.
+* `right` overrides `left` for right-to-left languages.
+* `top` overrides `bottom` at all times
+
+Relative positioning *does not* remove an item from the document flow (unlike absolute or fixed positioning). The browser positions the next element as though the previous one still occupied its pre-offset location. Each box respects the area that the previous one would occupy in the absence of positioning offsets.
+
+### `position: absolute` ###
+
+Absolute positioning causes the browser to move the element to a new position within a container element. By default, the container is the *nearest ancestor element that has a fixed, relative, absolute, or sticky position. If no such ancestor is present, the browser uses the initial containing block; that is, the browser positions the element at an absolute position on the page.
+
+N.B. the course doesn't cover `position: sticky`, so look that up later.
+
+The W3C CSS2.2 standards document has this to say about the initial containing block:
+
+> ## 10.1 Definition of "containing block"
+>
+> The position and size of an element's box(es) are sometimes calculated relative to a certain rectangle, called the containing block of the element. The containing block of an element is defined as follows:
+>
+> 1. The containing block in which the [root element](https://www.w3.org/TR/CSS22/conform.html#root) lives is a rectangle called the initial containing block. For continuous media, it has the dimensions of the [viewport](https://www.w3.org/TR/CSS22/visuren.html#viewport) and is anchored at the canvas origin; it is the [page area](https://www.w3.org/TR/CSS22/page.html#page-area) for paged media. The 'direction' property of the initial containing block is the same as for the root element.
+
+We can center an absolute positioned element within its nearest relative, absolute, or sticky ancestor by setting *all four* offset properties to the same value. Note that this won't work if the absolute positioned element has an explicit height or width (though there is a way to handle that situation).
+
+Absolute positioning removes elements from the normal document flow. No matter where you position the element, the browser won't treat that space as occupied space.
+
+### `position: fixed` ###
+
+Fixed positioning sets an element to a fixed position within the window. The element **does not move** if the user scrolls the page.

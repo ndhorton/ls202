@@ -21,13 +21,19 @@
         width: 1000px;
         margin: 8px auto 0 auto;
         border: 2px solid darkgray;
-        padding: 1.45rem 1.25rem;
+        padding: 1.4rem 1.25rem;
+      }
+
+      article section:first-of-type {
+        border-style: groove;
+        border: none;
+        border-bottom: 2px dashed black;
       }
 
       article section h1 {
         color: #ce4a4a;
         font-size: 1.5rem;
-        margin: 1.05rem 0;
+        margin: 1.1rem 0;
       }
 
       article section h2 {
@@ -38,6 +44,7 @@
 
       article section h3 {
         color: #ce4a4a;
+        font-size: 1rem;
       }
 
       article section p {
@@ -45,14 +52,105 @@
         line-height: 2.2rem;
       }
 
-      article hr {
-        border: dashed darkgray;
-      }
-
       .new-section-heading {
         text-align: center;
       }
 
+      .anchor-example-box {
+        border: 2px dashed black;
+        box-sizing: border;
+        width: 61.35%;
+        margin: 2.8rem 2.8rem;
+        padding: 30px;
+        overflow: hidden;
+      }
+
+      .anchor-example-box a {
+        color: black;
+        text-decoration: none;
+      }
+
+      a.anchor-example-second {
+        margin: 30px;
+      }
+
+      a.anchor-example-third {
+        padding: 30px;
+        color: white;
+        background-color: green;
+      }
+
+      a.anchor-example-fourth {
+        width: 120px;
+        height: 74.35px;
+        box-sizing: border-box;
+        color: white;
+        background-color: green;
+        border: 2.5px solid darkgreen;
+        margin: 15.5px 15px;
+        float: left;
+        text-align: center;
+        padding: 1.55rem 0;
+      }
+
+      div {
+        margin: 1.5rem 0 1rem 0;
+        box-sizing: border-box;
+      }
+
+      .div-example-one {
+        background-color: #1f90ff;
+        color: white;
+      }
+
+      .div-example-two {
+        background-color: green;
+        color: white;
+        margin: 20px;
+        padding: 20px;
+        height: 60px;
+      }
+
+      .div-example-three {
+        width: 90px;
+        background-color: #ff6347;
+        color: white;
+      }
+
+      .div-example-four {
+        width: 180px;
+        height: 120px;
+        padding: 20px;
+        margin: 20px;
+        background-color: #ffc0cb;
+        color: white;
+      }
+
+      .div-example-five {
+        float: left;
+        border: 1px solid #ff6347;
+        box-sizing: border-box;
+        background-color: #1f90ff;
+        color: white;
+      }
+
+      .div-example-six {
+        float: right;
+        background-color: #ff6347;
+        border: 1px solid #ff6347;
+        color: white;
+      }
+
+      .float-container {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        margin-top: -4.5px;
+      }
+
+      .spacer {
+        margin-top: 2.05rem;
+      }
     </style>
   </head>
   <body>
@@ -74,7 +172,7 @@
           Anchor tags are inline elements: they take up the width required by their content and not the entire width of the page.
         </p>
 
-        <div>
+        <div class="anchor-example-box">
           <a href="#">Home</a>
           <a href="#">Portfolio</a>
           <a href="#">Contact</a>
@@ -88,9 +186,11 @@
           Inline elements ignore top and bottom margins but observe the left and right margins.
         </p>
 
-          Home
-          Portfolio
-          Contact
+        <div class="anchor-example-box">
+          <a href="#" class="anchor-example-second">Home</a>
+          <a href="#" class="anchor-example-second">Portfolio</a>
+          <a href="#" class="anchor-example-second">Contact</a>
+        </div>
 
         <p>
           In the above example, we requested a margin of 30px on all sides. However, the browser ignored the top and bottom margins.
@@ -100,9 +200,11 @@
           What about padding?
         </h2>
 
-          Home
-          Portfolio
-          Contact
+        <div class="anchor-example-box">
+          <a href="#" class="anchor-example-third">Home</a>
+          <a href="#" class="anchor-example-third">Portfolio</a>
+          <a href="#" class="anchor-example-third">Contact</a>
+        </div>
 
         <p>
           Inline elements accept padding on all sides.
@@ -112,9 +214,11 @@
           Floating Inline Elements
         </h2>
 
-          Home
-          Portfolio
-          Contact
+        <div class="anchor-example-box">
+          <a href="#" class="anchor-example-fourth">Home</a>
+          <a href="#" class="anchor-example-fourth">Portfolio</a>
+          <a href="#" class="anchor-example-fourth">Contact</a>
+        </div>
 
         <p>
           Floating an inline element changes its display value to block, which makes it subject to all block-level characteristics. Thus, floated inline elements can take margins, padding, heights, and widths.
@@ -136,7 +240,7 @@
           <code>div</code> elements are block-level.
         </p>
 
-        <div>
+        <div class="div-example-one">
           This <code>div</code> has no explicit width or height.
         </div>
 
@@ -144,7 +248,7 @@
           Without an explicit width or height, the box fills the entire width and uses as much height as it needs to fit the content.
         </p>
 
-        <div>
+        <div class="div-example-two">
           This <code>div</code> has no explicit width but a height of 60px; it also has both padding and margins of 20px on all sides.
         </div>
 
@@ -152,7 +256,7 @@
           With an explicit height of 60px plus margins and padding, the box still fills the entire width (including the padding and margins), but now requires the requested height.
         </p>
 
-        <div>
+        <div class="div-example-three">
           This <code>div</code> has a width of 90px and no explicit height.
         </div>
 
@@ -160,7 +264,7 @@
           With an explicit width of 90px, the box collapses down to 90px width but expands the height to ensure the text still fits.
         </p>
 
-        <div>
+        <div class="div-example-four">
           This <code>div</code> has a width of 180px and a height of 120px; it also has both padding and margins of 20px on all sides.
         </div>
 
@@ -168,7 +272,7 @@
           With an explicit width of 180px and height of 120px, the box takes on the requested dimensions. However, the content can overflow the box as it does here.
         </p>
 
-        <h2>
+        <h2 class="spacer">
           Floating Block Elements
         </h2>
 
@@ -176,8 +280,10 @@
           Floating block elements with no width or height
         </h3>
 
-        Box - 1 - Floated Left
-        Box - 2 - Floated Right
+        <div class="float-container">
+          <div class="div-example-five">Box - 1 - Floated Left</div>
+          <div class="div-example-six">Box - 2 - Floated Right</div>
+        </div>
 
         <p>
           Floated block-level elements that don't have a width collapse down to the width required by the content. Thus, multiple floated blocks can fit on the same line as shown above where we float one item left and the other right.
@@ -233,9 +339,9 @@
           We achieved similar results when we floated the anchor elements. It's as though you get two elements in one: you have the flow properties of inline elements combined with most properties of block elements.
         </p>
       </section>
-      <hr>
+
       <section>
-        <h1 class="new-section-heading">Floats and Positioning Elements</h1>
+        <h1 class="new-section-heading spacer">Floats and Positioning Elements</h1>
 
         <h2>
           Floats

@@ -53,6 +53,14 @@
         line-height: 2.2rem;
       }
 
+      article ul {
+        margin-left: 2.5rem;
+      }
+
+      article li {
+        line-height: 1.9rem;
+      }
+
       .new-section-heading {
         text-align: center;
       }
@@ -138,7 +146,7 @@
       }
 
       .div-example-two {
-        background-color: seagreen;
+        background-color: green;
         color: white;
         margin: 20px;
         padding: 20px;
@@ -269,15 +277,14 @@
 
       .fixed-example {
         box-sizing: border-box;
-        padding: 1.5rem 2.1rem 0 2.1rem;
+        padding: 1.55rem 2.1rem 0 2.1rem;
         position: fixed;
         width: 225px;
-        height: 90px;
+        height: 89px;
         text-align: center;
         background-color: #1f90ff;
         color: white;
-        opacity: .9;
-        bottom: 32px;
+        bottom: 34px;
         left: 35px;
         border-radius: 10px;
       }
@@ -296,17 +303,21 @@
         border-radius: 10px;
       }
 
+      .overlay {
+        z-index: auto;
+      }
+
       .absolute-example {
         position: absolute;
         box-sizing: border-box;
-        left: 300px;
-        top: 5365px;
+        left: 295px;
+        top: 5410px;
         padding: 1.5rem 2.5rem 1.5rem 2.5rem;
         background-color: green;
         color: white;
         text-align: center;
-        width: 210px;
-        height: 90px;
+        width: 200px;
+        height: 88px;
         border-radius: 10px;
       }
     </style>
@@ -480,7 +491,7 @@
           Elements that follow a floated element wrap around it. However, we don't want this behavior above, so we applied <code>clear:both</code> property to the third <code>div</code>. There are two other values for <code>clear</code>, <code>left</code> and <code>right</code>, but we typically want <code>both</code>.
         </p>
         <p>
-          There are other ways to clear floats. One technique is the clearfix method:
+          There are other ways to clear floats. One technique is the <strong>clearfix</strong> method:
         </p>
         <pre>
           <code class="code-block-example">
@@ -537,17 +548,19 @@
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non cumque repellat sapiente vitae nihil debitis accusamus, odit, tempore id reiciendis consequatur necessitatibus veritatis, distinctio vel, cum repellendus numquam blanditiis perferendis?
         </p>
-        <h2>
-          Absolute Positioning
-        </h2>
-        <p>
-          Absolute positioning removes an element from the normal page flow and positions it at an absolute position relative to its parent element. If the parent element is the <code>&lt;body&gt;</code>, the position is absolute relative to the complete page.
-        </p>
-        <p>
-          The green box shows absolute positioning.
-        </p>
-        <div class="absolute-example">
-          I use absolute positioning.
+        <div class="overlay">
+          <h2>
+            Absolute Positioning
+          </h2>
+          <p>
+            Absolute positioning removes an element from the normal page flow and positions it at an absolute position relative to its parent element. If the parent element is the <code>&lt;body&gt;</code>, the position is absolute relative to the complete page.
+          </p>
+          <p>
+            The green box shows absolute positioning.
+          </p>
+          <div class="absolute-example">
+            I use absolute positioning.
+          </div>
         </div>
       </section>
     </article>

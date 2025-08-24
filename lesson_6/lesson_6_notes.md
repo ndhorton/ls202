@@ -80,7 +80,7 @@ If we have a left hand column element floated left with a variable width of 70%,
 
 When you need to fine-tune the placement of elements within their containers or need to overlay them atop others, CSS positioning comes into play.
 
-## Offset Properties ##
+## Offset Properties ##
 
 Before we talk about the `position` property, we need to be aware of the **offset properties**: `top`, `right`, `bottom`, and `left`. They work in conjunction with `position` to determine what direction you want to move an element and how far.
 
@@ -133,3 +133,7 @@ Absolute positioning removes elements from the normal document flow. No matter w
 ### `position: fixed` ###
 
 Fixed positioning sets an element to a fixed position within the window. The element **does not move** if the user scrolls the page.
+
+N.B. It is important to note that `fixed` position elements will general display over (closer to the viewer) than `static` elements. However, whether a `fixed` position element displays over or under a `relative` or `absolute` element depends on their order in the source HTML. Obviously you can control this directly using the `z-index` property.
+
+It can be useful to use classes on wrapper elements in order to apply uniform styles to common elements within different parts of the document.

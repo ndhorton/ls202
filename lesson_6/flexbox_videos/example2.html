@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Flexbox</title>
+    <style>
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      nav ul {
+        display: flex;
+        flex-direction: row;  /* default */
+        justify-content: space-around;
+
+        list-style-type: none;
+        background-color: lightgray;
+        padding: 1rem 0;
+      }
+
+      @media screen and (max-width: 400px) {
+        nav ul {
+          flex-direction: column;
+        }
+      }
+
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>Blog</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+    <div>
+      <h1>Hello World</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis volutpat neque. Morbi gravida ultricies lectus, et fermentum metus mattis vel. Fusce porttitor hendrerit laoreet. Proin in arcu eget enim egestas scelerisque. Nam vitae ipsum interdum, euismod eros ut, semper erat. Maecenas dictum ante ut leo cursus, vel egestas purus ullamcorper. Etiam scelerisque gravida sapien vitae tincidunt. Sed faucibus justo consequat blandit tempor. Nulla imperdiet id nisi id varius. 
+      </p>
+    </div>
+  </body>
+</html>

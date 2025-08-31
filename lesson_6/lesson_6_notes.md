@@ -428,3 +428,302 @@ The `place-items` property is a shorthand property for `align-items` and `justif
 
 There is another shorthand property, `place-content`, that defines the `align-content` and `justify-content` poroperties. The `align-content` property` only effects flex containers that wrap.
 
+
+# CSS-Tricks CSS Grid Layout Guide #
+
+Whereas Flexbox was originally developed at Mozilla, the origin of Grid was at Microsoft. Internet Explorer 10 and 11 support only the older Microsoft syntax for Grid. All modern browsers support Grid with the new standardized syntax.
+
+To get started, we must define a container element as a grid with `display: grid`, set the column and row sizes with `grid-template-columns` and `grid-template-rows`, and then place its child elements into the grid with `grid-column` and `grid-row`. Similarly to Flexbox, the source order of the grid items doesn't matter. Your CSS can place them in any order, which makes it super easy to rearrange your grid with media queries.
+
+## Terminology ##
+
+* Grid Container --- the element on which `display: grid` is applied, the direct parent of all the grid items
+* Grid Item --- the children (i.e. direct descendants) of the grid container
+* Grid Line --- the dividing lines that make up the structure of the grid. They can be vertical ("column grid lines") or horizontal ("row grid lines") and reside on either side of a row or column, including the outside lines of the grid
+* Grid Track --- the space between two adjacent grid lines, the columns or rows of the grid
+* Grid Cell --- the space between two adjacent row and two adjacent column grid lines, a single "unit" of the grid
+* Grid Area --- the total space surrounded by four grid lines, consisting of any number of grid cells
+
+
+## CSS Grid Properties for the Parent (Grid Container) ##
+
+`display` --- when given the value `grid` or `inline-grid`, defines the element as a grid container and establishes a new grid formatting context for its contents. `grid` generates a block-level grid while `inline-grid` generates an inline-level grid.
+
+---
+
+`grid-template-columns`, `grid-template-rows` --- defines the columns or rows of the grid with a space-separated list of values. The values represent the track size, and the spaces between them represent the internal grid lines.
+
+The possible values for these two properties are:
+* `<track-size>` --- can be a length, a percentage, or a fraction of the free space in the grid using the `fr` unit
+* `<line-name>` --- an arbitrary name
+
+Grid lines are automatically assigned positive numbers based on the setting of these properties (with an alternate set of negative numbers used to specify the same lines starting with the last at `-1`).
+
+You can also choose to explicitly name the lines. The syntax involves specifying the name in square brackets followed by a space before each length value, e.g.:
+
+```css
+
+.container {
+	display: grid;
+	grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+	grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+}
+
+```
+
+Note that a line can have more than one name, e.g.
+
+```css
+
+.container {
+	display: grid;
+	grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];
+}
+
+```
+
+If your definition contains repeating parts, you can use the `repeat()` notation to streamline things.
+
+If multiple lines share the same name, they can be referenced by their line name and count:
+
+```css
+
+.item {
+	grid-column-start: col-start 2;
+}
+
+```
+
+The `fr` unit allows you to set the size of a track as a fraction of the free space of the grid container. The free space is calculated after any non-flexible items.
+
+---
+
+`grid-template-areas` --- defines a grid template by referencing the names of the grid areas which can be specified with the `grid-area` property on grid items. Repeating the name of a grid area causes the content to span those cells. A period signifies an empty grid cell. The syntax itself provides a visualization of the structure of the grid.
+
+The possible values for `grid-template-areas` are:
+* `<grid-area-name>` --- the name of a grid area specified with `grid-area`
+* `.` --- a period signifies an empty grid cell
+* `none` --- no grid areas are defined
+
+Each row in your declaration needs to have the same number of cells.
+
+You can use any number of adjacent periods to declare a single empty cell. As long as the periods have no spaces between them they represent a single cell.
+
+When you use this syntax, the lines on either end of the areas are getting named automatically. If the name of your grid area is `foo`, the name of the area's starting row line *and* starting column line is `foo-start`, and the name of its last row line and last column line is `foo-end`. This means that some lines might have multiple names.
+
+---
+
+`grid-template` --- a shorthand for setting `grid-template-rows`, `grid-template-columns`, and `grid-template-areas` in a single declaration.
+
+Possible values:
+* `none` --- sets all three properties to their initial values
+* `<grid-template-rows> / <grid-template-columns>` --- sets these properties to the specified values and sets `grid-template-areas` to `none`
+* syntax for specifying all three, very complex, will need to refer back to CSS-Tricks and the documentation
+
+Since `grid-template` doesn't reset the *implicit grid properties* `grid-auto-columns`, `grid-auto-rows`, and `grid-auto-flow`, which is probably what you want to do in most cases, it's recommended to use the `grid` property instead of `grid-template`.
+
+---
+
+`column-gap`, `row-gap`(, `grid-column-gap`, `grid-row-gap`) --- specify the size of the grid lines. You can think of it like setting the width of the gutters between the columns/rows. The gutters are only created between the columns/rows, not on the outer edges.
+
+Possible values:
+* `<line-size>` --- a length value
+
+`column-gap` and `row-gap` are the new standard syntax. You should use these as first choice over `grid-column-gap` and `grid-row-gap`. The new syntax is supported in all modern browsers but not Internet Explorer.
+
+---
+
+`gap`(, `grid-gap`) --- a shorthand for `row-gap` and `column-gap`.
+
+The possible values for `gap` (new standard syntax) are one or two lengths. If there is one length given, it represents both `row-gap` and `column-gap`. Otherwise, the first length is `row-gap` and the second `column-gap`.
+
+The `grid-` prefix is deprecated, but might possibly never be removed.
+
+---
+
+`justify-items` --- aligns grid items along the inline (row) axis, as opposed to `align-items` which aligns along the block (column) axis). This value applies to all grid items inside the container.
+
+Possible values for `justify-items`:
+* `start` --- aligns items to be flush with the start edge of their cell
+* `end` --- aligns items to be flush with the end edge of their cell
+* `center` --- aligns items in the center of their cell
+* `stretch` --- fills the whole width of the cell (this is the default)
+
+This behavior can also be set on individual grid items via the `justify-self` property.
+
+---
+
+`align-items` --- aligns grid items along the block (column) axis (as opposed to `justify-items` which aligns them along the inline (row) axis). This value applies to all grid items inside the container.
+
+Possible values for `align-items`:
+* `stretch` --- fills the whole height of the cell (default)
+* `start`
+* `end`
+* `center`
+* `baseline` --- align itemss along text baseline. There are modifiers to `baseline`: `first baseline` and `last baseline`, which will use the baseline from the first or last line respectively in the case of multi-line text.
+
+This behavior can also be set on individual grid items via the `align-self` property.
+
+There are also modifier keywords `safe` and `unsafe`. Usage is like e.g. `align-items: safe end`. The `safe` keyword means "try to align like this, but not if it means aligning an item such that it moves into an inaccessible overflow area", while `unsafe` will permit content being moved there.
+
+---
+
+`place-items` --- sets both the `align-items` and `justify-items` properties in a single declaration.
+
+Values:
+* `<align-items>` `<justify-items>`
+
+A single value can be used to set both.
+
+---
+
+`justify-content` --- sometimes the total size of your grid might be less than the size of its grid container. This could happen if all your gird items are sized with non-flexible units like `px`. In this case, you can set the alignment of the grid within the grid container. This property aligns the grid along the inline (row) axis (as opposed to `align-content` which aligns the grid along the block (column) axis).
+
+Values:
+* `start`
+* `end`
+* `center`
+* `stretch`
+* `space-around` --- places an even amount of space between each grid item, with half-sized spaces on the far ends
+* `space-between` --- places an even amount of space between each grid item, with no space at the far ends
+* `space-evenly` --- places an even amount of space between each grid item, including the far ends
+
+---
+
+`align-content` --- as above but aligns content along the block (column) axis as opposed to the row. The values are the same as `justify-content`.
+
+---
+
+`place-content` --- sets both the `align-content` and `justify-content` properties in a single declaration.
+
+Values:
+* `<align-content> <justify-content>`
+
+If the first value is omitted, a single value sets both properties.
+
+---
+
+`grid-auto-columns`, `grid-auto-rows` --- specifies the size of any auto-generated grid tracks (aka *implicit grid tracks*). Implicit tracks get created when there are more grid items than cells in the grid or when a grid item is placed outside of the explicit grid.
+
+When we manually define a fixed number of lines and tracks that form a grid by using the properties `grid-template-rows`, `grid-template-columns`, and `grid-template-areas`, we are defining the *explicit grid*.
+
+If there are more grid items than cells in the grid, or when a grid item is placed outside of the explicit grid, the grid container automatically generates grid tracks by adding grid lines to the grid. The explicit grid together with these additional implicit tracks and lines forms the so called  *implicit grid*.
+
+The widths and heights of the implicit tracks are set automatically. They are only big enough to fit the placed grid items, but it's possible to change this default behavior.
+
+The `grid-auto-columns` and `grid-auto-rows` properties give us control over the size of implicit tracks.
+
+Possible values:
+* `<track-size>` --- can be a length, a percentage, or a fraction of the free space in the grid
+
+---
+
+`grid-auto-flow` --- if you have grid items that you don't explicitly place on the grid, the *auto-placement algorithm* kicks in to automatically place the items. `grid-auto-flow` controls how the auto-placement algorithm works.
+
+Possible values:
+* `row` --- tells the auto-placement algorithm to fill in each row in turn, adding new rows as necessary (default)
+* `column` --- tells the auto-placement algorithm to fill in each dolumn in turn, adding new columns as necessary
+* `row dense` or `column dense` --- tells the auto-placement algorithm to attempt to fill in holes earlier in the grid if smaller items come up later
+
+Note that `dense` only changes the visual order of your items and might cause them to appear out of order, which is bad for accessibility.
+
+---
+
+`grid` --- a shorthand for setting all of the following properties in a single declaration: `grid-template-rows`, `grid-template-columns`, `grid-template-areas`, `grid-auto-rows`, `grid-auto-columns`, and `grid-auto-flow`. Note: you can only specify the explicit or the implicit grid properties in a single `grid` declaration.
+
+Values:
+* `none` --- sets all sub-properties to their initial values
+* `<grid-template>` --- works the same as the `grid-template` shorthand
+* `<grid-template-rows> / [ auto-flow && dense? ] <grid-auto-columns>?` --- sets `grid-template-rows` to the specified value. If the `auto-flow` keyword is to the right of the slash, it sets `grid-auto-flow` to `column`. If the `dense` keyword is specified in addition, the auto-placement algorithm uses a "dense" packing algorithm. If `grid-auto-columns` is omitted, it is set to `auto`.
+* `[ auto-flow && dense? ] <grid-auto-rows>? / <grid-template-columns>` --- sets `grid-template-columns` to the specified value. If the `auto-flow` keyword is to the left of the slash, it sets `grid-auto-flow` to `row`. If the `dense` keyword is also specified, the auto-placement algorithm uses a "dense" packing algorithm. If `grid-auto-rows` is omitted, it is set to `auto`.
+
+`grid` also accepts a more complex but quite handy syntax for setting everything at once. You specify `grid-template-areas`, `grid-template-rows`, `grid-template-columns`, and all the other sub-properties are set to their initial values. What you're doing is specifying the line names and track sizes inline with their respective grid areas.
+
+## CSS Grid Properties for the Children (Grid Items) ##
+
+Note: `float`, `display: inline-block`, `display: table-cell`, `vertical-align`, and `column-*` properties have no effect on a grid item.
+
+### The `grid-column-start`, `grid-column-end`, `grid-row-start`, and `grid-row-end` Properties ###
+
+The properties determine a grid item's location within the grid by referring to specific grid lines. `grid-column-start`/`grid-row-start` is the line where the item begins, and `grid-column-end`/`grid-row-end` is the line where the item ends.
+
+Values:
+* `<line>` --- can be a number to refer to a numbered grid line, or a name to refer to a named grid line
+* `span <number>` --- the item will span across the provided number of grid tracks
+* `span <name>` --- the item will span across until it hits the next line with the provided name
+* `auto` --- indicates auto-placement, an automatic span, or a default span of one
+
+Items can overlap each other. You can use `z-index` to control their stacking order.
+
+### The `grid-column` and `grid-row` Properties ###
+
+Shorthand for `grid-column-start` + `grid-column-end`, and `grid-row-start` + `grid-row-end`, respectively.
+
+Values:
+* `<start-line> / <end-line>` --- each one accepts all the same values as the longhand version, including `span`.
+
+If no end line value is declared, the item will span 1 track by default.
+
+### The `grid-area` Property ###
+
+Gives an item a name so that it can be referenced by a template created with the `grid-template-areas` property on the Grid container.
+
+Alternatively, this property can be used as an even shorter shorthand for `grid-row-start` + `grid-column-start` + `grid-row-end` + `grid-column-end`.
+
+Values:
+* `name` --- a name of your choosing
+* `<row-start> / <column-start> / <row-end> / <column-end>` --- can be numbers or named lines
+
+### The `justify-self` Property ###
+
+Aligns a grid item inside a cell along the inline (row) axis (as opposed to `align-self` which aligns along the block(column) axis). This value applies to a grid item inside a single cell.
+
+Values:
+* `start` --- aligns the grid item to be flush with the start edge of the cell
+* `end` --- aligns the grid item to be flush with the end edge of the cell
+* `center` --- aligns the grid item in the center of the cell
+* `stretch` --- fills the whole width of the cell (default)
+
+To set alignment for *all* the items in a grid, this behavior can be set on the grid container with `justify-items`.
+
+### The `align-self` Property ###
+
+Aligns a grid item inside a cell along the block (column) axis (as opposed to `justify-self`), which aligns along the inline (row) axis). This value applies to the content inside a single grid item.
+
+Values:
+* `start` --- aligns the grid item to be flush with the start edge of the cell
+* `end` --- aligns the grid item to be flush with the end edge of the cell
+* `center`
+* `stretch` (default)
+
+To align *all* the items in a grid, we can use the `align-items` property on the Grid container.
+
+### The `place-self` Property ###
+
+`place-self` sets both the `align-self` and `justify-self` properties in a single declaration.
+
+Value:
+* `auto` --- the default alignment for the layout mode
+* `<align-self> / <justify-self>` --- the first value sets `align-self`, the second value `justify-self`. If the second value is omitted, the first value is assigned to both properties
+
+## Special Units and Fractions ##
+
+Fractional units are common in Grid, e.g. `1fr`. They mean "portion of the remaining space". Unlike percentages, fractions are flexible and forgiving. If you add padding to an element, it won't necessarily cause the problems associated with percentages on elements using 'content-box'. Fractional units are much more friendly in relation to absolute lengths than percentages are.
+
+When sizing rows and columns, you can use lengths but you also have keywords:
+* `min-content` --- the minimum size of the content. In a line of text, the `min-content` would be the size of the longest word
+* `max-content` --- the maximum size of the content. The `max-content` of a line of text would be the length of the whole line
+* `auto` --- this keyword is like `fr` units, except that `auto` "loses the fight" for remaining space against `fr` units
+ 
+The `fit-content()` function uses the space available, but never less than `min-content` and never more than `max-content`.
+
+The `minmax()` function sets a minimum and maximum value for what the length is able to be. This is useful in combination with relative units. 
+
+The `min()` function takes two arguments and returns the minimum value. The `max()` function takes two arguments and returns the maximum value.
+
+Masonry is an experimental feature of CSS grid. There are lots of approaches to masonry layout (or waterfall layout) in CSS, but most of them are trickery with major downsides, or they simply don't do what you expect. The spec now has an official way, but it is not enabled by default in any web browsers yet.
+
+Subgrid is another new and very useful feature of grids that allows grid items to have a grid of their own that inherits grid lines from the parent grid. This feature has newly made it into browsers, and is available on all contemporary browser updates released in the last couple of years. Not available on older versions of the contemporary browsers, and definitely not in Internet Explorer.
+
+It is also useful to be aware of `display: contents`. This is not the same as subgrid, but it can be a useful tool for similar but not identical purposes. This property solves a different class of problems involved in grid layouts.
+

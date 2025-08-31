@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CSS Tricks Example</title>
+    <meta charset="utf-8">
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 1fr);
+        grid-gap: 20px;
+      }
+
+      div > div {
+        height: 100px;
+      }
+
+      .a {
+        background-color: aqua;
+      }
+
+      .b {
+        background-color: blue;
+      }
+
+      .c {
+        background-color: dodgerblue;
+      }
+
+      .d {
+        background-color: cadetblue;
+      }
+
+      .e {
+        background-color: cornflowerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="a">Div A</div>
+      <div class="b">Div B</div>
+      <div class="c">Div C</div>
+      <div class="d">Div D</div>
+      <div class="e">Div E</div>
+    </div>
+  </body>
+</html>

@@ -727,3 +727,27 @@ Subgrid is another new and very useful feature of grids that allows grid items t
 
 It is also useful to be aware of `display: contents`. This is not the same as subgrid, but it can be a useful tool for similar but not identical purposes. This property solves a different class of problems involved in grid layouts.
 
+# Aerolab Flexbox and Grid #
+
+One way to center the content within a Grid item is to declare that item `display: flex`. Thereafter, we can use `justify-content` and `align-items` to `center` the content.
+
+# 6:10 Guided Project: Flex #
+
+It's a good idea to start out by getting rid of all margins and padding at the global level to decrease the cross-browser differences. We can use the `*` selector in this project; you would typically use a CSS reset for this.
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: white;
+  color: black;
+  font: normal 24px Helvetica, Arial, sans-serif;
+}
+```
+
+Remember: when there is a gap beneath an `img`, this is because `img` is `inline` by default. There are several ways of dealing with this, but one easy one (if its appropriate) is to set the `img` to `display: block`.
+
+Remember: the `flex` property can be used with a unitless integer on flexbox items in much the same way fractions work for grid items' size.

@@ -751,3 +751,16 @@ html {
 Remember: when there is a gap beneath an `img`, this is because `img` is `inline` by default. There are several ways of dealing with this, but one easy one (if its appropriate) is to set the `img` to `display: block`.
 
 Remember: the `flex` property can be used with a unitless integer on flexbox items in much the same way fractions work for grid items' size.
+
+# 6:12 CSS Frameworks #
+
+Popular frameworks for CSS include **Bootstrap** and **Foundation**.
+
+LS don't mention **Tailwind**, but that appears to be the most popular c. 2024. Tailwind is "utility-first", meaning that you compose Tailwind's tiny utility CSS classes in order to produce unique styles.
+
+By contrast, Bootstrap and Foundation feature ready-made components and standard interfaces, which you can incorporate into a page wholesale. These components include HTML elements and optional JavaScript functionality in addition to CSS.
+
+The most beneficial aspects of Bootstrap and Foundation are their handling of media queries for tablet and mobile views as well as a grid system that's already defined for you by way of generic classes.
+
+A framework package typically has a grid system implemented with a combination of HTML, CSS, and JavaScript at it sheart. This grid has nothing to do with CSS Grid, though it's possible that frameworks may soon incorporate CSS Grid. (Bootstrap and Tailwind now incorporate Grid to differing extents.)
+

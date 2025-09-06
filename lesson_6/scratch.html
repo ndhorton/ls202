@@ -1,47 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CSS Tricks Example</title>
+    <title>Example</title>
     <meta charset="utf-8">
     <style>
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 1fr);
-        grid-gap: 20px;
+      ul {
+        padding: 0;
+        /* list-style: none; */
       }
 
-      div > div {
-        height: 100px;
+      .row::after {
+        clear: both;
+        content: "";
+        display: block;
+        line-height: 0;
       }
 
-      .a {
-        background-color: aqua;
-      }
-
-      .b {
-        background-color: blue;
-      }
-
-      .c {
-        background-color: dodgerblue;
-      }
-
-      .d {
-        background-color: cadetblue;
-      }
-
-      .e {
-        background-color: cornflowerblue;
+      .one-fourth {
+        display: inline-block;
+        float: left;
+        outline: 1px solid gray;
+        /* vertical-align: top; */
+        width: 25%;
       }
     </style>
   </head>
   <body>
-    <div class="grid-container">
-      <div class="a">Div A</div>
-      <div class="b">Div B</div>
-      <div class="c">Div C</div>
-      <div class="d">Div D</div>
-      <div class="e">Div E</div>
-    </div>
+    <ul class="row">
+      <li class="one-fourth">8 GB SD card</li>
+      <li class="one-fourth">16 GB SD card</li>
+      <li class="one-fourth">32 GB SD card</li>
+      <li class="one-fourth">64 GB SD card</li>
+    </ul>
   </body>
 </html>

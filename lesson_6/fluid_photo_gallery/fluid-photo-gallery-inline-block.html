@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Fluid Photo Gallery</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        font-size: 16px;
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      main {
+        min-width: 500px;
+        max-width: 1000px;
+        background-color: #333;
+        color: #f0f0f0;
+        padding: 1rem;
+      }
+
+      h1 {
+        margin: 1rem auto;
+        width: fit-content;
+        font-size: 1.8rem;
+        font-weight: 1000;
+      }
+
+      .row-first > .photo {
+        border: 1rem solid white;
+        width: 100%;
+      }
+
+      .row-first > figcaption {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .row-second {
+        margin: 2rem 0 0 0;
+        width: 100%;
+      }
+
+      .row-second > .photo {
+        display: inline-block;
+        width: 23.5%;
+        border: 3px solid white;
+        text-align: center;
+      }
+
+      .row-second > .photo:first-of-type {
+        margin-right: 1%;
+      }
+
+      .row-second > .photo:nth-of-type(2) {
+        margin: 0 1%;
+      }
+
+      .row-second > .photo:nth-of-type(3) {
+        margin: 0 2% 0 1%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>My Photo Gallery</h1>
+      <figure class="row-first">
+        <img class="photo" src="https://placehold.co/1200x900">
+        <figcaption>Example photo</figcaption>
+      </figure>
+      <div class="row-second">
+        <img class="photo" src="https://placehold.co/1200x900"><!--
+     --><img class="photo" src="https://placehold.co/1200x900"><!--
+     --><img class="photo" src="https://placehold.co/1200x900"><!--
+     --><img class="photo" src="https://placehold.co/1200x900">
+      </div>
+    </main>
+  </body>
+</html>

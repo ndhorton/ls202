@@ -764,3 +764,123 @@ The most beneficial aspects of Bootstrap and Foundation are their handling of me
 
 A framework package typically has a grid system implemented with a combination of HTML, CSS, and JavaScript at it sheart. This grid has nothing to do with CSS Grid, though it's possible that frameworks may soon incorporate CSS Grid. (Bootstrap and Tailwind now incorporate Grid to differing extents.)
 
+# 6:13 Responsive Design #
+
+To make websites look good and provide the same functionality regardless of the device and screen size of the user, we can use media queries.
+
+## Media Queries ##
+
+Media queries very often define styles that change based on the current size of the browser window, which lets us customize the look for phones, tablets, small laptops, and large desktop displays.
+
+For instance, to set a different anchor link color when the width of the screen is 480px or less, we might write:
+```css
+a {
+	color: #f00;
+}
+
+@media (max-width: 480px) {
+	a {
+		color: #06c;
+	}
+}
+```
+
+Any styles placed inside this media query block will apply when the screen width is 480px or less.
+
+We can also use the words `not` and `and` in media queries, and choose different media types such as `screen`, `print`, or `speech`. Most common is a combination of `screen` media type and a `min-width` or `max-width`, such as:
+
+```css
+@media screen and (max-width: 1600px) {
+	/* CSS for 1600px (or smaller) screens (and no printers!) */
+}
+```
+
+---
+From MDN:
+* Media queries allow you to apply CSS styles depending on a device's media type (such as print vs. screen) or other features or characteristics such as screen resolution or orientation, aspect ratio, browser viewport width or height, user preferences such as preferring reduced motion, data usage, or transparency.
+* Media queries are used for the following:
+	* To conditionally apply styles with the CSS `@media` and `@import` at-rules
+	* To target specific media for the `<style>`, `<link>`, `<source>`, and other HTML elements with the `media=` or `sizes=` attributes
+	* To test and monitor media states using the `Window.matchMedia()` and `EventTarget.addEventListener()` methods
+* A media query is composed of an optional **media type** and any number of **media feature expressions**, which may optionally be combined in various ways using **logical operators**. Media queries are case-insensitive.
+	* Media types define the broad category of device for which the media query applies: `all`, `print`, `screen`. The default type is `all`, and the type is optional unless using the logical operator `only`.
+	* Media features describe a specific characteristic of the user agent, output device, or environment. Media feature expressions test for presence or absence or value, and are entirely optional. Each media feature expression must be surrounded by parentheses.
+	* Logical operators can be used to compose a complex media query: `not`, `and`, `or`, and `only`. You can also combine multiple media queries into a single rule by separating them with commas. The comma-separated list of media queries behaves like an `or` composition of the media queries, and allows us to apply the same styles in different situations. The `only` operator was used to prevent older browsers from applying styles without evaluating the media feature expressions but it has no effect in modern browsers.
+* A media query computes to `true` when the media type (if specified) matches the device on which a document is being displayed and all media feature expressions compute as true. Queries involving unknown media types are always false.
+
+---
+
+## Mobile-First and Desktop-First ##
+
+A common approach is to design a website mobile-first, meaning the standard CSS with no media queries active lays out the site for mobile, and then a series of media queries for progressively larger screens re-style the page with layouts appropriate to the sizes.
+
+The outer/topmost section contains not only the layout for mobile but also any styles common to all viewport sizes (usually colors, font families, etc). Then you would add a series of media queries, each of which modifies the layout for progressively larger displays (and possibly a media query for printers).
+
+Conversely, the desktop-first approach to site design starts with the full-scale large desktop design first, and then progressively provides media queries for the smaller displays.
+
+The mobile-first approach frequently results in faster downloads on mobile devices, while the desktop-first approach results in slower downloads.
+
+Most developers consider the mobile-first approach to be best-practice.
+
+## Breakpoints ##
+
+Each step up (or down, in desktop-first) in screen size is known as a **breakpoint**.
+
+Each breakpoint represents a size of screen/viewport, not a specific device necessarily. Contemporary mobile devices now cover a continuum of different screen sizes, and its hard to differentiate between a large phone and a small tablet.
+
+Instead of asking whether you're working on a cell phone or desktop, it's more natural and useful to ask what layout works best over a particular range of screen sizes, then build each of those layouts with the appropriate media query.
+
+## Emulating Devices in Google Chrome ##
+
+As well as screen sizes of smaller devices, Chrome lets you emulate slower connection speeds by choosing mid-tier mobile or low-tier mobile.
+
+For emulating devices, you will also need to add the HTML `<meta name="viewport">` element described below.
+
+## Using Your Page on Multiple Devices ##
+
+If you design your application with responsiveness in mind, you must put the following `<meta>` element in the `<head>` part of the `<html>`. It tells mobile devices how to handle that page; without it, those devices often display a miniaturized version of the page instead of showing the desired mobile device page described by your media queries and CSS.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
+
+Don't use this tag if your app has no responsiveness traits.
+
+
+## Fluid and Liquid Layouts ##
+
+Some terminology
+* fixed-width layouts
+* responsive design
+* fluid layouts
+* liquid layouts
+* elastic layouts
+* hybrid layouts
+
+These types of layouts are all fairly similar in essence. Further, people tend to use one term in place of another.
+
+Fixed-width layout simply means a non-responsive layout that does not change with window resizing, or for smaller devices.
+
+Responsive design is a web design approach to make web pages render well on all screen sizes and resolutions while ensuring good usability. Is a way of designing web layouts so that they are flexible and work well across different device screen sizes, resolutions, etc. Typically, we use media query breakpoints to change the layout of the content to fit screen width.
+
+Liquid layouts often employ percentage values for widths to maintain the same width ratios for content areas as the browser width changes.
+
+The foundation of liquid and fluid layouts is to style elements such that elements retain their proportion of the width of the window 
+regardless of the window resizing.
+
+### Liquid Layouts ###
+
+In a liquid layout, we can set two columns to `float: left`, with their container set to `overflow: hidden`, and then set `width` percentages such that both columns are displayed side-by-side. Of course, this means that if we change one percentage, we must change the other so they sum to 100%.
+
+Alternately, we can set the first column to `float: left` and then set the second column to `overflow: hidden`. This means we only have to set the `width` on the floated element and the column to its right will resize automatically so that both columns sit side-by-side with a proportion dictated by the floated element, regardless of how we resize the window.
+
+### Fluid Layouts ###
+
+Liquid layouts ordinarily take up the entire width of the browser window, no matter how big it gets. If you want to restrict the expansion or collapse, you need to use a fluid layout. Once the window reaches one of the limits, the element will cease expanding or collapsing and remain fixed in width as the window width continues to change in the same direction. Fluid layouts expand and collapse like a liquid layout to a point, then become fixed once the browser width reaches a specific size.
+
+We can achieve this by setting a `min-width` and `max-width` on the container element for our page layout.
+
+According to a StackOverflow user citing a textbook on web design, an **elastic** layout has its elements' widths defined in terms of ems rather than percentages. This way, they resize dependent on font size rather than viewport width. In principle, it's the behavior most browsers make available through Page Zoom.
+
+An **adaptive** layout means having several fixed-width layouts of different sizes which we switch between dependent on the size range within which the actual size of the viewport falls. In this scheme, a responsive layout means combining adaptive and liquid layouts, so that regardless of window size the proportions of element widths in relation to each other will be the same within the size range between breakpoints, and the layout then changes significantly (like an elastic layout) when the window resizing hits a breakpoint.
+

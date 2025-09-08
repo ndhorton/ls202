@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Fluid Photo Gallery</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        font-size: 16px;
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      main {
+        min-width: 500px;
+        max-width: 1000px;
+        background-color: #333;
+        color: #f0f0f0;
+        padding: 1rem;
+      }
+
+      main::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      h1 {
+        margin: 1rem auto;
+        width: fit-content;
+        font-size: 1.5rem;
+        font-weight: 1000;
+      }
+
+      .row-first > .photo {
+        border: 1rem solid white;
+        width: 100%;
+        padding: 28.125% 0;
+        text-align: center;
+        font-size: 2.5rem;
+      }
+
+      .photo {
+        background-color: #ccc;
+        color: #969696;
+      }
+
+      .row-first > figcaption {
+        font-size: 0.8rem;
+        margin-top: 0.4rem;
+        font-weight: bold;
+      }
+
+      .row-second {
+        margin: 1rem 0;
+        width: 100%;
+      }
+
+      .row-second > .photo {
+        float: left;
+        width: 23.5%;
+        border: 3px solid white;
+        padding: 6.609375% 0;
+        text-align: center;
+      }
+
+      .row-second > .photo:first-of-type {
+        margin-right: 1%;
+      }
+
+      .row-second > .photo:nth-of-type(2) {
+        margin: 0 1%;
+      }
+
+      .row-second > .photo:nth-of-type(3) {
+        margin: 0 2% 0 1%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>My Photo Gallery</h1>
+      <figure class="row-first">
+        <div class="photo">
+          1200&#215;900
+        </div>
+        <figcaption>Example photo</figcaption>
+      </figure>
+      <div class="row-second">
+        <div class="photo">1200&#215;900</div>
+        <div class="photo">1200&#215;900</div>
+        <div class="photo">1200&#215;900</div>
+        <div class="photo">1200&#215;900</div>
+      </div>
+    </main>
+  </body>
+</html>

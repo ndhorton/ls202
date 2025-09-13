@@ -884,3 +884,4 @@ According to a StackOverflow user citing a textbook on web design, an **elastic*
 
 An **adaptive** layout means having several fixed-width layouts of different sizes which we switch between dependent on the size range within which the actual size of the viewport falls. In this scheme, a responsive layout means combining adaptive and liquid layouts, so that regardless of window size the proportions of element widths in relation to each other will be the same within the size range between breakpoints, and the layout then changes significantly (like an elastic layout) when the window resizing hits a breakpoint.
 
+

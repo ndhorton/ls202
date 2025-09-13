@@ -51,6 +51,7 @@ nav a {
   background-color: #fcfff5;
   color: #91aa9d;
   font-size: 18px;
+  margin-left: 1px;
 }
 
 nav a.active {
@@ -76,9 +77,8 @@ h2 {
 
 p {
   color: #3e606f;
-  text-align: justify;
-  line-height: 1.4rem;
-  margin-bottom: 22px;
+  line-height: 1.425rem;
+  padding-bottom: 22px;
 }
 
 figure {

@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #2f2840 url("images/bg_body.gif");
+}
+
+body {
+    background: transparent;
+    font-family: Avenir, Nunito, Helvetica, Arial, sans-serif;
+    font-size: 1.25rem;
+    text-align: center;
+    color: #45494d;
+}
+
+header h1 {
+    margin-top: 135px;
+}
+
+header nav {
+    margin: 115px auto 37px auto;
+    font-size: 1.625rem;
+    text-transform: uppercase;
+    max-width: 454px;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #cacaca;
+}
+
+header nav .current-page {
+    color: #6db9ff;
+    font-weight: 900;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 100px 0 0 0;
+}
+
+main .wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+main article {
+    padding: 0 0 75px 0;
+}
+
+main h2 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin: 0 0 38px 0;
+}
+
+main h2::before,
+main h2::after {
+    content: "\2022";
+    font-size: 1.625rem;
+    vertical-align: 0.3125rem;
+    padding: 0 1.25rem;
+}
+
+main h3 {
+    margin: 0 0 18px 0;
+    color: #3e59b2;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    font-size: 1.5rem;
+    word-spacing: 0.5px;
+}
+
+main figure {
+    max-width: 1000px;
+    margin: 0 auto 48px auto;
+}
+
+main figure img {
+    display: inline-block;
+    width: 100%;
+}
+
+main ul {
+    margin: 130px 0 140px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+main ul a {
+    text-decoration: none;
+    color: #3e59b2;
+    font-size: 1.5rem;
+}
+
+main dl dt {
+    margin: 22px 0 0 0;
+}
+
+main .project-map {
+    padding: 0 0 52px 0;
+}
+
+footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #e7e7e7;
+    padding: 82px 0 78px 0;
+}
+
+footer p {
+    margin: 0 auto 43px auto;
+    color: #b2b2b2
+}
+
+footer li {
+    display: inline-block;
+    margin: 0 60px;
+}
+
+footer ul a {
+    overflow: hidden;
+    text-indent: -200px;
+    display: block;
+    width: 46px;
+    height: 46px;
+    background: transparent url("images/icons_social-media.png") 0 0 no-repeat;
+}
+
+footer .icon-twitter {
+    background-position: 0 0;
+}
+
+footer .icon-facebook {
+    background-position: 0 -46px;
+}
+
+footer .icon-email {
+    background-position: 0 -92px;
+}
+
+footer .icon-instagram {
+    background-position: 0 -138px;
+}

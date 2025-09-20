@@ -60,3 +60,13 @@ The lack of font measurements and the difficulty of measuring small items makes 
 6. Observe the differences between the desiign file and your file. Make corrections in your file.
 7. Return to step 5 until your files match as well as possible.
 
+# 7:7 Improving Your HTML and CSS #
+
+There is no "one true way" to achieve a result with HTML and CSS. Much of front-end development involves interpreting the information you wish to present and identifying common styles to make your CSS as concise as possible.
+
+Read HTML5 for Web Designers by Jeremy Keith (2010).
+
+Read up on the `role` attribute and ARIA.
+
+The `cursor` property can be used to change the mouse cursor to change when a user is hovering over an element. For instance, `cursor: pointer` changes the mouse cursor to the icon that shows when we hover over an anchor link. The value can be a cursor type keyword, in which case the default icon for that type will be used, but you can also choose a particular icon, with fallback images and a final mandatory keyword for a type of cursor.
+

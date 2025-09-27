@@ -10,15 +10,14 @@
     <link rel="stylesheet" href="whitespace-reset.css">
     <style>
       /* breakpoints:
-        less than 942px width - two column speakers
-        less than 654px width - two column speakers
-                              - schedule changes to vertical
+        less than 654px width
+                              - schedule changes layout
                               - nav bar disappears
-        less than 587px width - one column speakers
+                              - header changes height
 
-        So the only definite breakpoint is at 653/654 width.
-        The changes in visible columns for Speakers could be flex, grid, or just
-        the ordinary flow.
+        So the only definite breakpoint is at 653/654 width. There are some fluid
+        sections where variable numbers of columns change based on the size of the
+        window, but these should not be dealt with using media queries.
       */
 
       * {
@@ -54,7 +53,7 @@
         right: 0;
         background: #fff;
         border-top: 9px solid #f5f5f5;
-        border-bottom: 1px solid #f5f5f5;
+        border-bottom: 0.5px solid #f5f5f5;
       }
 
       nav ul {
@@ -62,13 +61,13 @@
         max-width: 1000px;
         margin: 0 auto;
         font-size: 0;
+        padding-bottom: 1px;
       }
 
       nav li {
         display: inline-block;
-        margin: 0 26.75px;
-        padding: 14px 0 14px 0;
-
+        margin: 0 26.7px;
+        padding: 14px 0 12.5px 0;
       }
 
       nav a {
@@ -80,6 +79,50 @@
 
       nav a:hover {
         text-decoration: underline;
+      }
+
+      header {
+        margin: 54px 0 0 0;
+        height: 429px;
+        background: #fff url("https://2014.jsconfbr.org/images/front.jpg") center;
+        text-align: center;
+        padding-top: 151px;
+      }
+
+      header img {
+        display: block;
+        width: 80px;
+        margin: 0 auto;
+      }
+
+      header h1 {
+        margin: 4px 0 0 0;
+        color: #fff;
+        font-size: 72px;
+        font-weight: 400;
+      }
+
+      header p {
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 31px;
+      }
+
+      .tickets {
+        width: 953px;
+        margin: 0 auto;
+        border-bottom: 1px solid #f5f5f5;
+        height: 300px;
+      }
+
+      a.button-link  {
+        background-color: #008000;
+        width: fit-content;
+        display: block;
+        padding: 10px 30px;
+        margin: 0 auto;
+        color: #fff;
       }
     </style>
   </head>
@@ -97,6 +140,7 @@
       </ul>
     </nav>
     <header>
+      <img src="https://2014.jsconfbr.org/images/jsconfbr.png" alt="JavaScript">
       <h1>JSConf BR 2014</h1>
       <p>April 26 / Fortaleza, Brazil</p>
     </header>
@@ -104,9 +148,11 @@
       <section class="tickets">
         <h2>Tickets</h2>
         <p>Super Early Bird is opened!</p>
-        <h3 class="button-link">
-          <a href="#">Buy JSConf BR Tickets</a>
-        </h3>
+        <a href="#" class="button-link">
+          <h3>
+            Buy JSConf BR Tickets
+          </h3>
+        </a>
       </section>
       <section class="speakers">
         <h2>

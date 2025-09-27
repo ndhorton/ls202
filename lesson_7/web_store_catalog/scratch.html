@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .tile {
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color: dodgerblue;
+      }
+
+      h1 {
+        display: none;
+      }
+
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      input[type="checkbox"]:checked + h1 {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="foo" class="tile"></label>
+    <input type="checkbox" id="foo">
+    <h1>Hello there!</h1>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="whitespace-reset.css">
+    <title>Table formatting test</title>
+    <style>
+      /* breakpoints:
+        less than 942px width - two column speakers
+        less than 654px width - two column speakers
+                              - schedule changes to vertical
+                              - nav bar disappears
+        less than 587px width - one column speakers
+
+        So the only definite breakpoint is at 653/654 width.
+        The changes in visible columns for Speakers could be flex, grid, or just
+        the ordinary flow.
+      */
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        background-color: #fff;
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        font-weight: 200;
+      }
+
+      table {
+        margin: 0 auto;
+      }
+
+      tr {
+        display: flex; /* toggling this will switch order (still need to toggle float) */
+        /* display: table-row; /* so you could toggle this instead if we're doing
+                              mobile-first */
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid black; /* #ececec; */
+      }
+
+      td img {
+        display: block;
+        max-width: 130px;
+
+        /* the float property is toggled when the screen gets bigger than 653px */
+        /* You could combine this with the nested flexboxes in the stackoverflow
+          answer */
+        /* float: right; */
+      }
+
+      td {
+        order: 1;
+        flex: 1 1 0; /* you need this to keep the 'cells' spaced right */
+      }
+
+      th {
+        order: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="schedule">
+      <h2>Schedule</h2>
+      <table>
+        <tr>
+          <th scope="row">
+            <h3>8:00</h3>
+          </th>
+          <td>
+            <h3>Registration</h3>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <h3>
+              8:50
+            </h3>
+          </th>
+          <td>
+            <h3>
+              Welcome
+            </h3>
+          </td>
+        </tr>
+        <tr class="target-row">
+          <th scope="row">
+            <h3>
+              9:00
+            </h3>
+          </th>
+          <td class="speaker-cell">
+            <img src="https://2014.jsconfbr.org/images/speakers/lynn_fisher.jpg" alt="Lynn Fisher">
+            <h3>
+              Developers as Intentional Desginers
+            </h3>
+            <h4>
+              <a href="#">Lynn Fisher</a>
+            </h4>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <h3>
+              9:30
+            </h3>
+          </th>
+          <td>
+            <img src="https://2014.jsconfbr.org/images/speakers/dave_furfero.jpg" alt="Dave Furfero">
+            <h3>
+              Close Enough: Using JavaScript to Emulate the Abstract Expressionist Masterworks of Chuck Close
+            </h3>
+            <h4>
+              <a href="#">Dave Furfero</a>
+            </h4>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <h3>
+              10:00
+            </h3>
+          </th>
+          <td>
+            <img src="https://2014.jsconfbr.org/images/speakers/tim_caswell.jpg" alt="Tim Caswell">
+            <h3>
+              The JS-Git Journey
+            </h3>
+            <h4>
+              <a href="#">Tim Caswell</a>
+            </h4>
+          </td>
+        </tr>
+        <tr>
+          <th scope="col">
+            <h3>
+              18:00
+            </h3>
+          </th>
+          <td>
+            <h3>
+              Family Photo
+            </h3>
+          </td>
+        </tr>
+      </table>
+    </section>
+  </body>
+</html>

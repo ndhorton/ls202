@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0;width:device-width">
+    <title>JSConf BR 2014</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <style>
+      html {
+          font-family: "Open Sans", Arial, sans-serif;
+      }
+      body {
+          margin: 0;
+          font-size: 13px;
+          color: #444;
+      }
+      body > div {
+          position: relative;
+      }
+      a[href] {
+          text-decoration: none;
+          color: #444;
+      }
+      a[href]:hover {
+          text-decoration: underline;
+      }
+      a.active {
+          font-weight: bold;
+      }
+
+      #menu {
+          position: fixed;
+          width: 100%;
+          z-index: 1;
+          background: #FFF;
+          border-top: 10px solid #F5F5F5;
+          border-bottom: 1px solid #EEE;
+      }
+      #menu ul {
+          margin: 0 auto;
+          padding: 0;
+          max-width: 960px;
+          text-align: center;
+      }
+      #menu li {
+          display: inline-block;
+          margin: 0 25px;
+          list-style: none;
+      }
+      #menu a {
+          line-height: 44px;
+          text-transform: uppercase;
+          outline: 0;
+      }
+      #menu a.active {
+          font-weight: bold;
+      }
+
+      #front {
+          top: 55px;
+          margin-bottom: 55px;
+          height: 428px;
+          text-align: center;
+          background: url(images/front.jpg) center no-repeat;
+      }
+      #front h1, #front h2 {
+          position: relative;
+          margin: 0;
+          top: 150px;
+          font-weight: normal;
+          text-align: center;
+          text-shadow: 0 1px 3px rgba(0,0,0,.4),0 0 30px rgba(0,0,0,.075);
+          color: #fff;
+      }
+      #front h1 {
+          font-size: 72px;
+      }
+      #front h2 {
+          font-size: 31px;
+          text-transform: uppercase;
+      }
+      #front .logo {
+          position: relative;
+          top: 150px;
+          width: 80px;
+          height: 80px;
+          box-shadow: 0 1px 3px rgba(0,0,0,.4),0 0 30px rgba(0,0,0,.075);
+      }
+
+      #team {
+          height: 280px;
+          color: #FFF;
+          background-size: cover !important;
+          background: url(images/people.jpg) no-repeat center 23%;
+          text-shadow: 0 1px 3px rgba(0,0,0,.4),0 0 30px rgba(0,0,0,.075);
+      }
+      #team.section {
+          margin: 0;
+      }
+      #team h1 {
+          margin: .618em 0 .618em;
+      }
+      #team h2 {
+          margin: 0 auto;
+          text-align: left;
+          max-width: 960px;
+          font-size: 31px;
+          text-transform: uppercase;
+      }
+
+      .dark-background {
+          padding: 10px;
+          background: rgba(0,0,0,0.7);
+      }
+
+      #map {
+          margin: 30px -30px;
+          height: 500px;
+      }
+
+      .text-centered {
+          text-align: center;
+      }
+
+      .button {
+          padding: 10px 30px;
+          color: #FFF !important;
+          background: #008000;
+      }
+      .button:hover {
+          text-decoration: none !important;
+          background: #006000;
+      }
+
+      .section {
+          margin: 0 30px;
+          padding-bottom: 60px;
+          border-top: 1px solid #efefef;
+      }
+      .section h1, .section h2 {
+          margin: 0;
+          font-weight: 100;
+          text-align: center;
+      }
+      .section h1 {
+          margin: 1.236em 0 .618em;
+          font-size: 48px;
+      }
+      .section h2 {
+          margin: 30px 0 4px;
+          font-weight: 600;
+          font-size: 24px;
+      }
+      .section h3 {
+          margin: 30px 0 4px;
+          font-weight: 600;
+          font-size: 18px;
+      }
+      .section p,
+      .section .container {
+          margin: 0 auto 17px;
+          max-width: 960px;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 25px;
+      }
+      .section a[href] {
+          color: #008000;
+          font-weight: bold;
+      }
+
+      .blocks-container {
+          margin: 0 auto;
+          max-width: 1080px;
+          text-align: center;
+      }
+
+      .block {
+          position: relative;
+          display: inline-block;
+          vertical-align: top;
+          margin: 5px;
+          width: 280px;
+          height: 378px;
+          text-align: center;
+          background: #fff;
+          border: 1px solid #e8e8e8;
+      }
+      .block p {
+          padding: 0 10px;
+      }
+      .block-image {
+          display: block;
+          height: 230px;
+          background-position: center;
+          background-size: 100%;
+      }
+      .block-hover-text {
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 10px;
+          color: #FFF;
+          background: rgba(0,0,0,0.9);
+          -webkit-transition: all 0.5s;
+          -moz-transition: all 0.5s;
+          transition: all 0.5s;
+      }
+      .block-hover-text h2 {
+          margin-top: 4px;
+      }
+      .block-hover-text p {
+          font-size: 13px;
+          line-height: 15px;
+      }
+      .block:hover .block-hover-text,
+      .block:target .block-hover-text { opacity: 1; }
+
+      .schedule-grid {
+          margin: 0 auto;
+          max-width: 960px;
+          border-bottom: 1px solid #EFEFEF;
+      }
+      .schedule-grid td {
+          padding: 10px;
+          border-top: 1px solid #EFEFEF;
+      }
+      .schedule-hour {
+          font-size: 24px;
+      }
+      .schedule-grid h2 {
+          display: inline-block;
+          vertical-align: middle;
+          margin: 0 10px 0 0;
+          text-align: left;
+          font-weight: normal;
+      }
+      .schedule-grid h3 {
+           margin: 8px 0 0;
+      }
+      .schedule-grid p {
+          font-size: 12px;
+          line-height: 18px;
+      }
+      .schedule-tag {
+          display: inline-block;
+          padding: 1px 4px;
+          font-size: 7px;
+          background: #EEE;
+          border: 1px solid #AAA;
+      }
+      .schedule-photo img {
+          width: 130px;
+      }
+
+      .gold-sponsor,
+      .silver-sponsor,
+      .support-sponsor {
+          margin-right: 40px;
+      }
+      .gold-sponsor img {
+          width: 300px;
+      }
+      .silver-sponsor img {
+          width: 240px;
+      }
+      .support-sponsor img {
+          width: 180px;
+      }
+
+      @media (max-width: 654px) {
+          #menu { display: none; }
+
+          #front { top: 0; margin-bottom: 0; height: 300px; }
+          #front h1, #front h2, #front .logo { top: 90px; }
+          #front h1 { font-size: 40px; }
+          #front h2 { font-size: 20px; }
+
+          .section.speakers { margin: 0; }
+          .section.sponsors { margin: 0 10px; }
+
+          #team h1 { font-size: 35px; }
+
+          .schedule-grid tr {
+              position: relative;
+              display: block;
+              border-top: 1px solid #EFEFEF;
+          }
+          .schedule-grid td {
+              display: block;
+              border: none;
+          }
+          .schedule-hour {
+              padding: 20px !important;
+              text-align: right;
+          }
+          .schedule-photo {
+              position: absolute;
+              top: 0;
+              left: 0;
+          }
+          .schedule-photo img {
+              width: 80px;
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu">
+      <ul>
+        <li><a href="#tickets" title="Tickets">Tickets</a></li>
+        <li><a href="#speakers" title="Speakers">Speakers</a></li>
+        <li><a href="#schedule" title="Schedule">Schedule</a></li>
+        <li><a href="#location" title="Location">Location</a></li>
+        <li><a href="#callforpapers" title="Call For Papers">Call For Papers</a></li>
+        <li><a href="#sponsors" title="Sponsors">Sponsors</a></li>
+        <li><a href="https://1payday.loans/same-day-payday-loans/" target="_blank">1PLs Co (Same Day Loan)</a></li>
+      </ul>
+    </div>
+    <div id="front"><img src="images/jsconfbr.png" class="logo" />
+      <h1>JSConf BR 2014</h1>
+      <h2>April 26 / Fortaleza, Brazil</h2>
+    </div>
+    <a name="tickets" id="tickets"></a>
+    <div class="section">
+      <h1>Tickets</h1>
+      <p class="text-centered">Super Early Bird is opened!</p>
+      <p class="text-centered"><a href="#buy" target="_blank" class="button">Buy JSConf BR Tickets</a></p>
+    </div>
+    <a name="speakers" id="speakers"></a>
+    <div class="section speakers">
+      <h1>Speakers</h1>
+      <div class="blocks-container">
+        <div class="block" id="speaker-gr2m"><a name="speaker-gr2m" id="speaker-gr2m"></a> <img src="images/speakers/gregor_martynus.jpg" />
+          <h2><a href="https://twitter.com/gr2m" target="_blank">Gregor Martynus</a></h2>
+          <p>Offline First, Made Easy</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/gr2m" target="_blank">Gregor Martynus</a></h2>
+            <p>Gregor is a full stack developer &amp; UX designer, questioning the status quo of what&rsquo;s possible in the browser today. He created <a href="https://minutes.io">minutes.io</a> and <a href="https://hood.ie/">Hoodie</a>, a JavaScript Library/Architecture that enables you to build <a href="https://offlinefirst.org/">offline-capable</a> applications <a href="https://nobackend.org/">without ever thinking about the backend</a>.</p>
+            <p>He&rsquo;s a founder at <a href="https://thehoodiefirm.com/">The Hoodie Firm</a>, where he tries to figure out how to fund the &ldquo;Hoodie&rdquo; Open Source project without selling his soul. He lives with his wife in Zurich, but sometimes he's off and on the road to just another <a href="https://africahacktrip.org">AfricaHackTrip</a>.</p>
+          </div>
+        </div>
+        <div class="block" id="speaker-lynnandtonic"><a name="speaker-lynnandtonic" id="speaker-lynnandtonic"></a> <img src="images/speakers/lynn_fisher.jpg" />
+          <h2><a href="https://twitter.com/lynnandtonic" target="_blank">Lynn Fisher</a></h2>
+          <p>Developers as Intentional Designers</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/lynnandtonic" target="_blank">Lynn Fisher</a></h2>
+            <p>Lynn Fisher is a designer and front-end developer from Chandler, Arizona, currently working with the awesome folks at &amp;yet. She can usually be found buried in a text editor or chatting excitedly about improving the way designers and developers work together.</p>
+          </div>
+        </div>
+        <div class="block" id="speaker-shiota"><a name="speaker-shiota" id="speaker-shiota"></a> <img src="images/speakers/eduardo_shiota.jpg" />
+          <h2><a href="https://twitter.com/shiota" target="_blank">Eduardo Shiota</a></h2>
+          <p>Rock the browser like it's 1983</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/shiota" target="_blank">Eduardo Shiota</a></h2>
+            <p>I'm a front-end engineer and designer, who moved from the land of samba to the land of bicycles. Started developing pages in 1998, have been working with web development since 2002 and with design since 2005. I'm fluent in HTML, CSS and JavaScript development and hack my way through Ruby and PHP whenever needed.</p>
+            <p>I graduated in Arts, so I also have skills in print, type, and web design. My main design skill is crafting engaging and optimal User Experience, applying Information Architecture and User-Centered Design concepts.</p>
+          </div>
+        </div>
+        <div class="block" id="speaker-reconbot"><a name="speaker-reconbot" id="speaker-reconbot"></a> <img src="images/speakers/francis_gulotta.jpg" />
+          <h2><a href="https://twitter.com/reconbot" target="_blank">Francis Gulotta</a></h2>
+          <p>Full Stack Firmata</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/reconbot" target="_blank">Francis Gulotta</a></h2>
+            <p>Francis Gulotta is a long time developer and lover of electronics. He spends his days with his development team at Wizard Development and his nights working on javascript robots.</p>
+          </div>
+        </div>
+        <div class="block" id="speaker-creationix"><a name="speaker-creationix" id="speaker-creationix"></a> <img src="images/speakers/tim_caswell.jpg" />
+          <h2><a href="https://twitter.com/creationix" target="_blank">Tim Caswell</a></h2>
+          <p>The JS-Git Journey</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/creationix" target="_blank">Tim Caswell</a></h2>
+            <p>Tim Caswell is an inventor, always looking for new ways to make life better for programmers. Tim is most well known for his early contributions to node.js as a member of the original node Illuminati that met often to plan the early stages of node&rsquo;s future. Tim has over 100 modules published to the npm registry and has authored about 300 open source projects on GitHub scattered across various organizations. Tim also teaches local programming classes in rural Texas and is currently trying to bootstrap a startup that helps more kids get into programming. He is also the creator and primary author of the community run <a href="https://howtonode.org">howtonode.org</a>.</p>
+          </div>
+        </div>
+        <div class="block" id="speaker-furf"><a name="speaker-furf" id="speaker-furf"></a> <img src="images/speakers/dave_furfero.jpg" />
+          <h2><a href="https://twitter.com/furf" target="_blank">Dave Furfero</a></h2>
+          <p>Close Enough: Using JavaScript to Emulate the Abstract Expressionist Masterworks of Chuck Close</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/furf" target="_blank">Dave Furfero</a></h2>
+            <p>Dave Furfero dropped out of art school in 1993 after two professors told him that he lacked the discipline required to be an artist. They were right. Twenty-one years later, he is a Solutions Architect at HUGE and spends his spare time teaching computers to create art for him. He is also the author of the popular jQuery UI plugin Touch Punch.</p>
+          </div>
+        </div>
+        <div class="block" id="speaker-junspector"><a name="speaker-junspector" id="speaker-junspector"></a> <img src="images/speakers/ju_goncalves.jpg" />
+          <h2><a href="https://twitter.com/junspector" target="_blank">J&uacute; Gon&ccedil;alves</a></h2>
+          <p>You, programming languages and the browser</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/junspector" target="_blank">J&uacute; Gon&ccedil;alves</a></h2>
+            <p>J&uacute; Gon&ccedil;alves is currently a freelance Frontend Engineer and MSC candidate in Computer Science. She likes to code and to discuss about coding, specially JavaScript, functional paradigm and good design choices. That's why she spends her free time coding some new (yet another?) UI frameworks and playing around with langs that compiles to Javascript.</p>
+          </div>
+        </div>
+        <div class="block" id="speaker-timpark"><a name="speaker-timpark" id="speaker-timpark"></a> <img src="images/speakers/tim_park.jpg" />
+          <h2><a href="https://twitter.com/timpark" target="_blank">Tim Park</a></h2>
+          <p>JavaScript for all the things!</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/timpark" target="_blank">Tim Park</a></h2>
+            <p>Tim is an engineer in residence at Microsoft. He resides in Silicon Valley and helps companies use open technologies on the Azure cloud platform and mentors startups in Microsoft's Palo Alto Internet of Things accelerator. Before rejoining Microsoft, he was part of Nest Labs, an internet of things startup focused on making the home more energy efficient. Tim aspires to start his day with a perfectly brewed cup of coffee and end it with a pint of craft beer.</p>
+          </div>
+        </div>
+        <div class="block" id="speaker-daviddias"><a name="speaker-daviddias" id="speaker-daviddias"></a> <img src="images/speakers/david_dias.jpg" />
+          <h2><a href="https://twitter.com/daviddias" target="_blank">David Dias</a></h2>
+          <p>Securing Node apps, by the community and for the community</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/daviddias" target="_blank">David Dias</a></h2>
+            <p>Passionate about security, David is one of the leaders of the Node Security Project and the organizer of <a href="https://twitter.com/lxjs">@LXJS</a>, the Lisbon Javascript Conference. He's currently completing a Computer Science Masters degree with a focus on Peer-to-Peer networks and Cloud Computing.</p>
+          </div>
+        </div>
+        <div class="block" id="speaker-bkobos"><a name="speaker-bkobos" id="speaker-bkobos"></a> <img src="images/speakers/bernard_kobos.jpg" />
+          <h2><a href="https://twitter.com/bkobos" target="_blank">Bernard Kobos</a></h2>
+          <p>Appium</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/bkobos" target="_blank">Bernard Kobos</a></h2>
+            <p>I started coding during primary school being inspired by older brothers' home assignments. During years I developed bigger and smaller apps in various programming languages, both as professional and personal pet projects. Not being satisfied with innovativeness of the tasks, I started applying for fully remote positions at startup companies to work on cutting edge projects which could better utilize my skill set. Currently I'm working in a test-centered company that strongly believes in automated testing solutions. We provide infrastructure and work on making testing more accessible for every developer. I've been contributing to open source projects such as: WD.js, Selenium Builder and Appium.</p>
+          </div>
+        </div>
+        <div class="block" id="speaker-johnkpaul"><a name="speaker-johnkpaul" id="speaker-johnkpaul"></a> <img src="images/speakers/john_paul.jpg" />
+          <h2><a href="https://twitter.com/johnkpaul" target="_blank">John Paul</a></h2>
+          <p>ES6 on the frontend, in the real world</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/johnkpaul" target="_blank">John Paul</a></h2>
+            <p>John K. Paul is the VP of engineering at Penton Media and former lead technical architect of Cond&eacute; Nast's platform engineering team. He is a contributor to numerous open source projects including promethify, requireify, jquery-ajax-retry, and js-beautify. He is also the organizer of the NYC HTML5 meetup group.
+              <br>
+              <br>
+              TOP essay writing service in <a href="https://essaywritersnear.me/missouri/columbia/">Columbia, MO</a>. 100% Secure. Cheap prices.
+            </p>
+          </div>
+        </div>
+        <div class="block" id="speaker-ericmann"><a name="speaker-ericmann" id="speaker-ericmann"></a> <img src="images/speakers/eric_mann.jpg" />
+          <h2><a href="https://twitter.com/ericmann" target="_blank">Eric Mann</a></h2>
+          <p>Monkeys in the Machine</p>
+          <div class="block-hover-text">
+            <h2><a href="https://twitter.com/ericmann" target="_blank">Eric Mann</a></h2>
+            <p>Eric Mann is a seasoned web developer with experience in languages from JavaScript to Ruby to C# to PHP. He has been building websites of all shapes and sizes for the better part of a decade and continues to experiment with new technologies and techniques.</p>
+            <p>Eric is a Senior Web Engineer at <a href="https://10up.com">10up</a> where he focuses on developing high-end web solutions powered by WordPress.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a name="schedule" id="schedule"></a>
+    <div class="section">
+      <h1>Schedule</h1>
+      <table class="schedule-grid">
+        <tbody>
+          <tr>
+            <td class="schedule-hour">8:00</td>
+            <td>
+              <h2>Registration</h2>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">8:50</td>
+            <td>
+              <h2>Welcome</h2>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">9:00</td>
+            <td>
+              <h2>Developers as Intentional Designers</h2>
+              <h3><a href="#speaker-lynnandtonic">Lynn Fisher</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-lynnandtonic"><img src="images/speakers/lynn_fisher.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">9:30</td>
+            <td>
+              <h2>Close Enough: Using JavaScript to Emulate the Abstract Expressionist Masterworks of Chuck Close</h2>
+              <h3><a href="#speaker-furf">Dave Furfero</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-furf"><img src="images/speakers/dave_furfero.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">10:00</td>
+            <td>
+              <h2>The JS-Git Journey</h2>
+              <h3><a href="#speaker-creationix">Tim Caswell</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-creationix"><img src="images/speakers/tim_caswell.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">10:30</td>
+            <td>
+              <h2>Coffee-Break</h2>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">11:00</td>
+            <td>
+              <h2>Offline First, Made Easy</h2>
+              <h3><a href="#speaker-gr2m">Gregor Martynus</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-gr2m"><img src="images/speakers/gregor_martynus.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">11:30</td>
+            <td>
+              <h2>Appium</h2>
+              <h3><a href="#speaker-bkobos">Bernard Kobos</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-bkobos"><img src="images/speakers/bernard_kobos.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">12:00</td>
+            <td>
+              <h2>Monkeys in the Machine</h2>
+              <span class="schedule-tag">webworkers</span> <span class="schedule-tag">async</span> <span class="schedule-tag">Shakespeare</span> <span class="schedule-tag">deferred</span> <span class="schedule-tag">promise</span> <span class="schedule-tag">jQuery</span> <span class="schedule-tag">magic</span>
+              <h3><a href="#speaker-ericmann">Eric Mann</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-ericmann"><img src="images/speakers/eric_mann.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">12:30</td>
+            <td>
+              <h2>Lunch</h2>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">14:30</td>
+            <td>
+              <h2>JavaScript for all the things!</h2>
+              <h3><a href="#speaker-timpark">Tim Park</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-timpark"><img src="images/speakers/tim_park.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">15:00</td>
+            <td>
+              <h2>You, programming languages and the browser</h2>
+              <h3><a href="#speaker-junspector">J&uacute; Gon&ccedil;alves</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-junspector"><img src="images/speakers/ju_goncalves.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">15:30</td>
+            <td>
+              <h2>Securing Node apps, by the community and for the community</h2>
+              <h3><a href="#speaker-daviddias">David Dias</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-daviddias"><img src="images/speakers/david_dias.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">16:00</td>
+            <td>
+              <h2>Coffee-Break</h2>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">16:30</td>
+            <td>
+              <h2>Full Stack Firmata</h2>
+              <h3><a href="#speaker-reconbot">Francis Gulotta</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-reconbot"><img src="images/speakers/francis_gulotta.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">17:00</td>
+            <td>
+              <h2>ES6 on the frontend, in the real world</h2>
+              <span class="schedule-tag">es6</span> <span class="schedule-tag">harmony</span> <span class="schedule-tag">browser</span> <span class="schedule-tag">jealousy</span>
+              <h3><a href="#speaker-johnkpaul">John Paul</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-johnkpaul"><img src="images/speakers/john_paul.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">17:30</td>
+            <td>
+              <h2>Rock the browser like it's 1983</h2>
+              <span class="schedule-tag">webaudio</span> <span class="schedule-tag">neworder</span> <span class="schedule-tag">synths</span> <span class="schedule-tag">websockets</span>
+              <h3><a href="#speaker-shiota">Eduardo Shiota</a></h3>
+            </td>
+            <td class="schedule-photo"><a href="#speaker-shiota"><img src="images/speakers/eduardo_shiota.jpg" /></a></td>
+          </tr>
+          <tr>
+            <td class="schedule-hour">18:00</td>
+            <td>
+              <h2>Family Photo</h2>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <a name="location" id="location"></a>
+    <div class="section">
+      <h1>Location</h1>
+      <p><b>Hotel Vila Gal&eacute; Fortaleza</b><br />
+        Av. Dioguinho, 4189 - Praia do Futuro. Fortaleza/CE - Brazil</p>
+      <div id="map"><br />
+      </div>
+      <p>The Vila Gal&eacute; Fortaleza Hotel is located on the beach only 10 minutes away from the renowned Avenida Beira-Mar, in Fortaleza.</p>
+      <p>This hotel in Fortaleza features a Beach Tent as well where you can enjoy the lovely weather of North-eastern Brazil, being entitled to a bar service and all the facilities that&rsquo;ll make it a great afternoon and a perfect holiday in Brazil.</p>
+    </div>
+    <a name="callforpapers" id="callforpapers"></a>
+    <div class="section">
+      <h1>Call for Papers</h1>
+      <p>We are inviting the JavaScript community to submit talks for the upcoming JSConf BR. If you know someone who may deliver an interesting talk, please let us know and we'll contact them.</p>
+      <p>Our talk selection process favors content (blind selection process); We want our community to be inclusive!</p>
+      <p>If you get selected as a speaker, here's what you get:</p>
+      <p>We cover the flights and your stay at a nice Fortaleza hotel for the days of the conference. If your employer can cover your travel and hotel, we are more than happy to list them as sponsors! <a href="https://paydayloanspeoriail.com/">The money</a> we save will be used to make the conference even better.</p>
+      <p>30 minutes to present in front of the greatest audience ever: the JSConf family!</p>
+      <p><a href="#callforpapers" class="button">Call For Papers Ended :(</a></p>
+      <p>Let us know if you need help with anything that is not listed here, we'll be more than happy to help.</p>
+      <p>We value having a safe, family-friendly, harassment-free environment, check our <a href="https://confcodeofconduct.com/">code of conduct</a>.</p>
+      <p>PS: crazy topics get extra points ;)</p>
+    </div>
+    <a name="sponsors" id="sponsors"></a>
+    <div class="section sponsors">
+      <h1>Sponsors</h1>
+      <div class="container">
+        <h3>Platinum</h3>
+        <a href="https://microsoft.com/" target="_blank" class="platinum-sponsor"><img src="images/sponsors/microsoft.png" alt="Microsoft" /></a> <a href="https://www.workingatbooking.com/" target="_blank" class="platinum-sponsor"></a> <a href="https://www.casamagalhaes.com.br/" target="_blank" class="platinum-sponsor"><img src="images/sponsors/casamagalhaes.png" alt="Casa Magalh&atilde;es" /></a>
+        <h3>Gold</h3>
+        <a href="https://www.globo.com" target="_blank" class="gold-sponsor"><img src="images/sponsors/globo.png" alt="Globo" /></a> <a href="https://www.mozilla.org/" target="_blank" class="gold-sponsor"><img src="images/sponsors/mozilla.png" alt="Mozilla" /></a> <a href="https://www.caelum.com.br/" target="_blank" class="gold-sponsor"><img src="images/sponsors/caelum.png" alt="Caelum" /></a> <a href="https://www.unigex.com.br/" target="_blank" class="gold-sponsor"><img src="images/sponsors/unigex.png" alt="Unigex" /></a> <a href="https://www.saucelabs.com/" target="_blank" class="gold-sponsor"><img src="images/sponsors/saucelabs.png" alt="Saucelabs" /></a> <a href="https://andyet.net/" target="_blank" class="gold-sponsor"><img src="images/sponsors/andyet.png" alt="&amp;yet" /></a> <a href="https://digitalocean.com" target="_blank" class="gold-sponsor"><img src="images/sponsors/digitalocean.png" alt="Digital Ocean" /></a> <a href="https://1payday.loans/" target="_blank" class="gold-sponsor"><img src="images/sponsors/1paydayloans.png" alt="1PLs Co - Payday Loans Online &amp; Near Me" /></a>
+        <h3>Silver</h3>
+        <a href="https://www.sagaranatech.com/" target="_blank" class="silver-sponsor"><img src="images/sponsors/sagarana.png" alt="Sagarana" /></a> <a href="https://www.unum.com.br/" target="_blank" class="silver-sponsor"><img src="images/sponsors/unum.png" alt="Unum" /></a> <a href="https://www.grupofortes.com.br/" target="_blank" class="silver-sponsor"><img src="images/sponsors/grupo_fortes.png" alt="Grupo Fortes" /></a>
+        <h3>Support</h3>
+        <a href="https://www.alura.com.br/" target="_blank" class="support-sponsor"><img src="images/sponsors/alura.png" alt="Alura" /></a> <a href="https://www.casadocodigo.com.br/" target="_blank" class="support-sponsor"><img src="images/sponsors/casadocodigo.png" alt="Casa do C&oacute;digo" /></a> <a href="https://penton.com/" target="_blank" class="support-sponsor"><img src="images/sponsors/penton.png" alt="Penton" /></a> <a href="https://10up.com/" target="_blank" class="support-sponsor"><img src="images/sponsors/10up.png" alt="10up" /></a></div>
+    </div>
+    <div id="team" class="section">
+      <h1>Presented by:</h1>
+      <div class="dark-background">
+        <h2>JSConf BR Team</h2>
+        <p>We are the team working hard to make this conference epic.</p>
+        <p class="last">Meet the team: <a href="https://twitter.com/qmx" title="Douglas Campos">Douglas Campos</a>, <a href="https://twitter.com/campos_calebe" title="Calebe Campos">Calebe Campos</a>, <a href="https://twitter.com/cmilfont" title="Christiano Milfont">Christiano Milfont</a> and <a href="https://twitter.com/henriquegogo" title="Henrique Gog&oacute;">Henrique Gog&oacute;</a>.</p>
+        <p><a href="https://twitter.com/jsconfbr" title="JSConf BR on Twitter" class="button">@jsconfbr</a></p>
+      </div>
+    </div>
+    <script>
+      // Google Maps -3.732623,-38.467963
+      // --------------------------------------------------------------------------------
+      function initialize() {
+      var mapOptions = {
+        center: new google.maps.LatLng(-3.7503459,-38.4478685),
+        zoom: 16,
+        mapTypeControl: false,
+        scrollwheel: false,
+        draggable: false,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+        },
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoomControlOptions: {
+          style: google.maps.ZoomControlStyle.SMALL
+        }
+      };
+
+      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      var centerMap = new google.maps.LatLng(-3.7503459,-38.4478685);
+      var marker = new google.maps.Marker({ position: centerMap, map: map, icon: 'images/pin.png'});
+
+      };
+
+      function loadMapScript() {
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+          'callback=initialize';
+      document.body.appendChild(script);
+      };
+
+      window.onload = function() {
+        loadMapScript();
+      };
+    </script>
+  </body>
+</html>

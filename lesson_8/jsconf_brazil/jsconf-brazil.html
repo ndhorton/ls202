@@ -16,9 +16,6 @@
                               - nav bar disappears
                               - header changes height
 
-        So the only definite breakpoint is at 653/654 width. There are some fluid
-        sections where variable numbers of columns change based on the size of the
-        window, but should these also be dealt with using media queries?
       */
 
       * {
@@ -29,7 +26,7 @@
       body {
         background-color: #fff;
         color: #444;
-        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        font-family: "Open Sans", Arial, sans-serif;
         font-weight: 200;
       }
 
@@ -38,8 +35,18 @@
         background-size: cover;
       }
 
+      section {
+        border-top: 1px solid #f5f5f5;
+        max-width: 95%;
+        margin: 0 auto;
+      }
+
       a {
         text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
       }
 
       aside {
@@ -47,8 +54,8 @@
       }
 
       nav {
-        /* display: none; /* on mobile */
         position: fixed;
+        z-index: 1;
         top: 0;
         left: 0;
         right: 0;
@@ -78,14 +85,11 @@
         font-weight: normal
       }
 
-      nav a:hover {
-        text-decoration: underline;
-      }
 
       header {
-        margin: 54px 0 0 0;
+        margin: 54px auto 0 auto;
         height: 429px;
-        background: #fff url("https://2014.jsconfbr.org/images/front.jpg") center;
+        background: #fff url("https://2014.jsconfbr.org/images/front.jpg") center no-repeat;
         text-align: center;
         padding-top: 151px;
       }
@@ -110,19 +114,19 @@
         font-size: 31px;
       }
 
+      .section-heading {
+        width: fit-content;
+        font-size: 48px;
+        font-weight: 200;
+      }
+
       .tickets {
-        width: 953px;
         margin: 0 auto;
-        border-top: 1px solid #f5f5f5;
-        border-bottom: 1px solid #f5f5f5;
         height: 300px;
       }
 
-      .section-heading {
-        width: fit-content;
+      .tickets .section-heading {
         margin: 60px auto 30px auto;
-        font-size: 48px;
-        font-weight: 200;
       }
 
       .tickets p {
@@ -139,42 +143,282 @@
         color: #fff;
       }
 
+      .speakers .section-heading {
+        margin: 60px auto 28.5px auto;
+      }
+
       .speakers ul {
-        max-width: 888.45px;
-        margin: 33.5px auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        /* align-items: center; */
-        /* align-content: center; */
-        gap: 10.25px 13.85px;
+        max-width: 1080px;
+        text-align: center;
+        display: block;
+        font-size: 0.8125rem;
+        margin: 0 auto 0 auto;
       }
 
       .speakers li {
-        border: 1px solid #e5e5e5;
-        width: 281.75px;
-        height: 380px;
+        border: 1px solid #e8e8e8;
+        width: 280px;
+        height: 377.989px;
+        display: inline-block;
         position: relative;
-      }
-
-      .speakers li:nth-of-type(3n+2) {
-        margin-right: -1px;
+        text-align: center;
+        vertical-align: top;
+        margin: 5px;
+        box-sizing: content-box;
       }
 
       .speakers img {
-        display: block;
-        width: 100%;
-
+        display: content-box;
+        text-align: center;
       }
 
-      aside {
-        background-color: #000000df;
+      .speakers li > h3 {
+        display: content-box;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #008000;
+        text-align: center;
+        margin: 30px 0 4px 0;
+        padding: 0 10px;
+      }
+
+      .speakers li > p {
+        line-height: 1.5625rem;
+        font-size: 1rem;
+        font-weight: 300;
+        text-align: center;
+        padding: 0 10px;
+      }
+
+      .speakers aside {
+        background-color: #000000e5;
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
         color: #fff;
+        overflow: hidden;
+        padding: 15px 10px;
+      }
+
+      .speakers li:hover aside {
+        display: block;
+      }
+
+      .speakers aside p {
+        font-size: 0.8125rem;
+        padding: 0 15px;
+        text-align: center;
+        line-height: 0.925rem;
+        margin: 3px 0 16px 0;
+      }
+
+      .speakers aside h3 {
+        font-size: 24px;
+        color: #008000;
+        text-align: center;
+        padding: 0 10px;
+      }
+
+      .speakers aside a {
+        color: #008000;
+        font-weight: 700;
+      }
+
+      .schedule {
+        margin: 60px 30px 0;
+        border-top: 1px solid #f5f5f5;
+      }
+
+      .schedule .section-heading {
+        margin: 60px auto 29px auto;
+      }
+
+      .schedule table {
+        max-width: 960px;
+        margin: 0 auto;
+        border-collapse: seperate;
+        border-bottom: 1px solid #efefef;
+      }
+
+      .schedule th {
+        padding: 10px;
+        border-top: 1px solid #efefef;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      .schedule td {
+        border-top: 1px solid #efefef;
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+        font-size: 13px;
+      }
+
+      .schedule h3 {
+        font-size: 1.5rem;
+        display: inline-block;
+        font-weight: 400;
+        text-align: left;
+      }
+
+      .schedule h4 {
+        margin-top: 8px;
+      }
+
+      .photo-cell img {
+        width: 130px;
+      }
+
+      .schedule a {
+        color: #008000;
+        font-size: 1.125rem;
+      }
+
+      .schedule .topic {
+        font-size: 0.4375rem;
+        color: #444;
+        font-weight: 400;
+        padding: 0 4px;
+        background-color: #eee;
+        border: 1px solid #aaa;
+        display: inline-block;
+        width: fit-content;
+        height: fit-content;
+        vertical-align: text-top;
+      }
+
+      .schedule .topic:first-of-type {
+        margin-left: 10px;
+      }
+
+      .call-for-papers {
+        max-width: 961px;
+        margin: 70px auto 0 auto;
+        border-top: 1px solid #efefef;
+        padding-bottom: 55px;
+      }
+
+      .call-for-papers .section-heading {
+        margin: 60px auto 30px auto;
+      }
+
+      .call-for-papers p {
+        /* margin: 0 32px 20px 32px; */
+        margin: 0 0 18px 0;
+        line-height: 1.55rem;
+      }
+
+      .call-for-papers p a {
+        color: #008000;
+        font-weight: 700;
+      }
+
+      .call-for-papers .button-link {
+        margin: -9px 0 10px;
+      }
+
+      .call-for-papers .button-link a {
+        color: #fff;
+      }
+
+      .sponsors .section-heading {
+        margin: 60px auto 36px auto;
+      }
+
+      .sponsors .sponsors-wrapper {
+        max-width: 961px;
+        margin: 0 auto;
+      }
+
+      .sponsors h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .sponsors ul {
+        margin-bottom: 38px;
+        max-width: 857px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: end;
+      }
+
+      .sponsors li {
+        display: inline-block;
+      }
+
+      .sponsors ul:nth-of-type(1) {
+        max-width: 607px;
+      }
+
+      .sponsors ul:nth-of-type(1) li img {
+        max-width: 302px;
+      }
+
+      .sponsors ul:nth-of-type(2) {
+        max-width: 643px;
+      }
+
+      .sponsors ul:nth-of-type(2) li img {
+        max-width: 302px;
+      }
+
+      .sponsors ul:nth-of-type(3) {
+        max-width: 814px;
+      }
+
+      .sponsors ul:nth-of-type(3) li img {
+        max-width: 241px;
+      }
+
+      .sponsors ul:nth-of-type(4) {
+        max-width: 862px;
+      }
+
+      .sponsors ul:nth-of-type(4) li img {
+        max-width: 182px;
+      }
+
+      @media (max-width: 654px) {
+        header {
+          margin: 0;
+        }
+
+        nav {
+          display: none;
+        }
+
+        .schedule tr,
+        .schedule th,
+        .schedule td {
+          display: block;
+          border: none;
+        }
+
+        .schedule tr {
+          position: relative;
+          border-top: 1px solid #efefef;
+        }
+
+        .schedule th {
+          padding: 20px;
+          text-align: right;
+        }
+
+        .schedule .photo-cell {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        .schedule .photo-cell img {
+          width: 80px;
+        }
       }
     </style>
   </head>
@@ -216,7 +460,7 @@
             <h3>Gregor Martynus</h3>
             <p>Offline First, Made Easy</p>
             <aside>
-              <h3>Gregor Martynus</h3>
+              <h3><a href="#">Gregor Martynus</a></h3>
               <p>
                 Gregor is a full stack developer & UX designer, questioning the
                 status quo of what's possible in the browser today. He created
@@ -238,7 +482,7 @@
             <h3>Lynn Fisher</h3>
             <p>Developers as Intentional Designers</p>
             <aside>
-              <h3>Lynn Fisher</h3>
+              <h3><a href="#">Lynn Fisher</a></h3>
               <p>Lynn Fisher is a designer and front-end developer from Chandler, Arizona,
                 currently working with the awesome folks at &amp;yet. She can usually be
                 found buried in a text editor or chatting excitedly about improving the way
@@ -251,7 +495,7 @@
             <h3>Eduardo Shiota</h3>
             <p>Rock the browser like it's 1983</p>
             <aside>
-              <h3>Eduardo Shiota</h3>
+              <h3><a href="#">Eduardo Shiota</a></h3>
               <p>I'm a front-end engineer and designer, who moved from the land of samba
                 to the land of bicyles. Started developing pages in 1998, have been working
                 with web development since 2002 and with design since 2005. I'm fluent in
@@ -270,7 +514,7 @@
             <h3>Francis Gulotta</h3>
             <p>Full Stack Firmata</p>
             <aside>
-              <h3>Francis Gulotta</h3>
+              <h3><a href="#">Francis Gulotta</a></h3>
               <p>
                 Francis Gulotta is a long time developer and lover of electronics. He
                 spends his days with his development team at Wizard Development and his
@@ -283,7 +527,7 @@
             <h3>Tim Caswell</h3>
             <p>The JS-Git Journey</p>
             <aside>
-              <h3>Tim Caswell</h3>
+              <h3><a href="#">Tim Caswell</a></h3>
               <p>
                 Tim Caswell is an inventor, always looking for new ways to make life
                 better for programmers. Tim is most well known for his early contributions
@@ -303,7 +547,7 @@
             <h3>Dave Furfero</h3>
             <p>Close Enough: Using JavaScript to Emulate the Abstract Expressionist Masterworks of Chuck Close</p>
             <aside>
-              <h3>Dave Furfero</h3>
+              <h3><a href="#">Dave Furfero</a></h3>
               <p>
                 Dave Furfero dropped out of art school in 1993 after two professors told
                 him that he lacked the discipline required to be an artist. They were
@@ -318,7 +562,7 @@
             <h3>J&#x00fa; Gon&#x00e7;alves</h3>
             <p>You, programming languages and the browser</p>
             <aside>
-              <h3>J&#x00fa; Gon&#x00e7;alves</h3>
+              <h3><a href="#">J&#x00fa; Gon&#x00e7;alves</a></h3>
               <p>
                 J&#x00fa; Gon&#x00e7;alves is currently a freelance Frontend Engineer
                 and MSC candidate in Computer Science. She likes to code and to discuss
@@ -333,7 +577,7 @@
             <h3>Tim Park</h3>
             <p>JavaScript for all the things!</p>
             <aside>
-              <h3>Tim Park</h3>
+              <h3><a href="#">Tim Park</a></h3>
               <p>
                 Tim is an engineer in residence at Microsoft. He resides in Silicon Valley
                 and helps companies use open technologies on the Azure cloud platform and
@@ -350,7 +594,7 @@
             <h3>David Dias</h3>
             <p>Securing Node apps, by the community and for the community</p>
             <aside>
-              <h3>David Dias</h3>
+              <h3><a href="#">David Dias</a></h3>
               <p>
                 Passionate about security, David is one of the leaders of the Node Security
                 Project and the organizer of <a href="#">@LXJS</a>, the Lisbon JavaScript
@@ -364,7 +608,7 @@
             <h3>Bernard Kobos</h3>
             <p>Appium</p>
             <aside>
-              <h3>Bernard Kobos</h3>
+              <h3><a href="#">Bernard Kobos</a></h3>
               <p>
                 I started coding during primary school being inspired by older brothers'
                 home assignments. During years I developed bigger and smaller apps in
@@ -383,7 +627,7 @@
             <h3>John Paul</h3>
             <p>ES6 on the frontend, in the real world</p>
             <aside>
-              <h3>John Paul</h3>
+              <h3><a href="#">John Paul</a></h3>
               <p>
                 John K. Paul is the VP of engineering at Penton Media and former lead
                 technical architect of Cond&#x00e9; Nast's platform engineering team. He is
@@ -402,7 +646,7 @@
             <h3>Eric Mann</h3>
             <p>Monkeys in the Machine</p>
             <aside>
-              <h3>Eric Mann</h3>
+              <h3><a href="#">Eric Mann</a></h3>
               <p>
                 Eric Mann is a seasoned web developer with experience in languages from
                 JavaScript to Ruby to C# to PHP. He has been building websites of all
@@ -420,293 +664,340 @@
       <section class="schedule">
         <h2 class="section-heading">Schedule</h2>
         <table>
-          <tr>
-            <th scope="row">
-              <h3>8:00</h3>
-            </th>
-            <td>
-              <h3>Registration</h3>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                8:50
-              </h3>
-            </th>
-            <td>
-              <h3>
-                Welcome
-              </h3>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                9:00
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/lynn_fisher.jpg" alt="Lynn Fisher">
-              <h3>
-                Developers as Intentional Desginers
-              </h3>
-              <h4>
-                <a href="#">Lynn Fisher</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                9:30
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/dave_furfero.jpg" alt="Dave Furfero">
-              <h3>
-                Close Enough: Using JavaScript to Emulate the Abstract Expressionist Masterworks of Chuck Close
-              </h3>
-              <h4>
-                <a href="#">Dave Furfero</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                10:00
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/tim_caswell.jpg" alt="Tim Caswell">
-              <h3>
-                The JS-Git Journey
-              </h3>
-              <h4>
-                <a href="#">Tim Caswell</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                10:30
-              </h3>
-            </th>
-            <td>
-              <h3>
-                Coffee-Break
-              </h3>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                11:00
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/gregor_martynus.jpg" alt="Gregor Martynus">
-              <h3>
-                Offline First, Made Easy
-              </h3>
-              <h4>
-                <a href="#">Gregor Martynus</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                11:30
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/bernard_kobos.jpg" alt="Bernard Kobos">
-              <h3>
-                Appium
-              </h3>
-              <h4>
-                <a href="#">Barnard Kobos</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                12:00
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/eric_mann.jpg" alt="Eric Mann">
-              <h3>
-                Monkeys in the Machine
-              </h3>
-              <h4>
-                <a href="#">Eric Mann</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                12:30
-              </h3>
-            </th>
-            <td>
-              <h3>
-                Lunch
-              </h3>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                14:30
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/tim_park.jpg" alt="Tim Park">
-              <h3>
-                JavaScript for all the things!
-              </h3>
-              <h4>
-                <a href="#">Tim Park</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                15:00
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/ju_goncalves.jpg" alt="J&#x00fa; Gon&#x00e7;alves">
-              <h3>
-                You, programming languages and the browser
-              </h3>
-              <h4>
-                <a href="#">J&#x00fa; Gon&#x00e7;alves</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                15:30
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/david_dias.jpg" alt="David Dias">
-              <h3>
-                Securing Node apps, by the community and for the community
-              </h3>
-              <h4>
-                <a href="#">David Dias</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                16:00
-              </h3>
-            </th>
-            <td>
-              <h3>
-                Coffee-Break
-              </h3>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                16:30
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/francis_gulotta.jpg" alt="Francis Gulotta">
-              <h3>
-                Full Stack Firmata
-              </h3>
-              <h4>
-                <a href="#">Francis Gulotta</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                17:00
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/john_paul.jpg" alt="John Paul">
-              <h3>
-                ES6 on the frontend, in the real world
-              </h3>
-              <h4>
-                <a href="#">John Paul</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <h3>
-                17:30
-              </h3>
-            </th>
-            <td>
-              <img src="https://2014.jsconfbr.org/images/speakers/eduardo_shiota.jpg" alt="Eduardo Shiota">
-              <h3>
-                Rock the browser like it's 1983
-              </h3>
-              <h4>
-                <a href="#">Eduardo Shiota</a>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <th scope="col">
-              <h3>
-                18:00
-              </h3>
-            </th>
-            <td>
-              <h3>
-                Family Photo
-              </h3>
-            </td>
-            <td></td>
-          </tr>
+          <tbody>
+            <tr>
+              <th scope="row">
+                <h3>8:00</h3>
+              </th>
+              <td>
+                <h3>Registration</h3>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  8:50
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Welcome
+                </h3>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  9:00
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Developers as Intentional Designers
+                </h3>
+                <h4>
+                  <a href="#">Lynn Fisher</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/lynn_fisher.jpg" alt="Lynn Fisher">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  9:30
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Close Enough: Using JavaScript to Emulate the Abstract Expressionist Masterworks of Chuck Close
+                </h3>
+                <h4>
+                  <a href="#">Dave Furfero</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/dave_furfero.jpg" alt="Dave Furfero">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  10:00
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  The JS-Git Journey
+                </h3>
+                <h4>
+                  <a href="#">Tim Caswell</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/tim_caswell.jpg" alt="Tim Caswell">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  10:30
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Coffee-Break
+                </h3>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  11:00
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Offline First, Made Easy
+                </h3>
+                <h4>
+                  <a href="#">Gregor Martynus</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/gregor_martynus.jpg" alt="Gregor Martynus">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  11:30
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Appium
+                </h3>
+                <h4>
+                  <a href="#">Barnard Kobos</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/bernard_kobos.jpg" alt="Bernard Kobos">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  12:00
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Monkeys in the Machine
+                </h3>
+                <div class="topic">webworkers</div>
+                <div class="topic">async</div>
+                <div class="topic">Shakespeare</div>
+                <div class="topic">deferred</div>
+                <div class="topic">promise</div>
+                <div class="topic">jQuery</div>
+                <div class="topic">magic</div>
+                <h4>
+                  <a href="#">Eric Mann</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/eric_mann.jpg" alt="Eric Mann">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  12:30
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Lunch
+                </h3>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  14:30
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  JavaScript for all the things!
+                </h3>
+                <h4>
+                  <a href="#">Tim Park</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/tim_park.jpg" alt="Tim Park">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  15:00
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  You, programming languages and the browser
+                </h3>
+                <h4>
+                  <a href="#">J&#x00fa; Gon&#x00e7;alves</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/ju_goncalves.jpg" alt="J&#x00fa; Gon&#x00e7;alves">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  15:30
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Securing Node apps, by the community and for the community
+                </h3>
+                <h4>
+                  <a href="#">David Dias</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/david_dias.jpg" alt="David Dias">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  16:00
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Coffee-Break
+                </h3>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  16:30
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Full Stack Firmata
+                </h3>
+                <h4>
+                  <a href="#">Francis Gulotta</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/francis_gulotta.jpg" alt="Francis Gulotta">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  17:00
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  ES6 on the frontend, in the real world
+                </h3>
+                <div class="topic">es6</div>
+                <div class="topic">harmony</div>
+                <div class="topic">browser</div>
+                <div class="topic">jealousy</div>
+                <h4>
+                  <a href="#">John Paul</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/john_paul.jpg" alt="John Paul">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <h3>
+                  17:30
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Rock the browser like it's 1983
+                </h3>
+                <div class="topic">webaudio</div>
+                <div class="topic">neworder</div>
+                <div class="topic">synths</div>
+                <div class="topic">websockets</div>
+                <h4>
+                  <a href="#">Eduardo Shiota</a>
+                </h4>
+              </td>
+              <td class="photo-cell">
+                <a href="#">
+                  <img src="https://2014.jsconfbr.org/images/speakers/eduardo_shiota.jpg" alt="Eduardo Shiota">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="col">
+                <h3>
+                  18:00
+                </h3>
+              </th>
+              <td>
+                <h3>
+                  Family Photo
+                </h3>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
       </section>
-      <section class="location">
+      <section class="call-for-papers">
         <h2 class="section-heading">
-          Location
-        </h2>
-        <h3>
-          Hotel Vila Gal&#x00e9; Fortaleza
-        </h3>
-        <p>
-          Av. Dioguinho, 4189 - Praia do Futuro, Fortaleza/CE - Brazil
-        </p>
-        <p>
-          The Vila Gal&#x00e9; is located on the beach only 10 minutes away from the renowned Avenida Beira-Mar, in Fortaleza.
-        </p>
-        <p>
-          This hotel in Fortaleza features a Beach Tent as well where you can enjoy the lovely weather of North-eastern Brazil, being entitled to a bar service and all the facilities that'll make it a great afternoon and a perfect holiday in Brazil.
-        </p>
-      </section>
-      <section>
-        <h2>
           Call for Papers
         </h2>
         <p>
@@ -719,7 +1010,7 @@
           If you get selected as a speaker, here's what you get:
         </p>
         <p>
-          We cover the flights and your stay at a nice Fortaleza hotel for the days of the conference. If your employer can cover your travel and hotel, we are more than happy to list them as sponsors! <a href="#">The money</a> we save will be used to make the conference even better.
+          We cover the flights and your stay at a nice Fortaleza hotel for the days of the conference. If your employer can cover your travel and hotel, we are more than happy to list them as sponsors! The money (*need a cash advance fast? Take it 24/7 online in <a href="#">Los Angeles</a>, <a href="#">West Jordan</a>, <a href="#">Cedar Rapids</a>, <a href="#">Port St. Lucie</a>, <a href="#">Providence</a> with 1PLs Co.) we save will be used to make the conference even better.
         </p>
         <p>
           30 minutes to present in front of the greatest audience ever: the JSConf family!
@@ -735,22 +1026,49 @@
           PS: crazy topics get extra points ;)
         </p>
       </section>
-      <section>
+      <section class="sponsors">
         <h2 class="section-heading">
           Sponsors
         </h2>
-        <h3>
-          Platinum
-        </h3>
-        <h3>
-          Gold
-        </h3>
-        <h3>
-          Silver
-        </h3>
-        <h3>
-          Support
-        </h3>
+        <div class="sponsors-wrapper">
+          <h3>
+            Platinum
+          </h3>
+          <ul>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/microsoft.png" alt="Microsoft"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/casamagalhaes.png" alt="Casa Magalh&#x00e3;"></a></li>
+          </ul>
+          <h3>
+            Gold
+          </h3>
+          <ul>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/globo.png" alt="globo.com"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/mozilla.png" alt="Mozilla"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/caelum.png" alt="Caelum"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/unigex.png" alt="Unigex"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/saucelabs.png" alt="Sauce Labs"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/andyet.png" alt="&amp;yet"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/digitalocean.png" alt="Digital Ocean"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/1paydayloans.png" alt="1PLs Company"></a></li>
+          </ul>
+          <h3>
+            Silver
+          </h3>
+          <ul>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/sagarana.png" alt="Sagarana"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/unum.png" alt="Unum"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/grupo_fortes.png" alt="Grupo Fortes"></a></li>
+          </ul>
+          <h3>
+            Support
+          </h3>
+          <ul>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/alura.png" alt="Alura"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/casadocodigo.png" alt="Casa do C&#x00f3;digo"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/penton.png" alt="Penton"></a></li>
+            <li><a href="#"><img src="https://2014.jsconfbr.org/images/sponsors/10up.png" alt="10 Up"></a></li>
+          </ul>
+        </div>
       </section>
     </main>
     <footer>

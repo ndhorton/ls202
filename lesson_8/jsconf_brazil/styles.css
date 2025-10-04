@@ -1,0 +1,502 @@
+/* breakpoints:
+        less than 654px width
+                              - speakers 3 column layout changes to 2 column
+                              - schedule changes layout
+                              - nav bar disappears
+                              - header changes height
+
+      */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #fff;
+    color: #444;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-weight: 200;
+}
+
+section {
+    border-top: 1px solid #f5f5f5;
+    max-width: 98%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+nav {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 9px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+nav ul {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 0;
+    padding-bottom: 1px;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 26.7px;
+    padding: 14px 0 12.5px 0;
+}
+
+nav a {
+    color: #444;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    font-weight: normal
+}
+
+header {
+    margin: 54px auto 0 auto;
+    height: 429px;
+    background: #fff url("https://2014.jsconfbr.org/images/front.jpg") center no-repeat;
+    text-align: center;
+    padding-top: 151px;
+}
+
+header img {
+    display: block;
+    width: 80px;
+    margin: 0 auto;
+}
+
+header h1 {
+    margin: 3.5px 0 0 0;
+    color: #fff;
+    font-size: 72px;
+    font-weight: 400;
+}
+
+header p {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 31px;
+}
+
+.section-heading {
+    width: fit-content;
+    font-size: 48px;
+    font-weight: 200;
+}
+
+.tickets {
+    margin: 0 auto;
+    height: 300px;
+}
+
+.tickets .section-heading {
+    margin: 60px auto 30px auto;
+}
+
+.tickets p {
+    width: fit-content;
+    margin: 0 auto 10.5px auto;
+}
+
+.button-link {
+    background-color: #008000;
+    width: fit-content;
+    display: block;
+    padding: 10px 30px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.speakers .section-heading {
+    margin: 60px auto 28.5px auto;
+}
+
+.speakers ul {
+    max-width: 1080px;
+    text-align: center;
+    display: block;
+    font-size: 0.8125rem;
+    margin: 0 auto 0 auto;
+}
+
+.speakers li {
+    border: 1px solid #e8e8e8;
+    width: 280px;
+    height: 377.989px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    margin: 5px;
+    box-sizing: content-box;
+}
+
+.speakers img {
+    display: content-box;
+    text-align: center;
+}
+
+.speakers li>h3 {
+    display: content-box;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #008000;
+    text-align: center;
+    margin: 30px 0 4px 0;
+    padding: 0 10px;
+}
+
+.speakers li>p {
+    line-height: 1.5625rem;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.speakers aside {
+    display: none;
+    background-color: #000000e5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    overflow: hidden;
+    padding: 15px 10px;
+}
+
+.speakers li:hover aside {
+    display: block;
+}
+
+.speakers aside p {
+    font-size: 0.8125rem;
+    padding: 0 15px;
+    text-align: center;
+    line-height: 0.925rem;
+    margin: 3px 0 16px 0;
+}
+
+.speakers aside h3 {
+    font-size: 24px;
+    color: #008000;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.speakers aside a {
+    color: #008000;
+    font-weight: 700;
+}
+
+.schedule {
+    margin: 60px 30px 0;
+    border-top: 1px solid #f5f5f5;
+}
+
+.schedule .section-heading {
+    margin: 60px auto 29px auto;
+}
+
+.schedule table {
+    max-width: 960px;
+    margin: 0 auto;
+    border-collapse: seperate;
+    border-bottom: 1px solid #efefef;
+}
+
+.schedule th {
+    padding: 10px;
+    border-top: 1px solid #efefef;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.schedule td {
+    border-top: 1px solid #efefef;
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+.schedule h3 {
+    font-size: 1.5rem;
+    display: inline-block;
+    font-weight: 400;
+    text-align: left;
+}
+
+.schedule h4 {
+    margin-top: 8px;
+}
+
+.photo-cell img {
+    width: 130px;
+}
+
+.schedule a {
+    color: #008000;
+    font-size: 1.125rem;
+}
+
+.schedule .topic {
+    font-size: 0.4375rem;
+    color: #444;
+    font-weight: 400;
+    padding: 0 4px;
+    background-color: #eee;
+    border: 1px solid #aaa;
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    vertical-align: text-top;
+}
+
+.schedule .topic:first-of-type {
+    margin-left: 10px;
+}
+
+.call-for-papers {
+    margin: 70px 30px;
+    border-top: 1px solid #efefef;
+    padding-bottom: 55px;
+}
+
+.call-for-papers .text-content {
+    max-width: 961px;
+    margin: 0 auto;
+}
+
+.call-for-papers .section-heading {
+    margin: 60px auto 30px auto;
+}
+
+.call-for-papers p {
+    /* margin: 0 32px 20px 32px; */
+    margin: 0 0 18px 0;
+    line-height: 1.55rem;
+}
+
+.call-for-papers p a {
+    color: #008000;
+    font-weight: 700;
+}
+
+.call-for-papers .button-link {
+    margin: -9px 0 10px;
+}
+
+.call-for-papers .button-link a {
+    color: #fff;
+}
+
+.sponsors {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.sponsors .section-heading {
+    margin: 60px auto 36px auto;
+}
+
+.sponsors .sponsors-wrapper {
+    max-width: 961px;
+    margin: 0 auto;
+}
+
+.sponsors h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.sponsors ul {
+    margin-bottom: 31px;
+    max-width: 857px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.sponsors li {
+    display: inline-block;
+}
+
+.sponsors ul:nth-of-type(1) {
+    max-width: 607px;
+}
+
+.sponsors ul:nth-of-type(1) li img {
+    max-width: 302px;
+}
+
+.sponsors ul:nth-of-type(2) {
+    max-width: 643px;
+}
+
+.sponsors ul:nth-of-type(2) li img {
+    max-width: 302px;
+}
+
+.sponsors ul:nth-of-type(3) {
+    max-width: 820px;
+}
+
+.sponsors ul:nth-of-type(3) li img {
+    max-width: 241px;
+}
+
+.sponsors ul:nth-of-type(4) {
+    max-width: 855px;
+}
+
+.sponsors ul:nth-of-type(4) li img {
+    max-width: 180px;
+}
+
+footer {
+    margin: 80px 0 0 0;
+    height: 341px;
+    background: url("https://2014.jsconfbr.org/images/people.jpg");
+    background-position: center;
+    background-position: 50% 23%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer .section-heading {
+    color: #fff;
+    padding: 31px 0 29px 0;
+    margin: 0 auto;
+}
+
+footer .banner {
+    background-color: #000000b7;
+    color: white;
+    padding: 10px 14px 10px;
+    height: 188px
+}
+
+footer .banner-content {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+footer h3 {
+    text-transform: uppercase;
+    font-size: 1.9375rem;
+    font-weight: 600;
+}
+
+footer p:first-of-type {
+    margin: 1px 0 20px;
+}
+
+footer p a {
+    color: #008000;
+    font-weight: 700;
+}
+
+footer .button-link {
+    margin: 11px 0 0;
+}
+
+footer .button-link a {
+    color: #fff;
+}
+
+@media (max-width: 654px) {
+    header {
+        margin: 0;
+        height: 300px;
+
+
+
+        background: #fff url("https://2014.jsconfbr.org/images/front.jpg") center no-repeat;
+        text-align: center;
+        padding-top: 90px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.25rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .schedule tr,
+    .schedule th,
+    .schedule td {
+        display: block;
+        border: none;
+    }
+
+    .schedule tr {
+        position: relative;
+        border-top: 1px solid #efefef;
+    }
+
+    .schedule th {
+        padding: 20px;
+        text-align: right;
+    }
+
+    .schedule .photo-cell {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .schedule .photo-cell img {
+        width: 80px;
+    }
+
+    footer {
+        /* height: 343px; */
+    }
+
+    footer .banner {
+        padding: 10px 10px;
+        height: 213px;
+    }
+
+    footer .section-heading {
+        font-size: 35px;
+        font-weight: 300;
+        padding-top: 21px;
+        padding-bottom: 22px;
+    }
+
+    footer p {
+        line-height: 1.5rem;
+    }
+
+    footer p:first-of-type {
+        margin-bottom: 18px;
+    }
+}

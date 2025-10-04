@@ -8,424 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="whitespace-reset.css">
-    <style>
-      /* breakpoints:
-        less than 654px width
-                              - speakers 3 column layout changes to 2 column
-                              - schedule changes layout
-                              - nav bar disappears
-                              - header changes height
-
-      */
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        background-color: #fff;
-        color: #444;
-        font-family: "Open Sans", Arial, sans-serif;
-        font-weight: 200;
-      }
-
-      footer {
-        background-image: url("https://2014.jsconfbr.org/images/people.jpg");
-        background-size: cover;
-      }
-
-      section {
-        border-top: 1px solid #f5f5f5;
-        max-width: 95%;
-        margin: 0 auto;
-      }
-
-      a {
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      aside {
-        display: none;
-      }
-
-      nav {
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: #fff;
-        border-top: 9px solid #f5f5f5;
-        border-bottom: 1px solid #f5f5f5;
-      }
-
-      nav ul {
-        text-align: center;
-        max-width: 1000px;
-        margin: 0 auto;
-        font-size: 0;
-        padding-bottom: 1px;
-      }
-
-      nav li {
-        display: inline-block;
-        margin: 0 26.7px;
-        padding: 14px 0 12.5px 0;
-      }
-
-      nav a {
-        color: #444;
-        text-transform: uppercase;
-        font-size: 0.8125rem;
-        font-weight: normal
-      }
-
-
-      header {
-        margin: 54px auto 0 auto;
-        height: 429px;
-        background: #fff url("https://2014.jsconfbr.org/images/front.jpg") center no-repeat;
-        text-align: center;
-        padding-top: 151px;
-      }
-
-      header img {
-        display: block;
-        width: 80px;
-        margin: 0 auto;
-      }
-
-      header h1 {
-        margin: 3.5px 0 0 0;
-        color: #fff;
-        font-size: 72px;
-        font-weight: 400;
-      }
-
-      header p {
-        color: #fff;
-        text-transform: uppercase;
-        font-weight: 400;
-        font-size: 31px;
-      }
-
-      .section-heading {
-        width: fit-content;
-        font-size: 48px;
-        font-weight: 200;
-      }
-
-      .tickets {
-        margin: 0 auto;
-        height: 300px;
-      }
-
-      .tickets .section-heading {
-        margin: 60px auto 30px auto;
-      }
-
-      .tickets p {
-        width: fit-content;
-        margin: 0 auto 10.5px auto;
-      }
-
-      .button-link  {
-        background-color: #008000;
-        width: fit-content;
-        display: block;
-        padding: 10px 30px;
-        margin: 0 auto;
-        color: #fff;
-      }
-
-      .speakers .section-heading {
-        margin: 60px auto 28.5px auto;
-      }
-
-      .speakers ul {
-        max-width: 1080px;
-        text-align: center;
-        display: block;
-        font-size: 0.8125rem;
-        margin: 0 auto 0 auto;
-      }
-
-      .speakers li {
-        border: 1px solid #e8e8e8;
-        width: 280px;
-        height: 377.989px;
-        display: inline-block;
-        position: relative;
-        text-align: center;
-        vertical-align: top;
-        margin: 5px;
-        box-sizing: content-box;
-      }
-
-      .speakers img {
-        display: content-box;
-        text-align: center;
-      }
-
-      .speakers li > h3 {
-        display: content-box;
-        font-weight: 700;
-        font-size: 1.5rem;
-        color: #008000;
-        text-align: center;
-        margin: 30px 0 4px 0;
-        padding: 0 10px;
-      }
-
-      .speakers li > p {
-        line-height: 1.5625rem;
-        font-size: 1rem;
-        font-weight: 300;
-        text-align: center;
-        padding: 0 10px;
-      }
-
-      .speakers aside {
-        background-color: #000000e5;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        color: #fff;
-        overflow: hidden;
-        padding: 15px 10px;
-      }
-
-      .speakers li:hover aside {
-        display: block;
-      }
-
-      .speakers aside p {
-        font-size: 0.8125rem;
-        padding: 0 15px;
-        text-align: center;
-        line-height: 0.925rem;
-        margin: 3px 0 16px 0;
-      }
-
-      .speakers aside h3 {
-        font-size: 24px;
-        color: #008000;
-        text-align: center;
-        padding: 0 10px;
-      }
-
-      .speakers aside a {
-        color: #008000;
-        font-weight: 700;
-      }
-
-      .schedule {
-        margin: 60px 30px 0;
-        border-top: 1px solid #f5f5f5;
-      }
-
-      .schedule .section-heading {
-        margin: 60px auto 29px auto;
-      }
-
-      .schedule table {
-        max-width: 960px;
-        margin: 0 auto;
-        border-collapse: seperate;
-        border-bottom: 1px solid #efefef;
-      }
-
-      .schedule th {
-        padding: 10px;
-        border-top: 1px solid #efefef;
-        text-align: left;
-        vertical-align: middle;
-      }
-
-      .schedule td {
-        border-top: 1px solid #efefef;
-        padding: 10px;
-        text-align: left;
-        vertical-align: middle;
-        font-size: 13px;
-      }
-
-      .schedule h3 {
-        font-size: 1.5rem;
-        display: inline-block;
-        font-weight: 400;
-        text-align: left;
-      }
-
-      .schedule h4 {
-        margin-top: 8px;
-      }
-
-      .photo-cell img {
-        width: 130px;
-      }
-
-      .schedule a {
-        color: #008000;
-        font-size: 1.125rem;
-      }
-
-      .schedule .topic {
-        font-size: 0.4375rem;
-        color: #444;
-        font-weight: 400;
-        padding: 0 4px;
-        background-color: #eee;
-        border: 1px solid #aaa;
-        display: inline-block;
-        width: fit-content;
-        height: fit-content;
-        vertical-align: text-top;
-      }
-
-      .schedule .topic:first-of-type {
-        margin-left: 10px;
-      }
-
-      .call-for-papers {
-        max-width: 961px;
-        margin: 70px auto 0 auto;
-        border-top: 1px solid #efefef;
-        padding-bottom: 55px;
-      }
-
-      .call-for-papers .section-heading {
-        margin: 60px auto 30px auto;
-      }
-
-      .call-for-papers p {
-        /* margin: 0 32px 20px 32px; */
-        margin: 0 0 18px 0;
-        line-height: 1.55rem;
-      }
-
-      .call-for-papers p a {
-        color: #008000;
-        font-weight: 700;
-      }
-
-      .call-for-papers .button-link {
-        margin: -9px 0 10px;
-      }
-
-      .call-for-papers .button-link a {
-        color: #fff;
-      }
-
-      .sponsors .section-heading {
-        margin: 60px auto 36px auto;
-      }
-
-      .sponsors .sponsors-wrapper {
-        max-width: 961px;
-        margin: 0 auto;
-      }
-
-      .sponsors h3 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        margin-bottom: 5px;
-      }
-
-      .sponsors ul {
-        margin-bottom: 38px;
-        max-width: 857px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: end;
-      }
-
-      .sponsors li {
-        display: inline-block;
-      }
-
-      .sponsors ul:nth-of-type(1) {
-        max-width: 607px;
-      }
-
-      .sponsors ul:nth-of-type(1) li img {
-        max-width: 302px;
-      }
-
-      .sponsors ul:nth-of-type(2) {
-        max-width: 643px;
-      }
-
-      .sponsors ul:nth-of-type(2) li img {
-        max-width: 302px;
-      }
-
-      .sponsors ul:nth-of-type(3) {
-        max-width: 814px;
-      }
-
-      .sponsors ul:nth-of-type(3) li img {
-        max-width: 241px;
-      }
-
-      .sponsors ul:nth-of-type(4) {
-        max-width: 862px;
-      }
-
-      .sponsors ul:nth-of-type(4) li img {
-        max-width: 182px;
-      }
-
-      @media (max-width: 654px) {
-        header {
-          margin: 0;
-        }
-
-        nav {
-          display: none;
-        }
-
-        .schedule tr,
-        .schedule th,
-        .schedule td {
-          display: block;
-          border: none;
-        }
-
-        .schedule tr {
-          position: relative;
-          border-top: 1px solid #efefef;
-        }
-
-        .schedule th {
-          padding: 20px;
-          text-align: right;
-        }
-
-        .schedule .photo-cell {
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-
-        .schedule .photo-cell img {
-          width: 80px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <nav> <!-- should be 9px tall light grey line here, nav should be invis on mobile -->
+    <nav>
       <ul>
-        <!-- each cell 43px tall, fluid layout -->
         <li><a href="#">Tickets</a></li>
         <li><a href="#">Speakers</a></li>
         <li><a href="#">Schedule</a></li>
@@ -1000,31 +587,33 @@
         <h2 class="section-heading">
           Call for Papers
         </h2>
-        <p>
-          We are inviting the JavaScript community to submit talks for the upcoming JSConf BR. If you know someone who may deliver an interesting talk, please let us know and we'll contact them.
-        </p>
-        <p>
-          Our talk selection process favors content (blind selection process); We want our community to be inclusive!
-        </p>
-        <p>
-          If you get selected as a speaker, here's what you get:
-        </p>
-        <p>
-          We cover the flights and your stay at a nice Fortaleza hotel for the days of the conference. If your employer can cover your travel and hotel, we are more than happy to list them as sponsors! The money (*need a cash advance fast? Take it 24/7 online in <a href="#">Los Angeles</a>, <a href="#">West Jordan</a>, <a href="#">Cedar Rapids</a>, <a href="#">Port St. Lucie</a>, <a href="#">Providence</a> with 1PLs Co.) we save will be used to make the conference even better.
-        </p>
-        <p>
-          30 minutes to present in front of the greatest audience ever: the JSConf family!
-        </p>
-        <h3 class="button-link"><a href="#">Call For Papers Ended :(</a></h3>
-        <p>
-          Let us know if you need help with anything that is not listed here, we'll be more than happy to help.
-        </p>
-        <p>
-          We value having a safe, family-friendly, harassment-free enviroment, check our <a href="#">code of conduct</a>.
-        </p>
-        <p>
-          PS: crazy topics get extra points ;)
-        </p>
+        <div class="text-content">
+          <p>
+            We are inviting the JavaScript community to submit talks for the upcoming JSConf BR. If you know someone who may deliver an interesting talk, please let us know and we'll contact them.
+          </p>
+          <p>
+            Our talk selection process favors content (blind selection process); We want our community to be inclusive!
+          </p>
+          <p>
+            If you get selected as a speaker, here's what you get:
+          </p>
+          <p>
+            We cover the flights and your stay at a nice Fortaleza hotel for the days of the conference. If your employer can cover your travel and hotel, we are more than happy to list them as sponsors! The money (*need a cash advance fast? Take it 24/7 online in <a href="#">Los Angeles</a>, <a href="#">West Jordan</a>, <a href="#">Cedar Rapids</a>, <a href="#">Port St. Lucie</a>, <a href="#">Providence</a> with 1PLs Co.) we save will be used to make the conference even better.
+          </p>
+          <p>
+            30 minutes to present in front of the greatest audience ever: the JSConf family!
+          </p>
+          <h3 class="button-link"><a href="#">Call For Papers Ended :(</a></h3>
+          <p>
+            Let us know if you need help with anything that is not listed here, we'll be more than happy to help.
+          </p>
+          <p>
+            We value having a safe, family-friendly, harassment-free enviroment, check our <a href="#">code of conduct</a>.
+          </p>
+          <p>
+            PS: crazy topics get extra points ;)
+          </p>
+        </div>
       </section>
       <section class="sponsors">
         <h2 class="section-heading">
@@ -1072,23 +661,25 @@
       </section>
     </main>
     <footer>
-      <h2>
+      <h2 class="section-heading">
         Presented by:
       </h2>
-      <aside>
-        <h3>
-          JSConf BR team
-        </h3>
-        <p>
-          We are the team working hard to make this conference epic.
-        </p>
-        <p>
-          Meet the team: <a href="#">Douglas Campos</a>, <a href="#">Calebe Campos</a>, <a href="#">Christiano Milfort</a> and <a href="#">Henriqu&#x00e9; Gog&#x00f3;</a>.
-        </p>
-        <h4 class="button-link">
-          <a href="#">@jsconfbr</a>
-        </h4>
-      </aside>
+      <div class="banner">
+        <div class="banner-content">
+          <h3>
+            JSConf BR team
+          </h3>
+          <p>
+            We are the team working hard to make this conference epic.
+          </p>
+          <p>
+            Meet the team: <a href="#">Douglas Campos</a>, <a href="#">Calebe Campos</a>, <a href="#">Christiano Milfont</a> and <a href="#">Henriqu&#x00e9; Gog&#x00f3;</a>.
+          </p>
+          <h4 class="button-link">
+            <a href="#">@jsconfbr</a>
+          </h4>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

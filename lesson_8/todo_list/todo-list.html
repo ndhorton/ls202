@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
     <link rel="stylesheet" href="styles/whitespace-reset.css">
+    <link rel="stylesheet" href="styles/todo-list.css">
   </head>
   <body>
     <nav>
@@ -61,7 +62,65 @@
         </ul>
       </section>
     </nav>
-    <main></main>
-    <aside class="modal-dialog"></aside>
+    <main>
+      <header>
+        <h1>02/16</h1>
+        <h4>8</h4>
+      </header>
+      <label for="new-todo"><img src="images/plus.png" alt="">
+        Add new to do
+      </label>
+      <input type=checkbox id="new-todo">
+      <div class="modal-screen"></div>
+      <aside class="modal-dialog">
+      </aside>
+      <ul>
+        <li>
+          <img src="images/unticked-box.png" alt="">
+          <p>Item 1</p>
+          <img src="images/trash.png" alt="">
+        </li>
+        <li>
+          <img src="images/unticked-box.png" alt="">
+          <p>Item 2</p>
+          <img src="images/trash.png" alt="">
+        </li>
+        <li class="done-todo">
+          <img src="images/ticked-box.png" alt="">
+          <p>Item 3</p>
+          <img src="images/trash.png" alt="">
+        </li>
+        <li class="done-todo">
+          <img src="images/ticked-box.png" alt="">
+          <p>Item 4</p>
+          <img src="images/trash.png" alt="">
+        </li>
+        <li class="done-todo">
+          <img src="images/ticked-box.png" alt="">
+          <p>Item 5</p>
+          <img src="images/trash.png" alt="">
+        </li>
+        <li>
+          <img src="images/unticked-box.png" alt="">
+          <p>Item 6</p>
+          <img src="images/trash.png" alt="">
+        </li>
+        <li>
+          <img src="images/unticked-box.png" alt="">
+          <p>Item 7</p>
+          <img src="images/trash.png" alt="">
+        </li>
+        <li>
+          <img src="images/unticked-box.png" alt="">
+          <p>Item 8</p>
+          <img src="images/trash.png" alt="">
+        </li>
+        <li>
+          <img src="images/unticked-box.png" alt="">
+          <p>Item 9</p>
+          <img src="images/trash.png" alt="">
+        </li>
+      </ul>
+    </main>
   </body>
 </html>

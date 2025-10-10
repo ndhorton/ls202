@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+nav {
+    background-color: #464f77;
+    color: #fff;
+    width: 335px;
+    height: 100vh;
+    padding: 68px 27px 0 100px;
+}
+
+nav h2 {
+    display: inline-block;
+    font-size: 1.125rem;
+}
+
+nav h3 {
+    display: inline-block;
+    font-weight: 400;
+    color: #b2b5c3;
+}
+
+nav h4 {
+    display: inline-block;
+    background-color: #6b7292;
+    font-size: 0.875rem;
+    font-weight: 200;
+    color: #b2b5c3;
+    border-radius: 10px;
+    padding: 1px 4.5px 0 4.5px;
+}
+
+nav ul {
+    margin-left: 30px;
+}
+
+nav header img {
+    vertical-align: text-bottom;
+}
+
+nav header h4 {
+    margin-left: 60px;
+}
+
+main {
+    background-color: #fff;
+    color: #060606;
+    height: 100vh;
+    flex: auto;
+    position: relative;
+}
+
+.modal-screen {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.modal-dialog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    z-index: 2;
+    display: none;
+}
+
+#new-todo {
+    display: none;
+}

@@ -243,6 +243,7 @@ header p {
     display: inline-block;
     font-weight: 400;
     text-align: left;
+    margin-right: 10px
 }
 
 .schedule h4 {
@@ -269,10 +270,6 @@ header p {
     width: fit-content;
     height: fit-content;
     vertical-align: text-top;
-}
-
-.schedule .topic:first-of-type {
-    margin-left: 10px;
 }
 
 .call-for-papers {

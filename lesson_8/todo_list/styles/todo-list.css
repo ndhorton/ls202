@@ -17,6 +17,15 @@ nav {
     width: 335px;
     height: 100vh;
     padding: 68px 27px 0 100px;
+    display: none;
+}
+
+#toggle-nav {
+    display: none;
+}
+
+#toggle-nav:checked+nav {
+    display: block;
 }
 
 nav h2 {
@@ -30,7 +39,7 @@ nav h3 {
     color: #b2b5c3;
 }
 
-nav h4 {
+.items-remaining {
     display: inline-block;
     background-color: #6b7292;
     font-size: 0.875rem;
@@ -58,7 +67,16 @@ main {
     height: 100vh;
     flex: auto;
     position: relative;
+    padding: 23px 100px 22px 32px;
 }
+
+.responsive-hamburger {
+    width: 23px;
+    height: 18px;
+    /* display: none; */
+}
+
+
 
 .modal-screen {
     position: fixed;

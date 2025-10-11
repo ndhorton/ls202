@@ -19,7 +19,7 @@
         <ul>
           <li class="selected-todo">
             <h3>02/16</h3>
-            <h4 class="items-remaining">8</h4>
+            <h4 class="items-remaining current-list">8</h4>
           </li>
           <li>
             <h3>03/16</h3>
@@ -69,60 +69,83 @@
           <img class="responsive-hamburger" src="images/hamburger.png" alt="">
         </label>
         <h1>02/16</h1>
-        <h4>8</h4>
+        <h4 class="items-remaining current-list">8</h4>
       </header>
-      <label for="new-todo"><img src="images/plus.png" alt="">
-        Add new to do
-      </label>
+      <img src="images/plus.png" alt="">
+      <p>Add new to do</p>
       <input type=checkbox id="new-todo">
       <div class="modal-screen"></div>
       <aside class="modal-dialog">
+        <form action="#" method="post">
+          <fieldset>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" value="Item 2">
+          </fieldset>
+          <fieldset>
+            <label>Due Date</label>
+            <input type="number" step="1" min="1" max="31" name="day" placeholder="Day">
+            /
+            <input type="number" step="1" min="1" max="12" name="month" placeholder="Month">
+            /
+            <input type="number" step="1" min="1900" max="2200" name="year" placeholder="Year">
+          </fieldset>
+          <fieldset>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" placeholder="Description"></textarea>
+          </fieldset>
+          <fieldset>
+            <input type="submit" value="Save">
+            <input type="submit" value="Mark As Complete" formaction="#">
+          </fieldset>
+        </form>
       </aside>
       <ul>
         <li>
-          <img src="images/unticked-box.png" alt="">
-          <p>Item 1</p>
-          <img src="images/trash.png" alt="">
+          <label for="new-todo">
+            <img src="images/unticked-box.png" alt="">
+            <p>Item 1</p>
+          </label>
+          <img class="trash-image" src="images/trash.png" alt="">
         </li>
         <li>
           <img src="images/unticked-box.png" alt="">
           <p>Item 2</p>
-          <img src="images/trash.png" alt="">
+          <img class="trash-image" src="images/trash.png" alt="">
         </li>
         <li class="done-todo">
           <img src="images/ticked-box.png" alt="">
           <p>Item 3</p>
-          <img src="images/trash.png" alt="">
+          <img class="trash-image" src="images/trash.png" alt="">
         </li>
         <li class="done-todo">
           <img src="images/ticked-box.png" alt="">
           <p>Item 4</p>
-          <img src="images/trash.png" alt="">
+          <img class="trash-image" src="images/trash.png" alt="">
         </li>
         <li class="done-todo">
           <img src="images/ticked-box.png" alt="">
           <p>Item 5</p>
-          <img src="images/trash.png" alt="">
+          <img class="trash-image" src="images/trash.png" alt="">
         </li>
         <li>
           <img src="images/unticked-box.png" alt="">
           <p>Item 6</p>
-          <img src="images/trash.png" alt="">
+          <img class="trash-image" src="images/trash.png" alt="">
         </li>
         <li>
           <img src="images/unticked-box.png" alt="">
           <p>Item 7</p>
-          <img src="images/trash.png" alt="">
+          <img class="trash-image" src="images/trash.png" alt="">
         </li>
         <li>
           <img src="images/unticked-box.png" alt="">
           <p>Item 8</p>
-          <img src="images/trash.png" alt="">
+          <img class="trash-image" src="images/trash.png" alt="">
         </li>
         <li>
           <img src="images/unticked-box.png" alt="">
           <p>Item 9</p>
-          <img src="images/trash.png" alt="">
+          <img class="trash-image" src="images/trash.png" alt="">
         </li>
       </ul>
     </main>

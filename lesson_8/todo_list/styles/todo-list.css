@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+
 html,
 body {
     font-family: Helvetica, Arial, sans-serif;
@@ -17,7 +18,7 @@ nav {
     width: 335px;
     height: 100vh;
     padding: 71px 0 0 0;
-    /* display: none; */
+    display: none;
 }
 
 #toggle-nav {
@@ -26,6 +27,10 @@ nav {
 
 #toggle-nav:checked+nav {
     display: block;
+}
+
+#toggle-nav:checked~main {
+    --nav-width: 335px;
 }
 
 nav h2 {
@@ -107,20 +112,22 @@ main {
     color: #060606;
     height: 100vh;
     flex: auto;
-    position: relative;
     padding: 23px 100px 22px 20px;
     letter-spacing: 1px;
+    --nav-width: 0px;
 }
 
 .responsive-hamburger {
+    display: block;
     width: 23px;
     height: 18px;
-    margin-bottom: 30px;
-    display: none;
+    /* margin-bottom: 30px; */
+    /* display: none; */
 }
 
 h1 {
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    margin-top: 32px;
     font-size: 1.3125rem;
     font-weight: 400;
     display: inline-block;
@@ -143,7 +150,6 @@ main header {
 main header~p {
     color: #148fd5;
     word-spacing: -0.5px;
-    /* margin-left: 12px; */
 }
 
 main header+img {
@@ -170,12 +176,8 @@ main p {
     vertical-align: text-top;
 }
 
-main li>img:hover {
+main li img:hover {
     cursor: pointer;
-}
-
-main li>img:hover+p {
-    color: #148fd5;
 }
 
 main p:hover {
@@ -213,15 +215,47 @@ main .done-todo p:hover {
 }
 
 .modal-dialog {
+    /* box is 865x818 pixels */
+    /* top: 107px; */
+    top: 13.0806845966%;
+    /* left: 105px; */
+    /* left: 12.1247113164%; */
+    left: calc(50vw + var(--nav-width) / 2);
+    transform: translate(-50%, 0);
+
     position: absolute;
-    top: 107px;
-    left: 105px;
     width: 575px;
     height: 399px;
     background-color: #fff;
     z-index: 2;
     padding: 37px 39px 0 31px;
     display: none;
+    overflow: hidden;
+}
+
+@media (max-width: 910px) {
+    .modal-dialog {
+        left: 50vw;
+        transform: translate(-50%, 0);
+    }
+}
+
+@media (min-width: 768px) {
+    nav {
+        display: block;
+    }
+
+    main {
+        --nav-width: 335px;
+    }
+
+    h1 {
+        margin-top: 50px;
+    }
+
+    .responsive-hamburger {
+        display: none;
+    }
 }
 
 #new-todo:checked+.modal-screen {
@@ -230,4 +264,115 @@ main .done-todo p:hover {
 
 #new-todo:checked~.modal-dialog {
     display: block;
+}
+
+aside fieldset {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+aside input,
+aside textarea,
+aside select {
+    border-radius: 0;
+    height: 35px;
+    border: 1px solid #b3b3b3;
+    padding: 2px 0 0 8px;
+    font-size: 1rem;
+    color: #040404;
+    letter-spacing: 1px;
+}
+
+label {
+    width: 90px;
+    height: 35px;
+}
+
+label[for="title"],
+.date-label {
+    padding-top: 9px;
+}
+
+.date-label {
+    margin-right: 10px;
+}
+
+#title {
+    flex: auto;
+}
+
+label[for="description"] {
+    align-self: start;
+    padding-top: 9px;
+}
+
+#description {
+    /* width: 395px; */
+    flex: auto;
+    height: 143px;
+    padding-top: 7px;
+    font-family: Helvetica, Arial, sans-serif;
+    letter-spacing: 1px;
+    margin-top: 2px;
+    resize: none;
+}
+
+.due-date {
+    gap: 10px;
+}
+
+
+.due-date input {
+    width: 115px;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    width: 10px;
+    height: 15px;
+    background-color: #fff;
+    background-image: url("../images/select.png");
+    z-index: 3;
+    position: absolute;
+    font-size: 1rem;
+    top: 10px;
+    right: 8px;
+    content: "";
+}
+
+.due-date select {
+    width: 115px;
+    background: #fff url("images/select.png");
+    color: #757575;
+    appearance: none;
+}
+
+.submit-form {
+    display: block;
+    padding-left: 110px;
+}
+
+.submit-form input {
+    width: 184px;
+    background-color: #148fd5;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding-right: 8px;
+    padding-bottom: 1px;
+}
+
+input[value="Save"] {
+    margin-right: 12px;
+}
+
+.due-date .day select {
+    color: #060606;
 }

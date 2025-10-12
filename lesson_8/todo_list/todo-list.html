@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Todo List</title>
     <link rel="stylesheet" href="styles/whitespace-reset.css">
     <link rel="stylesheet" href="styles/todo-list.css">
@@ -81,19 +81,32 @@
             <label for="title">Title</label>
             <input type="text" id="title" name="title" value="Item 2">
           </fieldset>
-          <fieldset>
-            <label>Due Date</label>
-            <input type="number" step="1" min="1" max="31" name="day" placeholder="Day">
+          <fieldset class="due-date">
+            <label class="date-label">Due Date</label>
+            <div class="select-wrapper day">
+              <select>
+                <option disabled>Day</option>
+                <option class="selected-option" selected>16</option>
+              </select>
+            </div>
             /
-            <input type="number" step="1" min="1" max="12" name="month" placeholder="Month">
+            <div class="select-wrapper">
+              <select>
+                <option selected disabled>Month</option>
+              </select>
+            </div>
             /
-            <input type="number" step="1" min="1900" max="2200" name="year" placeholder="Year">
+            <div class="select-wrapper">
+              <select>
+                <option disabled selected>Year</option>
+              </select>
+            </div>
           </fieldset>
           <fieldset>
             <label for="description">Description</label>
             <textarea name="description" id="description" placeholder="Description"></textarea>
           </fieldset>
-          <fieldset>
+          <fieldset class="submit-form">
             <input type="submit" value="Save">
             <input type="submit" value="Mark As Complete" formaction="#">
           </fieldset>
@@ -103,7 +116,7 @@
         <li>
           <label for="new-todo">
             <img src="images/unticked-box.png" alt="">
-            <p>Item 1</p>
+            Item 1
           </label>
           <img class="trash-image" src="images/trash.png" alt="">
         </li>

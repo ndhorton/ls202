@@ -1,3 +1,3 @@
-# LS202 HTML and CSS #
+# LS202 HTML and CSS
 
 
